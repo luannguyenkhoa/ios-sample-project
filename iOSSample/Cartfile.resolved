@@ -1,0 +1,6 @@
+github "Alamofire/Alamofire" "4.8.1"
+github "ReactiveX/RxSwift" "4.4.2"
+github "RxSwiftCommunity/RxAlamofire" "f8b0b00ad6253dbf9c1deb0e77bc3fb1b5178ec0"
+github "krzyzanowskim/CryptoSwift" "0.15.0"
+github "malcommac/SwiftDate" "5.1.0"
+github "onevcat/Kingfisher" "5.3.0"

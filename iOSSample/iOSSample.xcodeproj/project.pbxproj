@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B30F53A8224B2E8800AD7E42 /* AWSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30F53A7224B2E8800AD7E42 /* AWSError.swift */; };
+		B30F53A9224B2F6700AD7E42 /* UDKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32D13AB2248931C00C38DF8 /* UDKey.swift */; };
 		B32D12C822488B4B00C38DF8 /* SampleKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B32D12BF22488B4A00C38DF8 /* SampleKit.framework */; };
 		B32D12CF22488B4B00C38DF8 /* SampleKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32D12CE22488B4B00C38DF8 /* SampleKitTests.swift */; };
 		B32D12D122488B4B00C38DF8 /* SampleKit.h in Headers */ = {isa = PBXBuildFile; fileRef = B32D12C122488B4B00C38DF8 /* SampleKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -91,6 +93,10 @@
 		B32D14502248E57F00C38DF8 /* SignUpNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32D144D2248E57E00C38DF8 /* SignUpNavigator.swift */; };
 		B32D14512248E57F00C38DF8 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32D144E2248E57E00C38DF8 /* SignUpViewController.swift */; };
 		B32D14522248E57F00C38DF8 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32D144F2248E57F00C38DF8 /* SignUpViewModel.swift */; };
+		B36361882249D6850061E4EE /* AWSAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36361862249D6840061E4EE /* AWSAuthorization.swift */; };
+		B36361892249D6850061E4EE /* AWSS3TransferManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36361872249D6850061E4EE /* AWSS3TransferManagement.swift */; };
+		B363618B2249D70F0061E4EE /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = B363618A2249D70F0061E4EE /* awsconfiguration.json */; };
+		B363618C2249D8760061E4EE /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = B363618A2249D70F0061E4EE /* awsconfiguration.json */; };
 		B3DA4858221ABE7C0091E023 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DA4857221ABE7C0091E023 /* AppDelegate.swift */; };
 		B3DA485D221ABE7C0091E023 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3DA485B221ABE7C0091E023 /* Main.storyboard */; };
 		B3DA485F221ABE7E0091E023 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3DA485E221ABE7E0091E023 /* Assets.xcassets */; };
@@ -152,6 +158,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B30F53A7224B2E8800AD7E42 /* AWSError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSError.swift; sourceTree = "<group>"; };
 		B32D12BF22488B4A00C38DF8 /* SampleKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SampleKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B32D12C122488B4B00C38DF8 /* SampleKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleKit.h; sourceTree = "<group>"; };
 		B32D12C222488B4B00C38DF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -236,6 +243,9 @@
 		B32D144D2248E57E00C38DF8 /* SignUpNavigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpNavigator.swift; path = iOSSample/Scene/Auth/SignUp/SignUpNavigator.swift; sourceTree = SOURCE_ROOT; };
 		B32D144E2248E57E00C38DF8 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = iOSSample/Scene/Auth/SignUp/SignUpViewController.swift; sourceTree = SOURCE_ROOT; };
 		B32D144F2248E57F00C38DF8 /* SignUpViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewModel.swift; path = iOSSample/Scene/Auth/SignUp/SignUpViewModel.swift; sourceTree = SOURCE_ROOT; };
+		B36361862249D6840061E4EE /* AWSAuthorization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWSAuthorization.swift; sourceTree = "<group>"; };
+		B36361872249D6850061E4EE /* AWSS3TransferManagement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWSS3TransferManagement.swift; sourceTree = "<group>"; };
+		B363618A2249D70F0061E4EE /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		B3DA4854221ABE7C0091E023 /* iOSSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3DA4857221ABE7C0091E023 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3DA485C221ABE7C0091E023 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -291,9 +301,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B30F53A6224B2E7700AD7E42 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				B30F53A7224B2E8800AD7E42 /* AWSError.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
 		B32D12C022488B4B00C38DF8 /* SampleKit */ = {
 			isa = PBXGroup;
 			children = (
+				B36361822249D5DE0061E4EE /* AWS */,
 				B32D12EE22488F3D00C38DF8 /* Entity */,
 				B32D12E322488E1000C38DF8 /* Networking */,
 				B32D12E422488E1700C38DF8 /* Service */,
@@ -389,7 +408,7 @@
 		B32D12EA22488E6D00C38DF8 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				B32D13992248931C00C38DF8 /* Cus */,
+				B32D13992248931C00C38DF8 /* Customization */,
 				B32D13A82248931C00C38DF8 /* Enum */,
 				B32D13B52248931D00C38DF8 /* Ext */,
 				B32D13A62248931C00C38DF8 /* Help */,
@@ -576,11 +595,11 @@
 			path = Localizable;
 			sourceTree = "<group>";
 		};
-		B32D13992248931C00C38DF8 /* Cus */ = {
+		B32D13992248931C00C38DF8 /* Customization */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Cus;
+			path = Customization;
 			sourceTree = "<group>";
 		};
 		B32D13A62248931C00C38DF8 /* Help */ = {
@@ -687,6 +706,41 @@
 				B32D14282248DE3B00C38DF8 /* SignInViewController.swift */,
 			);
 			path = SignIn;
+			sourceTree = "<group>";
+		};
+		B36361822249D5DE0061E4EE /* AWS */ = {
+			isa = PBXGroup;
+			children = (
+				B363618A2249D70F0061E4EE /* awsconfiguration.json */,
+				B30F53A6224B2E7700AD7E42 /* Config */,
+				B36361852249D6330061E4EE /* Authorization */,
+				B36361842249D62B0061E4EE /* AppSync */,
+				B36361832249D61B0061E4EE /* GraphQL */,
+			);
+			path = AWS;
+			sourceTree = "<group>";
+		};
+		B36361832249D61B0061E4EE /* GraphQL */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = GraphQL;
+			sourceTree = "<group>";
+		};
+		B36361842249D62B0061E4EE /* AppSync */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AppSync;
+			sourceTree = "<group>";
+		};
+		B36361852249D6330061E4EE /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				B36361862249D6840061E4EE /* AWSAuthorization.swift */,
+				B36361872249D6850061E4EE /* AWSS3TransferManagement.swift */,
+			);
+			path = Authorization;
 			sourceTree = "<group>";
 		};
 		B3DA484B221ABE7C0091E023 = {
@@ -804,9 +858,10 @@
 				B3DA4850221ABE7C0091E023 /* Sources */,
 				B3DA4851221ABE7C0091E023 /* Frameworks */,
 				B3DA4852221ABE7C0091E023 /* Resources */,
-				B3DA4885221ABEA30091E023 /* SwiftLint */,
-				B3DA4886221ABEB80091E023 /* Carthage */,
 				B32D12DB22488B4B00C38DF8 /* Embed Frameworks */,
+				B3DA4886221ABEB80091E023 /* Carthage */,
+				B363618D2249DC4F0061E4EE /* AWS Core */,
+				B3DA4885221ABEA30091E023 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -913,6 +968,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B363618B2249D70F0061E4EE /* awsconfiguration.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -927,6 +983,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B363618C2249D8760061E4EE /* awsconfiguration.json in Resources */,
 				B3DA4862221ABE7E0091E023 /* LaunchScreen.storyboard in Resources */,
 				B3DA485F221ABE7E0091E023 /* Assets.xcassets in Resources */,
 				B3DA485D221ABE7C0091E023 /* Main.storyboard in Resources */,
@@ -950,6 +1007,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		B363618D2249DC4F0061E4EE /* AWS Core */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "AWS Core";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nbash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework/strip-frameworks.sh\"\n";
+		};
 		B3DA4885221ABEA30091E023 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -983,6 +1058,15 @@
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftDate.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/CryptoSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/AWSCore.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/AWSMobileClient.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/AWSAppSync.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/AWSAuthCore.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/AWSCognitoIdentityProvider.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/AWSCognitoIdentityProviderASF.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Reachability.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SQLite.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/AWSS3.framework",
 			);
 			name = Carthage;
 			outputFileListPaths = (
@@ -1006,8 +1090,10 @@
 				B32D136E2248921F00C38DF8 /* NotificationService.swift in Sources */,
 				B32D13842248921F00C38DF8 /* FileManagement.swift in Sources */,
 				B32D135F2248921F00C38DF8 /* Bundle.swift in Sources */,
+				B30F53A8224B2E8800AD7E42 /* AWSError.swift in Sources */,
 				B32D135B2248921F00C38DF8 /* Driver.swift in Sources */,
 				B32D135A2248921F00C38DF8 /* Window.swift in Sources */,
+				B30F53A9224B2F6700AD7E42 /* UDKey.swift in Sources */,
 				B32D130422488FFD00C38DF8 /* SampleAPI.swift in Sources */,
 				B32D130222488FA000C38DF8 /* BaseMapping.swift in Sources */,
 				B32D138A2248921F00C38DF8 /* DateManagement.swift in Sources */,
@@ -1039,6 +1125,7 @@
 				B32D13672248921F00C38DF8 /* Queue.swift in Sources */,
 				B32D136C2248921F00C38DF8 /* EmailClient.swift in Sources */,
 				B32D13FF2248C45100C38DF8 /* ImageManager.swift in Sources */,
+				B36361882249D6850061E4EE /* AWSAuthorization.swift in Sources */,
 				B32D13612248921F00C38DF8 /* Color.swift in Sources */,
 				B32D13572248921F00C38DF8 /* Sequence.swift in Sources */,
 				B32D13682248921F00C38DF8 /* Utility.swift in Sources */,
@@ -1051,6 +1138,7 @@
 				B32D13602248921F00C38DF8 /* Constraint.swift in Sources */,
 				B32D13072248915200C38DF8 /* Config.swift in Sources */,
 				B32D136D2248921F00C38DF8 /* ShareClient.swift in Sources */,
+				B36361892249D6850061E4EE /* AWSS3TransferManagement.swift in Sources */,
 				B32D13F72248C29400C38DF8 /* PHAssetManager.swift in Sources */,
 				B32D13632248921F00C38DF8 /* LocationManagement.swift in Sources */,
 			);

@@ -3,3 +3,5 @@ github "RxSwiftCommunity/RxAlamofire" "master"
 github "malcommac/SwiftDate" ~> 5.0
 github "krzyzanowskim/CryptoSwift"
 github "onevcat/Kingfisher" ~> 5.0
+github "aws-amplify/aws-sdk-ios"
+github "awslabs/aws-mobile-appsync-sdk-ios"

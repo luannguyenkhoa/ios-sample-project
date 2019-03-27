@@ -1,8 +1,5 @@
 # Sample iOS App
 
-This project aims to be a standard configured code structure to help developers reducing the effort on Infracstructure period. It also collect all common services and implementations since we have done in iOS development with full of confidence of their accuracy and being placed in SampleKit. The most important part is the kit, which will gather both of Networking and Service implementations into the same place for the convenient use purpose and reduce compiling time as well as getting them isolated from other parts. Besides, looking at Scene folder that will store all App logics, every scene will be separated to 3 files: ViewController, ViewModel and Navigator. Each of them will have its explicit mission in 3 types: view, logic and navigation respectively. 
-Note: SampleKit is considered as a collection of ever implementations, so it might contain unnecessary parts for your needs. Please do review and remove to those parts to get it appropriate to yours.
-
 ## How to setup
 
 Environments and tools:
@@ -17,6 +14,9 @@ Cocoapods 1.5.3
 Swift 4.2
 
 Development Target: iOS 11
+
+Development Configured Environments: DEV - STAGING - PROD
+
 
 Required:
 -------
@@ -39,11 +39,20 @@ Setup:
 . Navigate to iOSSample folder
 
 . Update Carthage: 
-    `carthage update --platform iOS --no-use-binaries`
-    
+    `carthage update --platform iOS --no-use-binaries` <br/>
+    ```
+    Trick to resolve if getting error: `failed with exit code 128:` -> comment out `aws-mobile-appsync-sdk-ios` from Cartfile, then run the above line to build frameworks. 
+    After it's done, uncomment `appsync` line, run this command: `carthage update --no-build-binaries --no-build`, 
+    waiting until it gets done then run the last one: carthage build `aws-mobile-appsync-sdk-ios --platform iOS`
+    ```
+
 . Install pods: 
     `pod install`
-    
+
+. SDK Setup: <br/>
+    * AWS: Following this [guideline](https://aws-amplify.github.io/docs/ios/manualsetup) to get the SDK worked in your project <br/>
+    * AWS AppSync SDK: following this [section](https://github.com/awslabs/aws-mobile-appsync-sdk-ios#via-carthage).
+
 Getting Started:
 ---------------
 
@@ -53,7 +62,7 @@ Getting Started:
 
 . In order to make the project going perfect with the architecture, `RxSwift` was preferred to use for binding data and UIs control.
 
-. The project was integrated `SwiftLint` for Swift style and conventions enforcement. All rules were declared in .swiftlint.yml file.
+. The project was integrated `SwiftLint` for Swift style and conventions enforcement. All rules were declared in **.swiftlint.yml** file.
 
 Document Generator:
 ---------
@@ -81,3 +90,7 @@ Frameworks:
 . [Kingfisher](https://github.com/onevcat/Kingfisher) - A lightweight, pure-Swift library for downloading and caching images from the web.
 
 . [CryptoSwift](https://github.com/krzyzanowskim/CryptoSwift) - CryptoSwift is a growing collection of standard and secure cryptographic algorithms implemented in Swift 
+
+. [AWS iOS SDK](https://github.com/aws-amplify/aws-sdk-ios) - The AWS SDK for iOS provides a library and documentation for developers to build connected mobile applications using AWS.
+
+. [AWS AppSync SDK](https://github.com/awslabs/aws-mobile-appsync-sdk-ios) - The AWS AppSync SDK for iOS enables you to access your AWS AppSync backend and perform operations like Queries, Mutations, and Subscriptions. The SDK also includes support for offline operations.

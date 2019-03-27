@@ -10,6 +10,12 @@ public struct NetworkError: Decodable {
     self.title = title
   }
   
+  public init(_ message: String? = nil) {
+    self.code = 400
+    self.message = message
+    self.title = nil
+  }
+  
   enum CodingKeys: String, CodingKey {
     case code, title
     case message = "error"

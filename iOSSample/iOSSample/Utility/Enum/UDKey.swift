@@ -1,5 +1,4 @@
 import CryptoSwift
-import SampleKit
 
 /*
  Where controls all actions related to save and retrieve value from User Default
@@ -36,7 +35,7 @@ public extension UD {
       try archiver.encodeEncodable(val, forKey: NSKeyedArchiveRootObjectKey)
       UserDefaults.standard.set(archiver.encodedData, forKey: key)
     } catch let err {
-      d_print("Archive: \(err)")
+      print("Archive: \(err)")
     }
   }
   
@@ -46,7 +45,7 @@ public extension UD {
         let val = try NSKeyedUnarchiver(forReadingWith: data).decodeTopLevelDecodable(E.self, forKey: NSKeyedArchiveRootObjectKey)
         return val.map({ $0 })
       } catch let err {
-        d_print("Unarchive: \(err)")
+        print("Unarchive: \(err)")
       }
     }
     return nil
@@ -82,7 +81,7 @@ public extension UD {
       /// Encode based64 data to end string
       return encryptedKIV.base64EncodedString() as? T
     } catch let err {
-      d_print(err)
+      print(err)
       return val
     }
   }
@@ -105,7 +104,7 @@ public extension UD {
       let decrypted = try aes.decrypt(bytes)
       return String(bytes: decrypted, encoding: .utf8) as? T
     } catch let err {
-      d_print(err)
+      print(err)
       return val
     }
   }
@@ -125,7 +124,7 @@ public enum UDKey<T>: String, UD {
     case firstName = "FIRST_NAME"
     case lastName = "LAST_NAME"
     case token = "TOKEN"
-    case referral = "REFERRAL_CODE"
+    case password = "PASSWORD"
     
     var num: Int {
       return Int(self.value as? String ?? "0") ?? 0

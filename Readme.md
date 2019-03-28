@@ -17,6 +17,14 @@ Development Target: iOS 11
 
 Development Configured Environments: DEV - STAGING - PROD
 
+Text Editing - Identation:
+```
+  . Tab width: 2
+  . Indent width: 2
+  . Line wrapping: 2
+```
+
+XCode Preference -> Locations -> Command Line Tools: *Xcode 10.xxxx* 
 
 Required:
 -------

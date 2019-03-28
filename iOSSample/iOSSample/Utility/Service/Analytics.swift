@@ -1,5 +1,5 @@
 // Event tracking gathering
-public enum EventTracking {
+public enum Analytics {
   
   case login
   case signup

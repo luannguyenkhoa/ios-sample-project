@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     Localizer.initialLocalizer()
     
     /// Initialize services
-    Spec.eventTracking()
+    Spec.analytics()
     Spec.appDelivery()
     
     /// Analytics users data for Firebase and Mixpanel

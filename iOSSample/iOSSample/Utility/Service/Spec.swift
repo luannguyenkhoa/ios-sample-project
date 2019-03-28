@@ -5,7 +5,7 @@ public struct Spec {
     
   }
   
-  static func eventTracking() {
+  static func analytics() {
     
   }
 }

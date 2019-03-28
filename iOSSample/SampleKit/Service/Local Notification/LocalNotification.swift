@@ -1,12 +1,11 @@
 //
 //  NotificationService.swift
-//  ServicePlatform
 //
 //
 
 import UserNotifications
 
-public struct NotificationService {
+public struct LocalNotification {
   
   private static let RegisteredKey = "NotificationServiceRegistered"
   

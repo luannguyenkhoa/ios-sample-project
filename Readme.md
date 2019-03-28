@@ -40,11 +40,11 @@ Setup:
 
 . Update Carthage: 
     `carthage update --platform iOS --no-use-binaries` <br/>
-    ```
-    Trick to resolve if getting error: `failed with exit code 128:` -> comment out `aws-mobile-appsync-sdk-ios` from Cartfile, then run the above line to build frameworks. 
-    After it's done, uncomment `appsync` line, run this command: `carthage update --no-build-binaries --no-build`, 
-    waiting until it gets done then run the last one: carthage build `aws-mobile-appsync-sdk-ios --platform iOS`
-    ```
+```
+Trick to resolve if getting error: `failed with exit code 128:` -> comment out `aws-mobile-appsync-sdk-ios` from Cartfile, then run the above line to build frameworks. 
+After it's done, uncomment `appsync` line, run this command: `carthage update --no-build-binaries --no-build`, 
+waiting until it gets done then run the last one: carthage build `aws-mobile-appsync-sdk-ios --platform iOS`
+```
 
 . Install pods: 
     `pod install`

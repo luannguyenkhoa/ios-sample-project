@@ -97,6 +97,8 @@
 		B36361892249D6850061E4EE /* AWSS3TransferManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36361872249D6850061E4EE /* AWSS3TransferManagement.swift */; };
 		B363618B2249D70F0061E4EE /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = B363618A2249D70F0061E4EE /* awsconfiguration.json */; };
 		B363618C2249D8760061E4EE /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = B363618A2249D70F0061E4EE /* awsconfiguration.json */; };
+		B3D93550224C6FA4005AA86C /* AppSynClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D9354F224C6FA4005AA86C /* AppSynClient.swift */; };
+		B3D93554224CB04A005AA86C /* AWSConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D93553224CB04A005AA86C /* AWSConfig.swift */; };
 		B3DA4858221ABE7C0091E023 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DA4857221ABE7C0091E023 /* AppDelegate.swift */; };
 		B3DA485D221ABE7C0091E023 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3DA485B221ABE7C0091E023 /* Main.storyboard */; };
 		B3DA485F221ABE7E0091E023 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3DA485E221ABE7E0091E023 /* Assets.xcassets */; };
@@ -246,6 +248,8 @@
 		B36361862249D6840061E4EE /* AWSAuthorization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWSAuthorization.swift; sourceTree = "<group>"; };
 		B36361872249D6850061E4EE /* AWSS3TransferManagement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWSS3TransferManagement.swift; sourceTree = "<group>"; };
 		B363618A2249D70F0061E4EE /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
+		B3D9354F224C6FA4005AA86C /* AppSynClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSynClient.swift; sourceTree = "<group>"; };
+		B3D93553224CB04A005AA86C /* AWSConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSConfig.swift; sourceTree = "<group>"; };
 		B3DA4854221ABE7C0091E023 /* iOSSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3DA4857221ABE7C0091E023 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3DA485C221ABE7C0091E023 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -305,6 +309,7 @@
 			isa = PBXGroup;
 			children = (
 				B30F53A7224B2E8800AD7E42 /* AWSError.swift */,
+				B3D93553224CB04A005AA86C /* AWSConfig.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -714,31 +719,32 @@
 				B363618A2249D70F0061E4EE /* awsconfiguration.json */,
 				B30F53A6224B2E7700AD7E42 /* Config */,
 				B36361852249D6330061E4EE /* Authorization */,
-				B36361842249D62B0061E4EE /* AppSync */,
-				B36361832249D61B0061E4EE /* GraphQL */,
+				B36361842249D62B0061E4EE /* Client */,
+				B36361832249D61B0061E4EE /* API */,
 			);
 			path = AWS;
 			sourceTree = "<group>";
 		};
-		B36361832249D61B0061E4EE /* GraphQL */ = {
+		B36361832249D61B0061E4EE /* API */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = GraphQL;
+			path = API;
 			sourceTree = "<group>";
 		};
-		B36361842249D62B0061E4EE /* AppSync */ = {
+		B36361842249D62B0061E4EE /* Client */ = {
 			isa = PBXGroup;
 			children = (
+				B36361872249D6850061E4EE /* AWSS3TransferManagement.swift */,
+				B3D9354F224C6FA4005AA86C /* AppSynClient.swift */,
 			);
-			path = AppSync;
+			path = Client;
 			sourceTree = "<group>";
 		};
 		B36361852249D6330061E4EE /* Authorization */ = {
 			isa = PBXGroup;
 			children = (
 				B36361862249D6840061E4EE /* AWSAuthorization.swift */,
-				B36361872249D6850061E4EE /* AWSS3TransferManagement.swift */,
 			);
 			path = Authorization;
 			sourceTree = "<group>";
@@ -1117,12 +1123,14 @@
 				B32D136A2248921F00C38DF8 /* ReachabilityService.swift in Sources */,
 				B32D12FB22488F9000C38DF8 /* Response.swift in Sources */,
 				B32D13622248921F00C38DF8 /* IAPService.swift in Sources */,
+				B3D93550224C6FA4005AA86C /* AppSynClient.swift in Sources */,
 				B32D13662248921F00C38DF8 /* Validation.swift in Sources */,
 				B32D13652248921F00C38DF8 /* Operator.swift in Sources */,
 				B32D13542248921F00C38DF8 /* Scrollable.swift in Sources */,
 				B32D13562248921F00C38DF8 /* Animation.swift in Sources */,
 				B32D138C2248921F00C38DF8 /* Localizer.swift in Sources */,
 				B32D13672248921F00C38DF8 /* Queue.swift in Sources */,
+				B3D93554224CB04A005AA86C /* AWSConfig.swift in Sources */,
 				B32D136C2248921F00C38DF8 /* EmailClient.swift in Sources */,
 				B32D13FF2248C45100C38DF8 /* ImageManager.swift in Sources */,
 				B36361882249D6850061E4EE /* AWSAuthorization.swift in Sources */,

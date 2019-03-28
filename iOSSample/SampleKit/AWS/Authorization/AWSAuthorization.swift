@@ -189,24 +189,36 @@ public struct AWSAuthorization {
     UDKey.User.userId.set(username)
   }
   
-  private func fetchTokens() {
+  public func fetchTokens(_ completion: ((String?) -> Void)? = nil) {
     /// Retreive user's tokens and cache access token in local storage
     AWSMobileClient.sharedInstance().getTokens { (tokens, err) in
       if let token = tokens?.accessToken?.tokenString {
         UDKey.User.token.set(token)
       }
+      completion?(tokens?.accessToken?.tokenString)
     }
   }
   
   public func signOut() {
+    /// Clean up all local caching data
     UDKey<Any>.User.clean()
+    
+    /// FIXME: should consider to eliminate these code if no need to clean AppSync local db
+    /// Remove AppSync caching db
+    try? FileManager.default.removeItem(at: AppSynClient.shared.dbURL)
+    
     /// Should remove all caching data here
     AWSMobileClient.sharedInstance().signOut()
   }
   
-  public func signRequest(url: URL) -> URLRequest {
+  /// Sign an AWS url to get access permission by taking use of AWS Signature V4: https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html
+  ///
+  /// - Parameter url: sign url
+  /// - Parameter service: specified AWS service for signing, default is S3
+  /// - Returns: an url request with signed url
+  public func signRequest(url: URL, serive: AWSServiceType = .S3) -> URLRequest {
     let credentials = AWSServiceManager.default()?.defaultServiceConfiguration.credentialsProvider
-    let signature = AWSSignatureV4Signer(credentialsProvider: credentials!, endpoint: AWSEndpoint(region: .USEast1, service: .S3, url: url))
+    let signature = AWSSignatureV4Signer(credentialsProvider: credentials!, endpoint: AWSEndpoint(region: .USEast1, service: serive, url: url))
     let date = (NSDate.aws_clockSkewFixed()! as NSDate).aws_stringValue(AWSDateISO8601DateFormat2)!
     let req = NSMutableURLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 30.0)
     req.httpMethod = "GET"
@@ -218,7 +230,7 @@ public struct AWSAuthorization {
   private func regiterServices() {
     // Create a service configuration
     guard let serviceConfiguration = AWSServiceConfiguration(region: .USEast1, credentialsProvider: AWSMobileClient.sharedInstance()) else { return }
-    
+    /// Take advantage of AWSMobileClient to register the default service configuration
     AWSServiceManager.default().defaultServiceConfiguration = serviceConfiguration
   }
 }

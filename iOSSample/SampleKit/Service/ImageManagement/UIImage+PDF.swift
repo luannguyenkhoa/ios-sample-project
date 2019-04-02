@@ -17,13 +17,13 @@ public extension UIImage {
   fileprivate static var _assetName: String = ""
   fileprivate static var _resourceName: String = ""
 
-  public static var cachedAssetsDirectory: String{
+  static var cachedAssetsDirectory: String{
     get{
       return "CachedAssets"
     }
   }
 
-  public static var resourceName: String {
+  static var resourceName: String {
 
     set{
       _resourceName = newValue
@@ -34,7 +34,7 @@ public extension UIImage {
     }
   }
 
-  public static var assetName: String {
+  static var assetName: String {
     set{
       _assetName = newValue
       _resourceName = "Assets/" + _assetName + ".pdf"
@@ -44,7 +44,7 @@ public extension UIImage {
     }
   }
 
-  public static var shouldCacheInMemory:Bool{
+  static var shouldCacheInMemory:Bool{
     set{
       _shouldCache = newValue
 
@@ -58,7 +58,7 @@ public extension UIImage {
     }
   }
 
-  public static var shouldCacheOnDisk: Bool {
+  static var shouldCacheOnDisk: Bool {
 
     set{
       _shouldCacheOnDisk = newValue;
@@ -68,16 +68,16 @@ public extension UIImage {
     }
   }
 
-  // Mark: Public Func
+  // Mark: Func
 
-  public class func screenScale() -> CGFloat{
+  class func screenScale() -> CGFloat{
     return UIScreen.main.scale
   }
 
   // Mark: Get UIImage With PDF Name Without Extension
 
   // Mark: UIImage With Size
-  public class func imageWithPDFNamed(_ name: String, size:CGSize) -> UIImage? {
+  class func imageWithPDFNamed(_ name: String, size:CGSize) -> UIImage? {
 
     assetName = name
     if let resource = PDFResourceHelper.resourceURLForName(resourceName) {
@@ -87,7 +87,7 @@ public extension UIImage {
   }
 
   // Mark: Resource URLs
-  public class func imageWithPDFURL(_ URL: Foundation.URL?,  size:CGSize,  page: Int, preserveAspectRatio:Bool) -> UIImage? {
+  class func imageWithPDFURL(_ URL: Foundation.URL?,  size:CGSize,  page: Int, preserveAspectRatio:Bool) -> UIImage? {
 
     if(URL.isNil || size.equalTo(CGSize.zero) || page == 0){
       return nil
@@ -148,7 +148,7 @@ public extension UIImage {
     return res;
   }
 
-  public class func imageWithPDFURL(_ URL: Foundation.URL?,  size: CGSize) -> UIImage?{
+  class func imageWithPDFURL(_ URL: Foundation.URL?,  size: CGSize) -> UIImage?{
     return self.imageWithPDFURL(URL, size:size, page:1, preserveAspectRatio:false)
   }
 
@@ -178,7 +178,7 @@ public extension UIImage {
     return cacheDirectory + "/" + cacheResourseName + ".png"
   }
 
-  public class func clearCache(assetNamed: String) {
+  class func clearCache(assetNamed: String) {
     /// Clear all cached image in memory
     _imagesCache?.removeAllObjects()
     /// Clear relative images in disk

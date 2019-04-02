@@ -2,7 +2,7 @@ import UIKit
 
 public extension UIFont {
 
-  public func sizeOfString (string: String, lineHeight: CGFloat = 24.0, constrainedToWidth width: CGFloat) -> CGSize {
+  func sizeOfString (string: String, lineHeight: CGFloat = 24.0, constrainedToWidth width: CGFloat) -> CGSize {
     let paragraphStyle = NSMutableParagraphStyle()
     paragraphStyle.minimumLineHeight = lineHeight
     paragraphStyle.maximumLineHeight = lineHeight
@@ -14,7 +14,7 @@ public extension UIFont {
     return CTFramesetterSuggestFrameSizeWithConstraints(framesetter, CFRange(location: 0,length: 0), nil, CGSize(width: width, height: CGFloat.greatestFiniteMagnitude), nil)
   }
 
-  public func width(text: String) -> CGFloat {
+  func width(text: String) -> CGFloat {
     return ceil((text as NSString).size(withAttributes: [NSAttributedString.Key.font: self]).width)
   }
 }

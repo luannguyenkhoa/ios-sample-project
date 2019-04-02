@@ -21,11 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     Localizer.initialLocalizer()
     
     /// Initialize services
-    Spec.analytics()
     Spec.appDelivery()
     
-    /// Analytics users data for Firebase and Mixpanel
-    EventTracking.analyticsUsers()
+    /// Analytics users data for analytics service such as Firebase, Mixpanel,...
+    Analytics.initialize()
+    Analytics.analyticsUsers()
     
     /// Navigation
     window = UIWindow(frame: UIScreen.main.bounds)

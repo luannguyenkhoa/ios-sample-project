@@ -61,4 +61,6 @@ Please do review and remove those parts to get this initial project appropriated
 
 1. Using `d_print` to print out something in console instead of default `print` function
 2. For S3TransferManagement, it's needed to configure essential parameters before doing upload/download by calling *AWSS3TransferManagement.shared.configS3(folder: "", bucketName: "", prefixURL: "")* from `AppDelegate`
-3. TBC....
+3. Should clean up git history before pushing the project to your proj repository,
+4. For AppSync codegen, we should use this [package](https://www.npmjs.com/package/aws-appsync-codegen) to generate code from graphql and schema instead of Amplify Codegen, because as our project usually seperates backend and frontend jobs explicitly,<br> backend will take care of initializing project on the cloud, but Amplify requires initializing before doing other jobs, this requirement makes a serious issue that automatically creating new project in the cloud<br> with multiple services: S3, IAM, CloudFormation. It's not a good behavior, and might issue duplicated and redudant stuffs.
+5. TBC...

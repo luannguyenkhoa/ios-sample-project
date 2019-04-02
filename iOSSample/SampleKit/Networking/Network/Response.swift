@@ -10,7 +10,7 @@ internal enum Response {
   case success(Any)
 
   /// Response has error consists of Code, Message, Title
-  case error(NetworkError?)
+  case error(APIError?)
 
 //  case redirect(String)
   /// Initialize NetworkStatus based on response's statusCode
@@ -23,11 +23,11 @@ internal enum Response {
         let obj = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
         self = .success(obj)
       } catch let err {
-        self = .error(NetworkError(code: 403, message: err.localizedDescription, title: nil))
+        self = .error(APIError(code: 403, message: err.localizedDescription, title: nil))
       }
-    case 401: self = .error(NetworkError(code: code))
+    case 401: self = .error(APIError(code: code))
     default:
-      self = .error(try? JSONDecoder().decode(NetworkError.self, from: data))
+      self = .error(try? JSONDecoder().decode(APIError.self, from: data))
     }
   }
   

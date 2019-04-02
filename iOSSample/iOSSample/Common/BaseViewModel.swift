@@ -25,7 +25,7 @@ extension BaseViewModel {
   /// - Parameters:
   ///   - publisher: signal publisher
   ///   - res: target response
-  func resHandler<T>(publisher: PublishSubject<T>, res: NetworkResponse<T>, error: PublishSubject<MessageContent?>) {
+  func resHandler<T>(publisher: PublishSubject<T>, res: APIResponse<T>, error: PublishSubject<MessageContent?>) {
     switch res {
     case .next(let result): publisher.onNext(result)
     case .error(let err): self.errorHandler(err: err, error: error)
@@ -33,7 +33,7 @@ extension BaseViewModel {
     }
   }
   
-  func handleWithoutPublish<T>(res: NetworkResponse<T>, error: PublishSubject<MessageContent?>) {
+  func handleWithoutPublish<T>(res: APIResponse<T>, error: PublishSubject<MessageContent?>) {
     switch res {
     case .next(let res): d_print(res)
     case .error(let err): self.errorHandler(err: err, error: error)
@@ -44,7 +44,7 @@ extension BaseViewModel {
   /// Seperate function for network error handling
   ///
   /// - Parameter err: receivied error from response
-  func errorHandler(err: NetworkError?, error: PublishSubject<MessageContent?>) {
+  func errorHandler(err: APIError?, error: PublishSubject<MessageContent?>) {
     /// Publish error content to view
     /// Using default title and message if the receiving error is nil
     error.onNext((err?.title ?? Title.Error.network.desc, err?.message ?? Message.Error.network.desc))

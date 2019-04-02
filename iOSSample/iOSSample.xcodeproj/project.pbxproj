@@ -46,7 +46,7 @@
 		B32D136B2248921F00C38DF8 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32D13242248921E00C38DF8 /* Reachability.swift */; };
 		B32D136C2248921F00C38DF8 /* EmailClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32D13262248921E00C38DF8 /* EmailClient.swift */; };
 		B32D136D2248921F00C38DF8 /* ShareClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32D13272248921E00C38DF8 /* ShareClient.swift */; };
-		B32D136E2248921F00C38DF8 /* LocalNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32D13292248921E00C38DF8 /* LocalNotification.swift */; };
+		B32D136E2248921F00C38DF8 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32D13292248921E00C38DF8 /* NotificationService.swift */; };
 		B32D13842248921F00C38DF8 /* FileManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32D13462248921E00C38DF8 /* FileManagement.swift */; };
 		B32D13892248921F00C38DF8 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32D134E2248921F00C38DF8 /* DateFormat.swift */; };
 		B32D138A2248921F00C38DF8 /* DateManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32D134F2248921F00C38DF8 /* DateManagement.swift */; };
@@ -71,7 +71,6 @@
 		B32D13D22248931E00C38DF8 /* ValidationExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32D13B72248931D00C38DF8 /* ValidationExt.swift */; };
 		B32D13D52248932400C38DF8 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32D13D42248932400C38DF8 /* Constant.swift */; };
 		B32D13D72248932F00C38DF8 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32D13D62248932F00C38DF8 /* Application.swift */; };
-		B32D13EC2248BADF00C38DF8 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32D13EB2248BADF00C38DF8 /* NetworkError.swift */; };
 		B32D13F02248BD6700C38DF8 /* Meta.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32D13EF2248BD6600C38DF8 /* Meta.swift */; };
 		B32D13F22248C1E600C38DF8 /* TextSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32D13F12248C1E500C38DF8 /* TextSize.swift */; };
 		B32D13F42248C21100C38DF8 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32D13F32248C21000C38DF8 /* Font.swift */; };
@@ -86,7 +85,7 @@
 		B32D140A2248D27B00C38DF8 /* AppStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32D14092248D27B00C38DF8 /* AppStoryboard.swift */; };
 		B32D140C2248D52100C38DF8 /* SampleMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32D140B2248D52100C38DF8 /* SampleMapping.swift */; };
 		B32D140E2248D60100C38DF8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32D140D2248D60100C38DF8 /* User.swift */; };
-		B32D14102248D76400C38DF8 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32D140F2248D76400C38DF8 /* NetworkProvider.swift */; };
+		B32D14102248D76400C38DF8 /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32D140F2248D76400C38DF8 /* APIProvider.swift */; };
 		B32D142C2248DE3B00C38DF8 /* SignInNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32D14262248DE3B00C38DF8 /* SignInNavigator.swift */; };
 		B32D142D2248DE3B00C38DF8 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32D14272248DE3B00C38DF8 /* SignInViewModel.swift */; };
 		B32D142E2248DE3B00C38DF8 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32D14282248DE3B00C38DF8 /* SignInViewController.swift */; };
@@ -94,9 +93,12 @@
 		B32D14512248E57F00C38DF8 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32D144E2248E57E00C38DF8 /* SignUpViewController.swift */; };
 		B32D14522248E57F00C38DF8 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32D144F2248E57F00C38DF8 /* SignUpViewModel.swift */; };
 		B36361882249D6850061E4EE /* AWSAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36361862249D6840061E4EE /* AWSAuthorization.swift */; };
-		B36361892249D6850061E4EE /* AWSS3TransferManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36361872249D6850061E4EE /* AWSS3TransferManagement.swift */; };
+		B36361892249D6850061E4EE /* S3Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36361872249D6850061E4EE /* S3Manager.swift */; };
 		B363618B2249D70F0061E4EE /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = B363618A2249D70F0061E4EE /* awsconfiguration.json */; };
 		B363618C2249D8760061E4EE /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = B363618A2249D70F0061E4EE /* awsconfiguration.json */; };
+		B3BE6CD32253441800E6F3CB /* PostAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BE6CD22253441800E6F3CB /* PostAPI.swift */; };
+		B3BE6CD522535FEC00E6F3CB /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BE6CD422535FEC00E6F3CB /* APIResponse.swift */; };
+		B3BE6CDB2253620D00E6F3CB /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BE6CDA2253620D00E6F3CB /* Utility.swift */; };
 		B3D93550224C6FA4005AA86C /* AppSynClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D9354F224C6FA4005AA86C /* AppSynClient.swift */; };
 		B3D93554224CB04A005AA86C /* AWSConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D93553224CB04A005AA86C /* AWSConfig.swift */; };
 		B3D93557224CC085005AA86C /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D93556224CC085005AA86C /* GradientView.swift */; };
@@ -106,6 +108,7 @@
 		B3DA4862221ABE7E0091E023 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3DA4860221ABE7E0091E023 /* LaunchScreen.storyboard */; };
 		B3DA486D221ABE7E0091E023 /* iOSSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DA486C221ABE7E0091E023 /* iOSSampleTests.swift */; };
 		B3DA4878221ABE7E0091E023 /* iOSSampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DA4877221ABE7E0091E023 /* iOSSampleUITests.swift */; };
+		B3EB15B32252093F0091033B /* GraphQL.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EB15B22252093E0091033B /* GraphQL.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -199,7 +202,7 @@
 		B32D13242248921E00C38DF8 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		B32D13262248921E00C38DF8 /* EmailClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailClient.swift; sourceTree = "<group>"; };
 		B32D13272248921E00C38DF8 /* ShareClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareClient.swift; sourceTree = "<group>"; };
-		B32D13292248921E00C38DF8 /* LocalNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotification.swift; sourceTree = "<group>"; };
+		B32D13292248921E00C38DF8 /* NotificationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		B32D13462248921E00C38DF8 /* FileManagement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManagement.swift; sourceTree = "<group>"; };
 		B32D134E2248921F00C38DF8 /* DateFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
 		B32D134F2248921F00C38DF8 /* DateManagement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateManagement.swift; sourceTree = "<group>"; };
@@ -224,7 +227,6 @@
 		B32D13B72248931D00C38DF8 /* ValidationExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationExt.swift; sourceTree = "<group>"; };
 		B32D13D42248932400C38DF8 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		B32D13D62248932F00C38DF8 /* Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
-		B32D13EB2248BADF00C38DF8 /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		B32D13EF2248BD6600C38DF8 /* Meta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meta.swift; sourceTree = "<group>"; };
 		B32D13F12248C1E500C38DF8 /* TextSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextSize.swift; sourceTree = "<group>"; };
 		B32D13F32248C21000C38DF8 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
@@ -239,7 +241,7 @@
 		B32D14092248D27B00C38DF8 /* AppStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoryboard.swift; sourceTree = "<group>"; };
 		B32D140B2248D52100C38DF8 /* SampleMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleMapping.swift; sourceTree = "<group>"; };
 		B32D140D2248D60100C38DF8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		B32D140F2248D76400C38DF8 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
+		B32D140F2248D76400C38DF8 /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
 		B32D14262248DE3B00C38DF8 /* SignInNavigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInNavigator.swift; sourceTree = "<group>"; };
 		B32D14272248DE3B00C38DF8 /* SignInViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		B32D14282248DE3B00C38DF8 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -247,8 +249,11 @@
 		B32D144E2248E57E00C38DF8 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = iOSSample/Scene/Auth/SignUp/SignUpViewController.swift; sourceTree = SOURCE_ROOT; };
 		B32D144F2248E57F00C38DF8 /* SignUpViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewModel.swift; path = iOSSample/Scene/Auth/SignUp/SignUpViewModel.swift; sourceTree = SOURCE_ROOT; };
 		B36361862249D6840061E4EE /* AWSAuthorization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWSAuthorization.swift; sourceTree = "<group>"; };
-		B36361872249D6850061E4EE /* AWSS3TransferManagement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWSS3TransferManagement.swift; sourceTree = "<group>"; };
+		B36361872249D6850061E4EE /* S3Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = S3Manager.swift; sourceTree = "<group>"; };
 		B363618A2249D70F0061E4EE /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
+		B3BE6CD22253441800E6F3CB /* PostAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAPI.swift; sourceTree = "<group>"; };
+		B3BE6CD422535FEC00E6F3CB /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
+		B3BE6CDA2253620D00E6F3CB /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		B3D9354F224C6FA4005AA86C /* AppSynClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSynClient.swift; sourceTree = "<group>"; };
 		B3D93553224CB04A005AA86C /* AWSConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSConfig.swift; sourceTree = "<group>"; };
 		B3D93556224CC085005AA86C /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
@@ -264,6 +269,7 @@
 		B3DA4873221ABE7E0091E023 /* iOSSampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSSampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3DA4877221ABE7E0091E023 /* iOSSampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSSampleUITests.swift; sourceTree = "<group>"; };
 		B3DA4879221ABE7E0091E023 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B3EB15B22252093E0091033B /* GraphQL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQL.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -332,6 +338,9 @@
 		B32D12CD22488B4B00C38DF8 /* SampleKitTests */ = {
 			isa = PBXGroup;
 			children = (
+				B3BE6CD82253613100E6F3CB /* Service */,
+				B3BE6CD72253612A00E6F3CB /* AWS */,
+				B3BE6CD62253612200E6F3CB /* Network */,
 				B32D12CE22488B4B00C38DF8 /* SampleKitTests.swift */,
 				B32D12D022488B4B00C38DF8 /* Info.plist */,
 			);
@@ -358,7 +367,7 @@
 				B32D13452248921E00C38DF8 /* FileManagement */,
 				B32D13F82248C45000C38DF8 /* ImageManagement */,
 				B32D13192248921E00C38DF8 /* Location */,
-				B32D13282248921E00C38DF8 /* Local Notification */,
+				B32D13282248921E00C38DF8 /* Notification */,
 				B32D13172248921E00C38DF8 /* Purchase */,
 				B32D13222248921E00C38DF8 /* Reachability */,
 				B32D13502248921F00C38DF8 /* Setting */,
@@ -456,8 +465,8 @@
 			isa = PBXGroup;
 			children = (
 				B32D13EF2248BD6600C38DF8 /* Meta.swift */,
-				B32D13EB2248BADF00C38DF8 /* NetworkError.swift */,
 				B32D140D2248D60100C38DF8 /* User.swift */,
+				B3BE6CD422535FEC00E6F3CB /* APIResponse.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -475,7 +484,7 @@
 			children = (
 				B32D12F322488F9000C38DF8 /* Network.swift */,
 				B32D12F522488F9000C38DF8 /* Response.swift */,
-				B32D140F2248D76400C38DF8 /* NetworkProvider.swift */,
+				B32D140F2248D76400C38DF8 /* APIProvider.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -561,12 +570,12 @@
 			path = Client;
 			sourceTree = "<group>";
 		};
-		B32D13282248921E00C38DF8 /* Local Notification */ = {
+		B32D13282248921E00C38DF8 /* Notification */ = {
 			isa = PBXGroup;
 			children = (
-				B32D13292248921E00C38DF8 /* LocalNotification.swift */,
+				B32D13292248921E00C38DF8 /* NotificationService.swift */,
 			);
-			path = "Local Notification";
+			path = Notification;
 			sourceTree = "<group>";
 		};
 		B32D13452248921E00C38DF8 /* FileManagement */ = {
@@ -732,6 +741,8 @@
 		B36361832249D61B0061E4EE /* API */ = {
 			isa = PBXGroup;
 			children = (
+				B3EB15B22252093E0091033B /* GraphQL.swift */,
+				B3BE6CD22253441800E6F3CB /* PostAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -739,7 +750,7 @@
 		B36361842249D62B0061E4EE /* Client */ = {
 			isa = PBXGroup;
 			children = (
-				B36361872249D6850061E4EE /* AWSS3TransferManagement.swift */,
+				B36361872249D6850061E4EE /* S3Manager.swift */,
 				B3D9354F224C6FA4005AA86C /* AppSynClient.swift */,
 			);
 			path = Client;
@@ -751,6 +762,36 @@
 				B36361862249D6840061E4EE /* AWSAuthorization.swift */,
 			);
 			path = Authorization;
+			sourceTree = "<group>";
+		};
+		B3BE6CD62253612200E6F3CB /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		B3BE6CD72253612A00E6F3CB /* AWS */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AWS;
+			sourceTree = "<group>";
+		};
+		B3BE6CD82253613100E6F3CB /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				B3BE6CD9225361D400E6F3CB /* Utility */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		B3BE6CD9225361D400E6F3CB /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				B3BE6CDA2253620D00E6F3CB /* Utility.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		B3D93555224CC06B005AA86C /* GradientView */ = {
@@ -941,7 +982,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = Agility;
 				TargetAttributes = {
 					B32D12BE22488B4A00C38DF8 = {
@@ -1112,7 +1153,7 @@
 				B32D13F02248BD6700C38DF8 /* Meta.swift in Sources */,
 				B32D13552248921F00C38DF8 /* View.swift in Sources */,
 				B32D140E2248D60100C38DF8 /* User.swift in Sources */,
-				B32D136E2248921F00C38DF8 /* LocalNotification.swift in Sources */,
+				B32D136E2248921F00C38DF8 /* NotificationService.swift in Sources */,
 				B32D13842248921F00C38DF8 /* FileManagement.swift in Sources */,
 				B32D135F2248921F00C38DF8 /* Bundle.swift in Sources */,
 				B30F53A8224B2E8800AD7E42 /* AWSError.swift in Sources */,
@@ -1122,8 +1163,8 @@
 				B32D130422488FFD00C38DF8 /* SampleAPI.swift in Sources */,
 				B32D130222488FA000C38DF8 /* BaseMapping.swift in Sources */,
 				B32D138A2248921F00C38DF8 /* DateManagement.swift in Sources */,
-				B32D13EC2248BADF00C38DF8 /* NetworkError.swift in Sources */,
-				B32D14102248D76400C38DF8 /* NetworkProvider.swift in Sources */,
+				B3BE6CD522535FEC00E6F3CB /* APIResponse.swift in Sources */,
+				B32D14102248D76400C38DF8 /* APIProvider.swift in Sources */,
 				B32D13F22248C1E600C38DF8 /* TextSize.swift in Sources */,
 				B32D135C2248921F00C38DF8 /* Gradient.swift in Sources */,
 				B32D14002248C45100C38DF8 /* Image+Gif.swift in Sources */,
@@ -1137,12 +1178,14 @@
 				B32D13FE2248C45100C38DF8 /* ImageProcess.swift in Sources */,
 				B32D14012248C45100C38DF8 /* PDFResourceHelper.swift in Sources */,
 				B32D13692248921F00C38DF8 /* Converter.swift in Sources */,
+				B3BE6CD32253441800E6F3CB /* PostAPI.swift in Sources */,
 				B32D12F922488F9000C38DF8 /* Network.swift in Sources */,
 				B32D14022248C45100C38DF8 /* UIImage+PDF.swift in Sources */,
 				B32D136A2248921F00C38DF8 /* ReachabilityService.swift in Sources */,
 				B32D12FB22488F9000C38DF8 /* Response.swift in Sources */,
 				B32D13622248921F00C38DF8 /* IAPService.swift in Sources */,
 				B3D93550224C6FA4005AA86C /* AppSynClient.swift in Sources */,
+				B3EB15B32252093F0091033B /* GraphQL.swift in Sources */,
 				B32D13662248921F00C38DF8 /* Validation.swift in Sources */,
 				B32D13652248921F00C38DF8 /* Operator.swift in Sources */,
 				B32D13542248921F00C38DF8 /* Scrollable.swift in Sources */,
@@ -1165,7 +1208,7 @@
 				B32D13602248921F00C38DF8 /* Constraint.swift in Sources */,
 				B32D13072248915200C38DF8 /* Config.swift in Sources */,
 				B32D136D2248921F00C38DF8 /* ShareClient.swift in Sources */,
-				B36361892249D6850061E4EE /* AWSS3TransferManagement.swift in Sources */,
+				B36361892249D6850061E4EE /* S3Manager.swift in Sources */,
 				B32D13F72248C29400C38DF8 /* PHAssetManager.swift in Sources */,
 				B32D13632248921F00C38DF8 /* LocationManagement.swift in Sources */,
 			);
@@ -1175,6 +1218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3BE6CDB2253620D00E6F3CB /* Utility.swift in Sources */,
 				B32D12CF22488B4B00C38DF8 /* SampleKitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1305,7 +1349,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.agility.ios.SampleKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1337,7 +1381,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.agility.ios.SampleKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1357,7 +1401,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.agility.ios.SampleKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOSSample.app/iOSSample";
 			};
@@ -1376,7 +1420,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.agility.ios.SampleKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOSSample.app/iOSSample";
 			};
@@ -1386,6 +1430,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1440,6 +1485,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Dev;
 		};
@@ -1467,7 +1513,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) -DDEV";
 				PRODUCT_BUNDLE_IDENTIFIER = com.agility.ios.iOSSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Dev;
@@ -1486,7 +1532,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.agility.ios.iOSSampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOSSample.app/iOSSample";
 			};
@@ -1505,7 +1551,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.agility.ios.iOSSampleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = iOSSample;
 			};
@@ -1536,7 +1582,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.agility.ios.SampleKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1556,7 +1602,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.agility.ios.SampleKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOSSample.app/iOSSample";
 			};
@@ -1566,6 +1612,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1620,6 +1667,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Staging;
 		};
@@ -1627,6 +1675,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1674,6 +1723,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Prod;
@@ -1701,7 +1751,7 @@
 				OTHER_SWIFT_FLAGS = "-DSTAGING $(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.agility.ios.iOSSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Staging;
@@ -1726,7 +1776,7 @@
 				OTHER_SWIFT_FLAGS = "-DPROD $(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.agility.ios.iOSSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Prod;
@@ -1745,7 +1795,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.agility.ios.iOSSampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOSSample.app/iOSSample";
 			};
@@ -1765,7 +1815,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.agility.ios.iOSSampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOSSample.app/iOSSample";
 			};
@@ -1784,7 +1834,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.agility.ios.iOSSampleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = iOSSample;
 			};
@@ -1803,7 +1853,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.agility.ios.iOSSampleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = iOSSample;
 			};

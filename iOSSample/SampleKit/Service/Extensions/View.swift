@@ -9,7 +9,7 @@ import QuartzCore
 // MARK: - UIView
 public extension UIView {
 
-  public func snapshot() -> UIImage? {
+  func snapshot() -> UIImage? {
     UIGraphicsBeginImageContextWithOptions(bounds.size, false, UIScreen.main.scale)
     drawHierarchy(in: bounds, afterScreenUpdates: true)
     let result = UIGraphicsGetImageFromCurrentImageContext()
@@ -17,7 +17,7 @@ public extension UIView {
     return result
   }
 
-  public func roundBorder(radius: CGFloat, width: CGFloat = 0, color: CGColor = UIColor.clear.cgColor, corners: UIRectCorner = .allCorners) {
+  func roundBorder(radius: CGFloat, width: CGFloat = 0, color: CGColor = UIColor.clear.cgColor, corners: UIRectCorner = .allCorners) {
     if corners == .allCorners {
       self.layer.cornerRadius = radius
       self.layer.borderWidth = width
@@ -34,7 +34,7 @@ public extension UIView {
     }
   }
 
-  public func dashedBorder(radius: CGFloat, width: CGFloat = 0, color: CGColor = UIColor.clear.cgColor) {
+  func dashedBorder(radius: CGFloat, width: CGFloat = 0, color: CGColor = UIColor.clear.cgColor) {
 
     let  borderLayer = CAShapeLayer()
     let frameSize = self.frame.size
@@ -55,22 +55,22 @@ public extension UIView {
     self.layer.addSublayer(borderLayer)
   }
 
-  public func makeCircle(withHeight: Bool? = false) {
+  func makeCircle(withHeight: Bool? = false) {
     self.layer.cornerRadius =  (withHeight != nil && withHeight == true) ? self.height/2 : self.width/2
     self.layer.masksToBounds = true
   }
 
-  public func rotateCycle() {
+  func rotateCycle() {
     rotate(rad: .pi * 2, duration: 0.5)
   }
 
-  static public func createIndicator() -> UIImageView {
+  static func createIndicator() -> UIImageView {
     let indicator = UIImageView(image: #imageLiteral(resourceName: "animLoadingGray"))
     indicator.size = CGSize(width: 30, height: 30)
     return indicator
   }
 
-  public func initializeIndicator(height: CGFloat = 50) -> UIView {
+  func initializeIndicator(height: CGFloat = 50) -> UIView {
     let indicator = UIView.createIndicator()
 
     let seemoreView = UIView(frame: CGRect(x: 0, y: 0, width: width, height: height))
@@ -81,7 +81,7 @@ public extension UIView {
     return seemoreView
   }
 
-  public func isKind(classNamed: String) -> Bool {
+  func isKind(classNamed: String) -> Bool {
     if let targetClass = NSClassFromString(classNamed) {
       return self.isKind(of: targetClass)
     }
@@ -94,7 +94,7 @@ public extension UIView {
   ///   - sender: target view
   ///   - view: destination view
   /// - Returns: converted point
-  public func convertOrigin(to view: UIView) -> CGPoint? {
+  func convertOrigin(to view: UIView) -> CGPoint? {
     let sp2View = superview?.superview
     if let point1 = superview?.convert(frame.origin, to: sp2View),
       let point = sp2View?.convert(point1, to: view){
@@ -108,7 +108,7 @@ public extension UIView {
   ///
   /// - Returns: a view
   @discardableResult
-  public func fromNib<T: UIView>() -> T? {
+  func fromNib<T: UIView>() -> T? {
     guard let view = UINib(nibName: String(describing: type(of: self)), bundle: nil).instantiate(withOwner: self, options: nil).first as? T else {
       return nil
     }
@@ -119,37 +119,37 @@ public extension UIView {
     return view
   }
 
-  public var x: CGFloat {
+  var x: CGFloat {
     get { return self.frame.x }
     set { self.frame.x = newValue }
   }
 
-  public var y: CGFloat {
+  var y: CGFloat {
     get { return self.frame.y }
     set { self.frame.y = newValue }
   }
 
-  public var width: CGFloat {
+  var width: CGFloat {
     get { return self.frame.width }
     set { self.frame.size.width = newValue }
   }
 
-  public var height: CGFloat {
+  var height: CGFloat {
     get { return self.frame.height }
     set { self.frame.size.height = newValue }
   }
 
-  public var size: CGSize {
+  var size: CGSize {
     get { return self.frame.size }
     set { self.frame.size = newValue }
   }
 
-  public var origin: CGPoint {
+  var origin: CGPoint {
     get { return self.frame.origin }
     set { self.frame.origin = newValue }
   }
 
-  public var addSize: CGFloat {
+  var addSize: CGFloat {
     get { return 0 }
     set {
       width += newValue
@@ -160,7 +160,7 @@ public extension UIView {
   /// Adding constraint from subview to view with 4 edges equally
   ///
   /// - Parameter target: subview
-  public func addEqualConstraints(target: UIView, attributes: [NSLayoutConstraint.Attribute]) {
+  func addEqualConstraints(target: UIView, attributes: [NSLayoutConstraint.Attribute]) {
     let constraints = attributes.map{ NSLayoutConstraint(item: target, attribute: $0, relatedBy: .equal, toItem: self, attribute: $0, multiplier: 1, constant: 0) }
     constraints.forEach({ $0.isActive = true })
   }
@@ -202,29 +202,29 @@ extension UIView {
 // Getting frame's components
 public extension CGRect {
 
-  public var x: CGFloat {
+  var x: CGFloat {
     get { return self.origin.x }
     set { self.origin.x = newValue }
   }
 
-  public var y: CGFloat {
+  var y: CGFloat {
     get { return self.origin.y }
     set { self.origin.y = newValue }
   }
 
-  public var doubleSize: CGSize {
+  var doubleSize: CGSize {
     get { return CGSize(width: size.width * 2, height: size.height * 2) }
     set { self.size = newValue }
   }
 
-  public var addSize: CGFloat {
+  var addSize: CGFloat {
     get { return 0 }
     set {
       size.width += newValue
       size.height += newValue
     }
   }
-  public var subOrigin: CGFloat {
+  var subOrigin: CGFloat {
     get { return 0 }
     set {
       x -= newValue

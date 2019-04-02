@@ -71,7 +71,7 @@ struct SignUpViewModel: ViewModelType {
     return complete
   }
   
-  private func handleError(error: NetworkError?) {
+  private func handleError(error: APIError?) {
     self.error.onNext((error?.title ?? Title.Error.network.desc, error?.message ?? Message.Error.network.desc))
   }
 }

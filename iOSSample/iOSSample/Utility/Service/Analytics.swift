@@ -20,4 +20,8 @@ public enum Analytics {
   public static func analyticsUsers() {
     /// Initialize Event Tracking services with user's attributes
   }
+  
+  public static func initialize() {
+    
+  }
 }

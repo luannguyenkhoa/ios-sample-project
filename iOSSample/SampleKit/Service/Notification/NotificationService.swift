@@ -5,7 +5,7 @@
 
 import UserNotifications
 
-public struct LocalNotification {
+public struct NotificationService {
   
   private static let RegisteredKey = "NotificationServiceRegistered"
   
@@ -35,7 +35,7 @@ public struct LocalNotification {
     UserDefaults.standard.set(status, forKey: NotificationService.RegisteredKey)
   }
   
-  public static func fireNoti(msg: String, info: [String: Any] = [:], scheduler: TimeInterval = 0.5) {
+  public static func fireLocalNoti(msg: String, info: [String: Any] = [:], scheduler: TimeInterval = 0.5) {
     let content = UNMutableNotificationContent()
     content.body = msg
     content.sound = .default

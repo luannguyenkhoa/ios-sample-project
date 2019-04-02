@@ -28,15 +28,15 @@ extension Optional: OptionalType {
 
 public extension Observable where Element: OptionalType {
 
-  public func ignoreNil() -> Observable<Element.Wrapped> {
+  func ignoreNil() -> Observable<Element.Wrapped> {
     return flatMap { value in
       value.optional.map { Observable<Element.Wrapped>.just($0) } ?? Observable<Element.Wrapped>.empty()
     }
   }
 }
 
-extension SharedSequenceConvertibleType where SharingStrategy == DriverSharingStrategy, E: OptionalType {
-  public func ignoreNil() -> Driver<E.Wrapped> {
+public extension SharedSequenceConvertibleType where SharingStrategy == DriverSharingStrategy, E: OptionalType {
+  func ignoreNil() -> Driver<E.Wrapped> {
     return flatMap { value in
       value.optional.map { Driver<E.Wrapped>.just($0) } ?? Driver<E.Wrapped>.empty()
     }
@@ -45,33 +45,33 @@ extension SharedSequenceConvertibleType where SharingStrategy == DriverSharingSt
 
 public extension Observable {
 
-  public func asDriver(_ def: Element) -> Driver<Element> {
+  func asDriver(_ def: Element) -> Driver<Element> {
     return asDriver(onErrorJustReturn: def)
   }
 
-  public func void() -> Observable<Void> {
+  func void() -> Observable<Void> {
     return map { _ in }
   }
   
-  public func bool(_ val: Bool = true) -> Observable<Bool> {
+  func bool(_ val: Bool = true) -> Observable<Bool> {
     return map{ _ in val }
   }
 }
 
 public extension SharedSequenceConvertibleType {
 
-  public func void() -> SharedSequence<SharingStrategy, Void> {
+  func void() -> SharedSequence<SharingStrategy, Void> {
     return map{ _ in }
   }
   
-  public func bool(_ val: Bool = true) -> SharedSequence<SharingStrategy, Bool> {
+  func bool(_ val: Bool = true) -> SharedSequence<SharingStrategy, Bool> {
     return map{ _ in val }
   }
 }
 
 public extension ObservableType {
   
-  public func withPrevious(startWith first: E) -> Observable<(E, E)> {
+  func withPrevious(startWith first: E) -> Observable<(E, E)> {
     return scan((first, first)) { ($0.1, $1) }.skip(1)
   }
 }
@@ -100,7 +100,7 @@ public extension RepeatBehavior {
    - parameter currentAttempt: Number of current attempt
    - returns: Tuple with maxCount and calculated delay for provided attempt
    */
-  public func calculateConditions(_ currentRepetition: UInt) -> (maxCount: UInt, delay: Double) {
+  func calculateConditions(_ currentRepetition: UInt) -> (maxCount: UInt, delay: Double) {
     switch self {
     case .immediate(let max):
       // if Immediate, return 0.0 as delay
@@ -128,7 +128,7 @@ public extension ObservableType {
    - returns: Observable sequence that will be automatically repeat if error occurred
    */
 
-  public func retry(_ behavior: RepeatBehavior, scheduler: SchedulerType = MainScheduler.instance, shouldRetry: RetryPredicate? = nil) -> Observable<E> {
+  func retry(_ behavior: RepeatBehavior, scheduler: SchedulerType = MainScheduler.instance, shouldRetry: RetryPredicate? = nil) -> Observable<E> {
     return retry(1, behavior: behavior, scheduler: scheduler, shouldRetry: shouldRetry)
   }
 

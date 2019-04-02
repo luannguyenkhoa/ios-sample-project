@@ -56,7 +56,7 @@ public struct AWSAuthorization {
     }
   }
   
-  public func signUp(email: String, pwd: String, attributes: [String: String] = [:]) -> Observable<NetworkResponse<Bool>> {
+  public func signUp(email: String, pwd: String, attributes: [String: String] = [:]) -> Observable<APIResponse<Bool>> {
     return .create({ (observer) in
       
       AWSMobileClient.sharedInstance().signUp(username: email, password: pwd, userAttributes: attributes) { (res, err) in
@@ -69,16 +69,16 @@ public struct AWSAuthorization {
           case .unconfirmed:
             self.cacheUser(confirmed: false, email: email, pwd: pwd)
             observer.onNext(.next(false))
-          default: observer.onNext(.error(NetworkError(AWSError.unexpectedError.desc)))
+          default: observer.onNext(.error(APIError(AWSError.unexpectedError.desc)))
           }
         } else if let error = err as? AWSMobileClientError {
           switch(error) {
           case .usernameExists(let message),
                .userNotConfirmed(let message),
                .invalidParameter(let message):
-            observer.onNext(.error(NetworkError(message)))
+            observer.onNext(.error(APIError(message)))
           default:
-            observer.onNext(.error(NetworkError(AWSError.unexpectedError.desc)))
+            observer.onNext(.error(APIError(AWSError.unexpectedError.desc)))
           }
         }
       }
@@ -86,7 +86,7 @@ public struct AWSAuthorization {
     })
   }
   
-  public func signIn(email: String, password: String) -> Observable<NetworkResponse<Bool>> {
+  public func signIn(email: String, password: String) -> Observable<APIResponse<Bool>> {
     return .create { (observer) in
       AWSMobileClient.sharedInstance().signIn(username: email, password: password) { (res, err) in
         defer { observer.onCompleted() }
@@ -98,30 +98,30 @@ public struct AWSAuthorization {
             self.regiterServices()
             observer.onNext(.next(true))
           default:
-            observer.onNext(.error(NetworkError(AWSError.unexpectedError.desc)))
+            observer.onNext(.error(APIError(AWSError.unexpectedError.desc)))
           }
         } else if let error = err as? AWSMobileClientError {
           switch error {
           case .notAuthorized(let msg),
                .userNotFound(let msg):
-            observer.onNext(.error(NetworkError(msg)))
+            observer.onNext(.error(APIError(msg)))
           case .userNotConfirmed:
             self.cacheUser(confirmed: false, email: email, pwd: password)
             observer.onNext(.next(false))
           case .invalidState:
             self.signOut()
-            observer.onNext(.error(NetworkError(AWSError.unexpectedError.desc)))
-          default: observer.onNext(.error(NetworkError(AWSError.unexpectedError.desc)))
+            observer.onNext(.error(APIError(AWSError.unexpectedError.desc)))
+          default: observer.onNext(.error(APIError(AWSError.unexpectedError.desc)))
           }
         } else {
-          observer.onNext(.error(NetworkError(AWSError.unexpectedError.desc)))
+          observer.onNext(.error(APIError(AWSError.unexpectedError.desc)))
         }
       }
       return Disposables.create()
     }
   }
   
-  public func confirmCode(_ code: String, email: String) -> Observable<NetworkResponse<Bool>> {
+  public func confirmCode(_ code: String, email: String) -> Observable<APIResponse<Bool>> {
     return .create { observer in
       AWSMobileClient.sharedInstance().confirmSignUp(username: email, confirmationCode: code) { (res, err) in
         defer { observer.onCompleted() }
@@ -132,17 +132,17 @@ public struct AWSAuthorization {
             UDKey.User.confirmed.set(true)
             observer.onNext(.next(true))
           default:
-            observer.onNext(.error(NetworkError(AWSError.unexpectedError.desc)))
+            observer.onNext(.error(APIError(AWSError.unexpectedError.desc)))
           }
         } else {
-          observer.onNext(.error(NetworkError(AWSError.unexpectedError.desc)))
+          observer.onNext(.error(APIError(AWSError.unexpectedError.desc)))
         }
       }
       return Disposables.create()
     }
   }
   
-  public func resendCode(email: String) -> Observable<NetworkResponse<Bool>> {
+  public func resendCode(email: String) -> Observable<APIResponse<Bool>> {
     return .create { observer in
       AWSMobileClient.sharedInstance().resendSignUpCode(username: email) { res, err in
         /// defer to make sure of onCompleted getting fired at the end
@@ -154,9 +154,9 @@ public struct AWSAuthorization {
           switch error {
           case .invalidParameter(let message),
                .userNotFound(let message):
-            observer.onNext(.error(NetworkError(message)))
+            observer.onNext(.error(APIError(message)))
           default:
-            observer.onNext(.error(NetworkError(AWSError.unexpectedError.desc)))
+            observer.onNext(.error(APIError(AWSError.unexpectedError.desc)))
           }
         }
       }

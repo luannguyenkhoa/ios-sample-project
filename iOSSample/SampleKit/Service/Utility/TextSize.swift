@@ -7,8 +7,8 @@ public struct TextSize {
     let insets: UIEdgeInsets
     let lineHeight: CGFloat
 
-    fileprivate var hashValue: Int {
-      return text.hashValue ^ Int(width) ^ Int(insets.top) ^ Int(insets.left) ^ Int(insets.bottom) ^ Int(insets.right) ^ Int(lineHeight)
+    func hash(into hasher: inout Hasher) {
+      [text.hashValue, Int(width), Int(insets.top), Int(insets.left), Int(insets.bottom), Int(insets.right), Int(lineHeight)].forEach{ hasher.combine($0) }
     }
   }
 

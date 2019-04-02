@@ -5,13 +5,13 @@
 Environments and tools:
 ----------------------
 
-Xcode 10 or later
+Xcode 10.2 or later
 
-Carthage 0.31.2
+Carthage 0.32
 
-Cocoapods 1.5.3
+Cocoapods 1.6.0
 
-Swift 4.2
+Swift 5
 
 Development Target: iOS 11
 
@@ -24,7 +24,7 @@ Text Editing - Identation:
   . Line wrapping: 2
 ```
 
-XCode Preference -> Locations -> Command Line Tools: *Xcode 10.xxxx* 
+XCode Preference -> Locations -> Command Line Tools: *Xcode 10.x* 
 
 Required:
 -------
@@ -37,39 +37,39 @@ Installing the following packages:
 
 [Swiftlint](https://github.com/realm/SwiftLint) : `brew install swiftlint`
 
+*Note: Cocoapods is not required for Sample proj, so please consider that whether it's necessary to install it or not. 
+Cocoapods is convenient and easy to integrate and manage frameworks but we prefer Carthage mostly due to experiencing many issues with Ruby package which is the core of cocoapods. Only using Pod to install frameworks if there is no choice.*
+
 Setup:
 -----
 
-* Before setting the project up, you must ensure that all above requirements were up already.
+* Before setting the project up, you must ensure that all above requirements were up already. 
 
-. Clone the repository to your machine
+. Clone the repository to your machine <br>
+. Navigate to iOSSample folder <br>
+. Run the following CLIs one by one:  <br>
+```
+1. chmod +x ./build.sh
+2. ./build.sh "NEW_PROJ_NAME"
+```
+replace NEW_PROJ_NAME with yours.
 
-. Navigate to iOSSample folder
-
-. Update Carthage: 
-    `carthage update --platform iOS --no-use-binaries` <br/>
 ```
 Trick to resolve if getting error: `failed with exit code 128:` -> comment out `aws-mobile-appsync-sdk-ios` from Cartfile, then run the above line to build frameworks. 
 After it's done, uncomment `appsync` line, run this command: `carthage update --no-build-binaries --no-build`, 
 waiting until it gets done then run the last one: carthage build `aws-mobile-appsync-sdk-ios --platform iOS`
 ```
 
-. Install pods: 
-    `pod install`
-
-. SDK Setup: <br/>
-    * AWS: Following this [guideline](https://aws-amplify.github.io/docs/ios/manualsetup) to get the SDK worked in your project <br/>
+. SDK Setup: <br>
+    * AWS: Following this [guideline](https://aws-amplify.github.io/docs/ios/manualsetup) to get the SDK worked in your project <br>
     * AWS AppSync SDK: following this [section](https://github.com/awslabs/aws-mobile-appsync-sdk-ios#via-carthage).
 
 Getting Started:
 ---------------
 
-. Architecture: MVVM-Kit.
-
-. Code commentation followed Apple standard style.
-
-. In order to make the project going perfect with the architecture, `RxSwift` was preferred to use for binding data and UIs control.
-
+. Architecture: MVVM-Kit. <br>
+. Code commentation followed Apple standard style.<br>
+. In order to make the project going perfect with the architecture, `RxSwift` was preferred to use for binding data and UIs control.<br>
 . The project was integrated `SwiftLint` for Swift style and conventions enforcement. All rules were declared in **.swiftlint.yml** file.
 
 Document Generator:

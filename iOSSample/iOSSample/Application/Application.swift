@@ -6,7 +6,7 @@ struct Application {
   // MARK: - Singleton pattern
   static var shared = Application()
   lazy var sampleAPI: SampleAPI = {
-    return NetworkProvider.makeSampleAPI(baseURL: Configs.apiURL.value)
+    return APIProvider.makeSampleAPI(baseURL: Configs.apiURL.value)
   }()
   
   func configMainInterface(window: UIWindow?) {
@@ -15,6 +15,7 @@ struct Application {
     // Rolling into Welcome page if it's the first time
     if !(UDKey.User.confirmed.value ?? false) {
       /// TODO: To Landing page
+      switchRoot(vc: UIStoryboard(storyboard: AppStoryboard.Main).instantiateInitialViewController()!, window: window)
       return
     }
     

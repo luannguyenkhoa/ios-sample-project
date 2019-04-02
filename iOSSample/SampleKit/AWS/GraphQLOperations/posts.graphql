@@ -1,0 +1,116 @@
+
+fragment PostBrief on Post {
+  id
+  title
+  author
+  content
+  url
+  images {
+    ...S3Object
+  }
+  publishers {
+    ...Publisher
+  }
+  state
+  lastTime
+  version
+}
+
+fragment S3Object on S3Object {
+  bucket
+  key
+  region
+  localUri
+}
+
+fragment Publisher on Publisher {
+  name
+  year
+}
+
+query GetPost($id:ID!) {
+    getPost(id:$id) {
+      ...PostBrief
+    }
+}
+
+query AllPosts($limit: Int, $nextToken: String) {
+  listPosts(limit: $limit, nextToken: $nextToken) {
+      items {
+        ...PostBrief
+        ups
+        downs
+      }
+      nextToken
+    }
+}
+
+query MissingPosts($time: Float) {
+  listMissingPosts(time: $time) {
+    items {
+      ...PostBrief
+    }
+  }
+}
+
+mutation AddPost($input: CreatePostInput!, $images: [S3ObjectInput]) {
+  createPost(input: $input, images: $images) {
+        ...PostBrief
+    }
+}
+
+mutation UpdatePost($input: UpdatePostInput!, $images: [S3ObjectInput]) {
+  updatePost(input: $input, images: $images) {
+        ...PostBrief
+    }
+}
+
+mutation DeletePost($input: DeletePostInput!) {
+    deletePost(input: $input){
+       ...PostBrief
+    }
+}
+
+## Batch mutation
+mutation CreateBatch($posts: [CreatePostInput]!) {
+  createBatch(posts: $posts) {
+    ...PostBrief
+  }
+}
+
+## Multi batch
+mutation CreateMulti($posts: [CreatePostInput], $contacts: [CreateContactInput]) {
+  createMulti(posts: $posts, contacts: $contacts) {
+    posts {
+      ...PostBrief
+    }
+    contacts {
+      title
+      content
+    }
+  }
+}
+
+mutation DeleteBatch($ids: [ID]!) {
+  deleteBatch(ids: $ids) {
+    id
+  }
+}
+
+subscription OnCreatePost {
+   onCreatePost {
+      ...PostBrief
+  }
+}
+
+subscription OnUpdatePost {
+  onUpdatePost {
+    ...PostBrief
+  }
+}
+
+subscription OnDeletePost {
+  onDeletePost {
+    id
+  }
+}

@@ -1,12 +1,12 @@
 import AWSS3
 import RxSwift
 
-public struct AWSS3TransferManagement {
+public struct S3Manager {
   
   public typealias UploadedResponse = (index: Int, url: String)
   public typealias UploadData = (Data, folder: String, fileName: String)
     
-  public static var shared = AWSS3TransferManagement()
+  public static var shared = S3Manager()
   private var didStartSession = false
   private var folder = "", bucketName = "", prefixURL = ""
   private var dir: URL {
@@ -29,6 +29,14 @@ public struct AWSS3TransferManagement {
     self.folder = folder + "/\(AWSAuthorization.shared.clientID)"
   }
   
+  public func makeS3Input(key: String, localURI: String) -> S3ObjectInput {
+    return S3ObjectInput(bucket: bucketName, key: key, region: "us-east-1", localUri: localURI, mimeType: "image/jpeg")
+  }
+  
+  public func s3(key: String, uri: String? = nil) -> PostItem.Image {
+    return PostItem.Image(bucket: bucketName, key: key, region: "us-east-1", localUri: uri.isNilOrEmpty() ? nil : uri)
+  }
+  
   public func startSession() {
     guard !didStartSession else { return }
     let getPreSignedURLRequest = AWSS3GetPreSignedURLRequest()
@@ -39,7 +47,7 @@ public struct AWSS3TransferManagement {
     AWSS3PreSignedURLBuilder.default().getPreSignedURL(getPreSignedURLRequest).continueWith { (task) in
       /// Mark that the session has been started
       if task.error != nil {
-        AWSS3TransferManagement.shared.didStartSession = true
+        S3Manager.shared.didStartSession = true
       }
       return nil
     }
@@ -69,7 +77,7 @@ public struct AWSS3TransferManagement {
     }
   }
   
-  public func downloadImage(fileName: String) -> Observable<NetworkResponse<String>>{
+  public func downloadImage(fileName: String) -> Observable<APIResponse<String>>{
     let request = createDownloadRequest(fileName: fileName)
     return Observable.create({ (observer) in
       guard !fileName.isEmpty else {
@@ -82,7 +90,7 @@ public struct AWSS3TransferManagement {
           if task.result.notNil, task.isCompleted, !task.isFaulted {
             observer.onNext(.next(request.1))
           } else if let err = task.error, let info = err._userInfo {
-            observer.onNext(.error(NetworkError(code: 400, message: info["message"], title: nil)))
+            observer.onNext(.error(APIError(code: 400, message: info["message"], title: nil)))
           }
           observer.onCompleted()
           return nil

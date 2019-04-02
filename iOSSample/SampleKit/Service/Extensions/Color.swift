@@ -1,6 +1,6 @@
 public extension UIColor {
   
-  public convenience init(hex: String, alpha: CGFloat = 1.0) {
+  convenience init(hex: String, alpha: CGFloat = 1.0) {
     let scanner = Scanner(string: hex)
     scanner.scanLocation = 0
     var rgbValue: UInt64 = 0
@@ -18,7 +18,7 @@ public extension UIColor {
     )
   }
   
-  public func merge(_ color: UIColor) -> UIColor {
+  func merge(_ color: UIColor) -> UIColor {
     var (r1, g1, b1, a1) = (CGFloat(0), CGFloat(0), CGFloat(0), CGFloat(0))
     var (r2, g2, b2, a2) = (CGFloat(0), CGFloat(0), CGFloat(0), CGFloat(0))
     self.getRed(&r1, green: &g1, blue: &b1, alpha: &a1)

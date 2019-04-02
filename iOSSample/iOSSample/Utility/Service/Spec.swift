@@ -4,8 +4,4 @@ public struct Spec {
   static func appDelivery() {
     
   }
-  
-  static func analytics() {
-    
-  }
 }

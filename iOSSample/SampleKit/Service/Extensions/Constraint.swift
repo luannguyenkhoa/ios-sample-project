@@ -13,7 +13,7 @@ public extension NSLayoutConstraint {
   ///
   /// - Parameter multiplier: multiplier value of constraint
   /// - Returns: NSLayoutConstraint object
-  @discardableResult public func setMultiplier(multiplier: CGFloat, cpriority: Float = 1000) -> NSLayoutConstraint {
+  @discardableResult func setMultiplier(multiplier: CGFloat, cpriority: Float = 1000) -> NSLayoutConstraint {
     NSLayoutConstraint.deactivate([self])
     guard let firstItem = firstItem else { return NSLayoutConstraint() }
 
@@ -60,7 +60,7 @@ public func equal<Axis, Anchor>(_ keyPath: KeyPath<UIView, Anchor>, to: UIView,
 public typealias Constraint = (_ child: UIView, _ parent: UIView) -> NSLayoutConstraint
 
 public extension Collection where Element == Constraint {
-  public static func allEqual(margin: CGFloat = 0) -> [Constraint] {
+  static func allEqual(margin: CGFloat = 0) -> [Constraint] {
     return [
       equal(\.leadingAnchor, constant: margin),
       equal(\.trailingAnchor, constant: margin),
@@ -69,7 +69,7 @@ public extension Collection where Element == Constraint {
     ]
   }
   
-  public static func allEqual(margin: CGFloat = 0, to view: UIView) -> [Constraint] {
+  static func allEqual(margin: CGFloat = 0, to view: UIView) -> [Constraint] {
     return [
       equal(\.leadingAnchor, to: view, constant: margin),
       equal(\.trailingAnchor, to: view, constant: margin),
@@ -78,7 +78,7 @@ public extension Collection where Element == Constraint {
     ]
   }
   
-  public static func allEqualSafeArea(margin: CGFloat = 0) -> [Constraint] {
+  static func allEqualSafeArea(margin: CGFloat = 0) -> [Constraint] {
     if #available(iOS 11.0, *) {
       return [
         equal(\.leadingAnchor, \.safeAreaLayoutGuide.leadingAnchor, constant: margin),
@@ -96,7 +96,7 @@ public extension Collection where Element == Constraint {
     }
   }
   
-  public static func allEqualSafeArea(margin: CGFloat = 0, to view: UIView) -> [Constraint] {
+  static func allEqualSafeArea(margin: CGFloat = 0, to view: UIView) -> [Constraint] {
     if #available(iOS 11.0, *) {
       return [
         equal(\.leadingAnchor, to: view, \.safeAreaLayoutGuide.leadingAnchor, constant: margin),
@@ -116,19 +116,19 @@ public extension Collection where Element == Constraint {
 }
 
 public extension UIView {
-  public func addSubview(_ child: UIView, constraints: [Constraint]) {
+  func addSubview(_ child: UIView, constraints: [Constraint]) {
     addSubview(child)
     child.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate(constraints.map { $0(child, self) })
   }
   
-  public func insertSubview(_ view: UIView, at index: Int, constraints: [Constraint]) {
+  func insertSubview(_ view: UIView, at index: Int, constraints: [Constraint]) {
     insertSubview(view, at: index)
     view.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate(constraints.map { $0(view, self) })
   }
   
-  public func layout(to view: UIView, constraints: [Constraint]) {
+  func layout(to view: UIView, constraints: [Constraint]) {
     translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate(constraints.map { $0(view, self) })
   }

@@ -6,12 +6,12 @@
 
 public extension CAGradientLayer {
 
-  public enum Direction: Int {
+  enum Direction: Int {
     
     case t2b = 0, l2r, b2t, r2l, bl2tr, tl2br, tr2bl, br2tl
   }
   
-  public convenience init(frame: CGRect, colors: [UIColor], style: Direction) {
+  convenience init(frame: CGRect, colors: [UIColor], style: Direction) {
     self.init()
     self.frame = frame
     self.colors = []
@@ -39,7 +39,7 @@ public extension CAGradientLayer {
     
   }
 
-  public func creatGradientImage() -> UIImage? {
+  func creatGradientImage() -> UIImage? {
 
     var image: UIImage? = nil
     UIGraphicsBeginImageContext(bounds.size)

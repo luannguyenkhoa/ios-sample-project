@@ -75,8 +75,8 @@ public extension UD {
       /// Start encrypting the inputting value
       let encrypted = try aes.encrypt(value.bytes)
       /// Shift iv key to the result to use for decrypt later
-      let encryptedK = Data(bytes: encrypted)
-      var encryptedKIV = Data(bytes: iv)
+      let encryptedK = Data(encrypted)
+      var encryptedKIV = Data(iv)
       encryptedKIV.append(encryptedK)
       /// Encode based64 data to end string
       return encryptedKIV.base64EncodedString() as? T

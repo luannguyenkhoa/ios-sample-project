@@ -137,16 +137,8 @@ public struct Utility {
   ///   - text: need-to-check element
   /// - Returns: tuple of exists flag and length of text
   public static func contains(list: Set<String>, text: String) -> (Bool, Int) {
-    var contained = list.contains(text)
-    var length = text.count
-    if !contained {
-      for element in list where text.hasPrefix(element) {
-        length = element.count
-        contained = true
-        break
-      }
-    }
-    return (contained, length)
+    let item = list.lazy.filter{ text.hasPrefix($0) }
+    return list.contains(text) ? (true, text.count) : (item.first.notNil, item.first?.count ?? text.count)
   }
 
   /// Removing an element of array that is value of specific key in dictionary
@@ -156,7 +148,7 @@ public struct Utility {
   ///   - value: removed value
   ///   - dict: caching dictionary
   public static func removeValue(_ value: Int, by key: Int, from dict: inout [String: [Int]]) {
-    if var values = dict["\(key)"], let idx = values.index(of: value) {
+    if var values = dict["\(key)"], let idx = values.firstIndex(of: value) {
       values.remove(at: idx)
       dict["\(key)"] = values.isEmpty ? nil: values
     }

@@ -47,11 +47,11 @@ public struct SampleAPI: SampleMapping {
   }
   
   /// MARK: - Auth
-  public func signIn(email: String, pwd: String) -> Observable<NetworkResponse<User>> {
+  public func signIn(email: String, pwd: String) -> Observable<APIResponse<User>> {
     return network.post(endpoint: API.signIn(email: email, password: pwd)).map({ self.map() |> (nil, $0) })
   }
   
-  public func signUp(email: String, pwd: String, firstName: String, lastName: String) -> Observable<NetworkResponse<User>> {
+  public func signUp(email: String, pwd: String, firstName: String, lastName: String) -> Observable<APIResponse<User>> {
     return network.post(endpoint: API.signUp(email: email, pwd: pwd, firstName: firstName, lastName: lastName)).map({ self.map() |> (nil, $0) })
   }
   

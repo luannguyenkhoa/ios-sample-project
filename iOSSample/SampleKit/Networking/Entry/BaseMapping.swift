@@ -5,25 +5,6 @@
 
 import Foundation
 
-/// Network response customization
-///
-/// - next: if all conditions are met and response object is already
-/// - error: if there has an error
-/// - completed: if there has no error as well as no value
-public enum NetworkResponse<T> {
-  
-  case next(T)
-  case error(NetworkError?)
-  case completed
-  
-  public var isNext: Bool {
-    if case .next(_) = self {
-      return true
-    }
-    return false
-  }
-}
-
 /// Enumeration that consists of hardcode key for mapping
 private enum MappingKeys: String {
   
@@ -38,15 +19,15 @@ protocol Mapping {
 
 extension Mapping {
   
-  /// Just convert from Reponse to NetworkResponse for the consistency
-  func converter(res: Response) -> NetworkResponse<JSON> {
+  /// Just convert from Reponse to APIResponse for the consistency
+  func converter(res: Response) -> APIResponse<JSON> {
     switch res {
     case .success(let json): return .next(json as? JSON ?? [:])
     case .error(let err):    return .error(err)
     }
   }
 
-  /// Mapping from JSON to NetworkResponse that its next case contains a decodable object
+  /// Mapping from JSON to APIResponse that its next case contains a decodable object
   ///
   /// - Returns: a Object Wrapper
   func mapJSON<T: Decodable>(_ json: Any) -> T? {
@@ -60,10 +41,10 @@ extension Mapping {
     }
   }
 
-  /// Mapping Response to NetworkResponse that its next statement just contains an object only by key or initial object
+  /// Mapping Response to APIResponse that its next statement just contains an object only by key or initial object
   ///
-  /// - Returns: functional that converts Response and an optional key to NetworkResponse
-  func map<T: Decodable>(output: ((Any) -> Void)? = nil) -> (String?, Response) -> NetworkResponse<T> {
+  /// - Returns: functional that converts Response and an optional key to APIResponse
+  func map<T: Decodable>(output: ((Any) -> Void)? = nil) -> (String?, Response) -> APIResponse<T> {
     return { key, res in
       switch res {
       case .success(let jsonObject):
@@ -83,11 +64,11 @@ extension Mapping {
     }
   }
 
-  /// Mapping Response to NetworkResponse that its next statement will contains a list of objects
+  /// Mapping Response to APIResponse that its next statement will contains a list of objects
   ///
   /// - Parameter mappers: list of keys
-  /// - Returns: functional that converts Response to NetworkResponse
-  func map<T: Decodable>(mappers: [String]) -> (String?, Response) -> NetworkResponse<[T]> {
+  /// - Returns: functional that converts Response to APIResponse
+  func map<T: Decodable>(mappers: [String]) -> (String?, Response) -> APIResponse<[T]> {
     return { key, res in
       switch res {
       case .success(let jsonObject):
@@ -108,11 +89,11 @@ extension Mapping {
     }
   }
 
-  /// Mapping Response to NetworkResponse based on given mapper closure and its return
+  /// Mapping Response to APIResponse based on given mapper closure and its return
   ///
   /// - Parameter mapper: outside mapper closure
-  /// - Returns: functional that converts Response to NetworkResponse
-  func map<T>(mapper: @escaping (JSON) -> T?) -> (Response) -> NetworkResponse<T> {
+  /// - Returns: functional that converts Response to APIResponse
+  func map<T>(mapper: @escaping (JSON) -> T?) -> (Response) -> APIResponse<T> {
     return { res in
       switch res {
       case .success(let json):
@@ -125,10 +106,10 @@ extension Mapping {
   }
 
   /// Mapping without serializing to specific model or object,
-  /// it means that the function just check response status and then converting to NetworkResponse
+  /// it means that the function just check response status and then converting to APIResponse
   ///
-  /// - Returns: functional that converts Response to NetworkResponse in boolean
-  func map() -> (Response) -> NetworkResponse<Bool> {
+  /// - Returns: functional that converts Response to APIResponse in boolean
+  func map() -> (Response) -> APIResponse<Bool> {
     return { res in
       switch res {
       case .success:        return .next(true)
@@ -137,13 +118,13 @@ extension Mapping {
     }
   }
 
-  /// Mapping Response to NetworkResponse that its next statement will contains an array of objects along with other info
+  /// Mapping Response to APIResponse that its next statement will contains an array of objects along with other info
   ///
   /// - Parameters:
   ///   - filter: giving a filter closure as a paremeter to filter mapped list for doing something
   ///   - extra: user might get some extra info from meta and given json insides this callback
-  /// - Returns: functional that converts Response and offset value to NetworkResponse
-  func mapArray<T: Decodable>(filter: ((T) -> Bool)? = nil, extra: ((Meta, JSON) -> Void)? = nil) -> (Int, Response) -> NetworkResponse<([T], Bool, Int)> {
+  /// - Returns: functional that converts Response and offset value to APIResponse
+  func mapArray<T: Decodable>(filter: ((T) -> Bool)? = nil, extra: ((Meta, JSON) -> Void)? = nil) -> (Int, Response) -> APIResponse<([T], Bool, Int)> {
     return { offset, res in
       switch res {
       case .success(let jsonObject):

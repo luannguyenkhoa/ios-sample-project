@@ -70,7 +70,7 @@ struct SignInViewModel: ViewModelType {
     return complete
   }
   
-  private func handleError(err: NetworkError?) {
+  private func handleError(err: APIError?) {
     error.onNext((Title.Error.network.desc, err?.message ?? Message.Error.network.desc))
   }
 }

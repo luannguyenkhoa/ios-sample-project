@@ -8,14 +8,14 @@ import UIKit
 
 public extension UIView {
 
-  public typealias Action = () -> ()
+  typealias Action = () -> ()
   typealias Animation = (duration: TimeInterval, action: Action, completion: (() -> Void)? )
   /// Showing view on super view with fade animation
   ///
   /// - Parameter isShow: A flag to determine that this animation will be applied for show/hide view action
   /// - Parameter spring: A flag for willing use spring animation or not
   /// - Parameter completed: Callback when the animation was completed
-  public func fade(isShow: Bool = true, spring: Bool = false, duration: TimeInterval = 0.25, delay: TimeInterval = 0, completion: (() -> Void)? = nil) {
+  func fade(isShow: Bool = true, spring: Bool = false, duration: TimeInterval = 0.25, delay: TimeInterval = 0, completion: (() -> Void)? = nil) {
     self.alpha = isShow ? 0 : 1
     let animation = (duration, { self.alpha = isShow ? 1: 0 }, completion)
     spring ? springAnimation(delay: delay, animation: animation) : defaultAnimation(delay: delay, animation: animation)
@@ -26,7 +26,7 @@ public extension UIView {
   /// - Parameters:
   ///   - animation: effection
   ///   - completion: completion callback argument
-  public func basicAnimation(_ animation: @escaping Action, duration: TimeInterval = 0.25, completion: (() -> Void)? = nil) {
+  func basicAnimation(_ animation: @escaping Action, duration: TimeInterval = 0.25, completion: (() -> Void)? = nil) {
     defaultAnimation(animation: (duration, animation, completion))
   }
 
@@ -35,7 +35,7 @@ public extension UIView {
   /// - Parameters:
   ///   - duration: animation duration
   ///   - action: action before executing animation
-  public func layout(duration: TimeInterval, action: @escaping Action) {
+  func layout(duration: TimeInterval, action: @escaping Action) {
     action()
     UIView.animate(withDuration: duration) {
       self.layoutIfNeeded()
@@ -69,7 +69,7 @@ public extension UIView {
   /// - Parameters:
   ///   - rad: degrees of rotation
   ///   - duration: animation duration
-  public func rotate(rad: CGFloat = .pi * 2, duration: TimeInterval = 0.5) {
+  func rotate(rad: CGFloat = .pi * 2, duration: TimeInterval = 0.5) {
     /// For safe, clean up all animations before adding new one.
     layer.removeAllAnimations()
     /// Initial rotation layer animation and add it into specified view
@@ -88,7 +88,7 @@ public extension UIView {
   ///   - duration: duration animation
   ///   - delay: delay time
   ///   - scale: scale value
-  public func location(duration: TimeInterval = 2, delay: TimeInterval = 0, scale: CGFloat = 0 ) {
+  func location(duration: TimeInterval = 2, delay: TimeInterval = 0, scale: CGFloat = 0 ) {
     self.layer.transform = CATransform3DIdentity
     self.layer.removeAllAnimations()
 
@@ -104,7 +104,7 @@ public extension UIView {
   /// - Parameters:
   ///   - duration: animation duration
   ///   - delay: delay time
-  public func move(duration: TimeInterval, delay: TimeInterval) {
+  func move(duration: TimeInterval, delay: TimeInterval) {
     UIView.animate(withDuration: duration, delay: delay, options: .curveLinear, animations: {
       self.frame.origin.x += 250
       self.frame.origin.y += 100
@@ -116,7 +116,7 @@ public extension UIView {
   /// - Parameters:
   ///   - duration: animation duration
   ///   - delay: delay time
-  public func rotate(duration: TimeInterval, delay: TimeInterval) {
+  func rotate(duration: TimeInterval, delay: TimeInterval) {
     UIView.animate(withDuration: duration, delay: delay, options: .curveEaseIn, animations: {
       self.transform = CGAffineTransform(rotationAngle: .pi/6)
     }, completion: nil)
@@ -126,7 +126,7 @@ public extension UIView {
   ///
   /// - Parameters:
   ///   - duration: animation duration
-  public func shake(duration: CFTimeInterval = 0.01, repeatCount: Float = Float.infinity, reverse: Bool = true,  values: [Any]? = nil) {
+  func shake(duration: CFTimeInterval = 0.01, repeatCount: Float = Float.infinity, reverse: Bool = true,  values: [Any]? = nil) {
     /// Clean previous animation for safe
     layer.removeAnimation(forKey: "shakeIt")
 
@@ -146,7 +146,7 @@ public extension UIView {
   /// - Parameters:
   ///   - duration: animation duration
   ///   - delay: delay time
-  public func hide(duration: TimeInterval, delay: TimeInterval, completion: Action? = nil) {
+  func hide(duration: TimeInterval, delay: TimeInterval, completion: Action? = nil) {
     UIView.animate(withDuration: duration, delay: delay, options: .curveEaseIn, animations: {
       self.alpha = 0
     }, completion: { _ in
@@ -161,7 +161,7 @@ public extension UIView {
   ///   - delay: delay time
   ///   - scaleX: value of scaleX
   ///   - scaleY: value of scaleY
-  public func zoom(duration: TimeInterval, delay: TimeInterval, scaleX: CGFloat, scaleY: CGFloat, completion: Action? = nil) {
+  func zoom(duration: TimeInterval, delay: TimeInterval, scaleX: CGFloat, scaleY: CGFloat, completion: Action? = nil) {
     self.alpha = 1
     self.transform = CGAffineTransform(scaleX: 0, y: 0)
     UIView.animate(withDuration: 0.25, delay: 0.25, options: .curveEaseIn, animations: {
@@ -176,7 +176,7 @@ public extension UIView {
   /// - Parameters:
   ///   - duration: animation duration
   ///   - isLeft: slide in left if true and slide in right if false
-  public func slideIn(duration: Double = 1, subType: CATransitionSubtype = .fromBottom) {
+  func slideIn(duration: Double = 1, subType: CATransitionSubtype = .fromBottom) {
     alpha = 1
     let animate = CATransition()
     animate.type = .push
@@ -192,7 +192,7 @@ public extension UIView {
   /// - Parameters:
   ///   - animation: tuple contains duration, alternative animation and completion callback
   ///   - scale: scale value: 0 means reset to initial
-  public func scale(animation: Animation, scale: CGFloat = 0) {
+  func scale(animation: Animation, scale: CGFloat = 0) {
     UIView.animate(withDuration: animation.duration, animations: {
       self.transform = scale == 0 ? CGAffineTransform.identity : CGAffineTransform(scaleX: scale, y: scale)
       animation.action()

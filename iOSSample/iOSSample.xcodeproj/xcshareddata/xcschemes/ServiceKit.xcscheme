@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B3DA4853221ABE7C0091E023"
-               BuildableName = "iOSSample.app"
-               BlueprintName = "iOSSample"
+               BlueprintIdentifier = "B36A663C22801E0D00E2C34B"
+               BuildableName = "ServiceKit.framework"
+               BlueprintName = "ServiceKit"
                ReferencedContainer = "container:iOSSample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,26 +32,6 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B3DA4867221ABE7E0091E023"
-               BuildableName = "iOSSampleTests.xctest"
-               BlueprintName = "iOSSampleTests"
-               ReferencedContainer = "container:iOSSample.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B3DA4872221ABE7E0091E023"
-               BuildableName = "iOSSampleUITests.xctest"
-               BlueprintName = "iOSSampleUITests"
-               ReferencedContainer = "container:iOSSample.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "B36A664422801E0D00E2C34B"
                BuildableName = "ServiceKitTests.xctest"
                BlueprintName = "ServiceKitTests"
@@ -62,9 +42,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B3DA4853221ABE7C0091E023"
-            BuildableName = "iOSSample.app"
-            BlueprintName = "iOSSample"
+            BlueprintIdentifier = "B36A663C22801E0D00E2C34B"
+            BuildableName = "ServiceKit.framework"
+            BlueprintName = "ServiceKit"
             ReferencedContainer = "container:iOSSample.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -72,7 +52,7 @@
       </AdditionalOptions>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Staging"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
@@ -81,41 +61,39 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B3DA4853221ABE7C0091E023"
-            BuildableName = "iOSSample.app"
-            BlueprintName = "iOSSample"
+            BlueprintIdentifier = "B36A663C22801E0D00E2C34B"
+            BuildableName = "ServiceKit.framework"
+            BlueprintName = "ServiceKit"
             ReferencedContainer = "container:iOSSample.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Staging"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B3DA4853221ABE7C0091E023"
-            BuildableName = "iOSSample.app"
-            BlueprintName = "iOSSample"
+            BlueprintIdentifier = "B36A663C22801E0D00E2C34B"
+            BuildableName = "ServiceKit.framework"
+            BlueprintName = "ServiceKit"
             ReferencedContainer = "container:iOSSample.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
-      buildConfiguration = "Debug">
+      buildConfiguration = "Staging">
    </AnalyzeAction>
    <ArchiveAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Staging"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

@@ -1,6 +1,6 @@
-## Technical Notes:
+# Technical Notes:
 
-### Description:
+## Description:
 
 ```
 This project aims to be a standard configured code structure to help developers reducing the effort on Infracstructure period. 
@@ -12,9 +12,9 @@ Note: SampleKit is considered as a collection of ever implementations, so it mig
 Please do review and remove those parts to get this initial project appropriated to yours. 
 ```
 
-### Breaking Down Structure
+## Breaking Down Structure
 
-1.	iOSSample
+### iOSSample -> the project name
 ```
 . Config:
   . Config: For App configurations with seperated env
@@ -40,7 +40,7 @@ Please do review and remove those parts to get this initial project appropriated
 . Support Files: For storing Project compulsary files: AppDelegate, Assets, Info.plist
 ```
 
-2. SampleKit
+### SampleKit
 ```
 . AWS:
   . Config: Storing all things related AWS, specified in parameters, e.g: custom error, local database name,...
@@ -57,7 +57,46 @@ Please do review and remove those parts to get this initial project appropriated
        .... The more you explore, the more you obtain.
 ```
 
-### Recommendation
+## CI/CD
+
+*We will prefer CircleCI and Fastlane for CI/CD, combined with 2 services for UI Test and status notification: AWS Device Farm and Slack*
+
+#### Preparation
+1. Setup CircleCI
+2. Add Environment Variables as listed out below:
+  ```
+  APPLE_TEAM_ID: xxxxxxx
+  AWS_ACCESS_KEY_ID: xxxxxxx
+  AWS_REGION: e.g: us-east-1
+  AWS_SECRET_ACCESS_KEY: xxxxxx
+  FASTLANE_PASSWORD: App Manager account password
+  FASTLANE_USER: App Manager account email
+  MATCH_GIT_REPO: a private git repo where will store certificates and provisioning profiles
+  MATCH_KEYCHAIN_NAME: temporary keychain name: e.g: sample
+  MATCH_KEYCHAIN_PASSWORD: temporary password for keychain permission
+  MATCH_PASSWORD: password for cert encryption, should generate a strong password
+  ```
+3. Checkout SSH Keys: add ssh key to let circleci being able to clone certificates from git repo
+
+#### AWS Device Farm for UI Test
+1. Setup AWSDeviceFarm in us-west-2 region
+2. Replace its name and device_pool to 2 respective fields in Fastfile
+
+#### Slack Integration
+1. Setup webhooks for both project internal and client Slack
+2. Specify incomming message channels
+3. Replace these ones to corresponding fields in Fastfile
+
+#### Code Signing with Match
+1. Set *codesigning_identity* in Fastfile: `iPhone Distribution: Team Name + (Team ID)`.<br>
+e.g: *iPhone Distribution: Agility Company (N2KFAA234KI)* 
+
+#### Rome for Carthage cache
+1. Create S3 bucket for Rome cache
+2. Replace Bucket name in Romefile
+3. Update Romefile reposity map based on the Cartfile
+
+## Recommendation
 
 1. Using `d_print` to print out something in console instead of default `print` function
 2. For S3TransferManagement, it's needed to configure essential parameters before doing upload/download by calling *AWSS3TransferManagement.shared.configS3(folder: "", bucketName: "", prefixURL: "")* from `AppDelegate`

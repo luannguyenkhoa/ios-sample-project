@@ -38,7 +38,7 @@ Installing the following packages:
 [Swiftlint](https://github.com/realm/SwiftLint) : `brew install swiftlint`
 
 *Note: Cocoapods is not required for Sample proj, so please consider that whether it's necessary to install it or not. 
-Cocoapods is convenient and easy to integrate and manage frameworks but we prefer Carthage mostly due to experiencing many issues with Ruby package which is the core of cocoapods. Only using Pod to install frameworks if there is no choice.*
+Cocoapods is convenient and easy to integrate and manage frameworks but we prefer Carthage mostly due to experienced many issues with Ruby package which is the core of cocoapods. Only using Pod to install frameworks if there is no choice.*
 
 Setup:
 -----
@@ -54,15 +54,8 @@ Setup:
 ```
 replace NEW_PROJ_NAME with yours.
 
-```
-Trick to resolve if getting error: `failed with exit code 128:` -> comment out `aws-mobile-appsync-sdk-ios` from Cartfile, then run the above line to build frameworks. 
-After it's done, uncomment `appsync` line, run this command: `carthage update --no-build-binaries --no-build`, 
-waiting until it gets done then run the last one: carthage build `aws-mobile-appsync-sdk-ios --platform iOS`
-```
-
-. SDK Setup: <br>
-    * AWS: Following this [guideline](https://aws-amplify.github.io/docs/ios/manualsetup) to get the SDK worked in your project <br>
-    * AWS AppSync SDK: following this [section](https://github.com/awslabs/aws-mobile-appsync-sdk-ios#via-carthage).
+. Carthage: *carthage bootstrap --platform iOS --no-use-binaries* <br>
+. Cocoapods: *pod install* if needed.
 
 Getting Started:
 ---------------

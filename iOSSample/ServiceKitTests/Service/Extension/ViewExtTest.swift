@@ -1,7 +1,14 @@
-import XCTest
-@testable import SampleKit
+//
+//  ViewExtTest.swift
+//  ServiceKitTests
+//
+//  Copyright © 2019 Agility. All rights reserved.
+//
 
-class Utility: XCTestCase {
+import XCTest
+@testable import ServiceKit
+
+class ViewExtTest: XCTestCase {
   
   override func setUp() {
     // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -16,11 +23,10 @@ class Utility: XCTestCase {
     // Use XCTAssert and related functions to verify your tests produce the correct results.
   }
   
-  func testFormatCounter() {
-    let counters = [1, 10, 100, 1000, 10000, 100000]
-    let expectedResults = ["1", "10", "100", "1K", "10K", "100K"]
-    let results = counters.map { SampleKit.Utility.formatCounter($0) }
-    XCTAssert(results.elementsEqual(expectedResults), "Should equal")
+  func testSnapshot() {
+    let mainView = UIView(frame: UIScreen.main.bounds)
+    let snapshot = mainView.snapshot()
+    XCTAssertNotNil(snapshot, "Snapshot should always be taken successfully")
   }
   
   func testPerformanceExample() {

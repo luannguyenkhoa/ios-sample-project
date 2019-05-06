@@ -3,7 +3,15 @@
 /// - next: if all conditions are met and response object is already
 /// - error: if there has an error
 /// - completed: if there has no error as well as no value
-public enum APIResponse<T> {
+public enum APIResponse<T>: Equatable {
+  
+  public static func == (lhs: APIResponse<T>, rhs: APIResponse<T>) -> Bool {
+    switch lhs {
+    case .next: return rhs.isNext
+    case .error: return rhs.isError
+    case .completed: return !rhs.isError && !rhs.isNext
+    }
+  }
   
   case next(T)
   case error(APIError?)
@@ -11,6 +19,13 @@ public enum APIResponse<T> {
   
   public var isNext: Bool {
     if case .next(_) = self {
+      return true
+    }
+    return false
+  }
+  
+  var isError: Bool {
+    if case .error(_) = self {
       return true
     }
     return false

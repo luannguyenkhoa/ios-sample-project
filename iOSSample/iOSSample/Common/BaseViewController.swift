@@ -5,7 +5,7 @@
 
 import RxSwift
 import RxCocoa
-import SampleKit
+import ServiceKit
 
 class BaseViewController: UIViewController {
 

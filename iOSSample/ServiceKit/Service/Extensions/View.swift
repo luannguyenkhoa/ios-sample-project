@@ -156,14 +156,6 @@ public extension UIView {
       height += newValue
     }
   }
-  
-  /// Adding constraint from subview to view with 4 edges equally
-  ///
-  /// - Parameter target: subview
-  func addEqualConstraints(target: UIView, attributes: [NSLayoutConstraint.Attribute]) {
-    let constraints = attributes.map{ NSLayoutConstraint(item: target, attribute: $0, relatedBy: .equal, toItem: self, attribute: $0, multiplier: 1, constant: 0) }
-    constraints.forEach({ $0.isActive = true })
-  }
 }
 
 extension UIView {

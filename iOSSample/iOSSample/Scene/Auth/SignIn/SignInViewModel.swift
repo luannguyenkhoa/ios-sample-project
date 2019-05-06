@@ -1,6 +1,6 @@
 import RxSwift
 import RxCocoa
-import SampleKit
+import ServiceKit
 
 struct SignInViewModel: ViewModelType {
   
@@ -62,7 +62,7 @@ struct SignInViewModel: ViewModelType {
         case .next(let user):
           d_print(user)
           /// Mark the user have joined
-          UDKey.User.confirmed.set(true)
+          SecureKey.User.confirmed.set(true)
           complete.onNext(())
         default: break
         }

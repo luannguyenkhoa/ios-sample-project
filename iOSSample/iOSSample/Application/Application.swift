@@ -1,5 +1,5 @@
 import RxSwift
-import SampleKit
+import ServiceKit
 
 struct Application {
   
@@ -13,13 +13,13 @@ struct Application {
     
     /// Determine the root view when the app gets launched based on user's logged-in state
     // Rolling into Welcome page if it's the first time
-    if !(UDKey.User.confirmed.value ?? false) {
+    if !(SecureKey.User.confirmed.value ?? false) {
       /// TODO: To Landing page
       switchRoot(vc: UIStoryboard(storyboard: AppStoryboard.Main).instantiateInitialViewController()!, window: window)
       return
     }
     
-    if UDKey<String>.User.email.value.isNil {
+    if SecureKey<String>.User.email.value.isNil {
       let navigation = UINavigationController()
       DefaultSignInNavigator(navigation: navigation).toSignIn()
       switchRoot(vc: navigation, window: window)

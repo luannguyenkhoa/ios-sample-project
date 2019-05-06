@@ -10,7 +10,7 @@ public extension UIView {
 
   typealias Action = () -> ()
   typealias Animation = (duration: TimeInterval, action: Action, completion: (() -> Void)? )
-  /// Showing view on super view with fade animation
+  /// Showing view on super view with faded animation
   ///
   /// - Parameter isShow: A flag to determine that this animation will be applied for show/hide view action
   /// - Parameter spring: A flag for willing use spring animation or not
@@ -64,7 +64,7 @@ public extension UIView {
     }
   }
 
-  /// Animation to rotate view
+  /// Rotation animation with infinity repeating until force stopping
   ///
   /// - Parameters:
   ///   - rad: degrees of rotation
@@ -81,37 +81,8 @@ public extension UIView {
     rotateAnimation.isRemovedOnCompletion = false
     layer.add(rotateAnimation, forKey: "rotationAnimation")
   }
-
-  /// Animation for location dialog
-  ///
-  /// - Parameters:
-  ///   - duration: duration animation
-  ///   - delay: delay time
-  ///   - scale: scale value
-  func location(duration: TimeInterval = 2, delay: TimeInterval = 0, scale: CGFloat = 0 ) {
-    self.layer.transform = CATransform3DIdentity
-    self.layer.removeAllAnimations()
-
-    UIView.animate(withDuration: duration, delay: delay, options: .repeat, animations: {
-      self.transform = CGAffineTransform(scaleX: scale, y: scale)
-    }, completion: {(finished: Bool) in
-      self.transform = CGAffineTransform(scaleX: 0, y: 0)
-    })
-  }
-
-  /// Move animation
-  ///
-  /// - Parameters:
-  ///   - duration: animation duration
-  ///   - delay: delay time
-  func move(duration: TimeInterval, delay: TimeInterval) {
-    UIView.animate(withDuration: duration, delay: delay, options: .curveLinear, animations: {
-      self.frame.origin.x += 250
-      self.frame.origin.y += 100
-    }, completion: nil)
-  }
-
-  /// Rotate animation and no repeat for mask image
+  
+  /// Rotate animation with none-repeat
   ///
   /// - Parameters:
   ///   - duration: animation duration
@@ -119,6 +90,18 @@ public extension UIView {
   func rotate(duration: TimeInterval, delay: TimeInterval) {
     UIView.animate(withDuration: duration, delay: delay, options: .curveEaseIn, animations: {
       self.transform = CGAffineTransform(rotationAngle: .pi/6)
+    }, completion: nil)
+  }
+
+  /// Move animation
+  ///
+  /// - Parameters:
+  ///   - duration: animation duration
+  ///   - delay: delay time
+  func move(duration: TimeInterval, by point: CGPoint, delay: TimeInterval) {
+    UIView.animate(withDuration: duration, delay: delay, options: .curveLinear, animations: {
+      self.frame.origin.x += point.x
+      self.frame.origin.y += point.y
     }, completion: nil)
   }
 
@@ -141,33 +124,36 @@ public extension UIView {
     self.layer.add(transformAnim, forKey: "shakeIt")
   }
 
-  /// Hide animation
-  ///
-  /// - Parameters:
-  ///   - duration: animation duration
-  ///   - delay: delay time
-  func hide(duration: TimeInterval, delay: TimeInterval, completion: Action? = nil) {
-    UIView.animate(withDuration: duration, delay: delay, options: .curveEaseIn, animations: {
-      self.alpha = 0
-    }, completion: { _ in
-      completion?()
-    })
-  }
-
-  /// Zoom animation
+  /// ZoomIn animation
   ///
   /// - Parameters:
   ///   - duration: animation duration
   ///   - delay: delay time
   ///   - scaleX: value of scaleX
   ///   - scaleY: value of scaleY
-  func zoom(duration: TimeInterval, delay: TimeInterval, scaleX: CGFloat, scaleY: CGFloat, completion: Action? = nil) {
+  func zoomIn(duration: TimeInterval = 0.25, delay: TimeInterval = 0.25, scaleX: CGFloat, scaleY: CGFloat, completion: Action? = nil) {
     self.alpha = 1
     self.transform = CGAffineTransform(scaleX: 0, y: 0)
-    UIView.animate(withDuration: 0.25, delay: 0.25, options: .curveEaseIn, animations: {
+    UIView.animate(withDuration: duration, delay: delay, options: .curveEaseIn, animations: {
       self.transform = CGAffineTransform(scaleX: scaleX, y: scaleY)
     }, completion: { _ in
       completion?()
+    })
+  }
+  
+  /// ZoomOut animation
+  ///
+  /// - Parameters:
+  ///   - duration: duration animation
+  ///   - delay: delay time
+  func zoomOut(duration: TimeInterval = 2, delay: TimeInterval = 0) {
+    self.layer.transform = CATransform3DIdentity
+    self.layer.removeAllAnimations()
+    
+    UIView.animate(withDuration: duration, delay: delay, options: .repeat, animations: {
+      self.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+    }, completion: {(finished: Bool) in
+      self.transform = CGAffineTransform(scaleX: 0, y: 0)
     })
   }
 
@@ -187,18 +173,4 @@ public extension UIView {
     self.layer.add(animate, forKey: "slideInAnimation")
   }
 
-  /// Scale up/down following the inputting value and perform alternative animation
-  ///
-  /// - Parameters:
-  ///   - animation: tuple contains duration, alternative animation and completion callback
-  ///   - scale: scale value: 0 means reset to initial
-  func scale(animation: Animation, scale: CGFloat = 0) {
-    UIView.animate(withDuration: animation.duration, animations: {
-      self.transform = scale == 0 ? CGAffineTransform.identity : CGAffineTransform(scaleX: scale, y: scale)
-      animation.action()
-    }) { (_) in
-      animation.completion?()
-    }
-  }
-  
 }

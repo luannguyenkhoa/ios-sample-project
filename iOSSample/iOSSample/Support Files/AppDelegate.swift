@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SampleKit
+import ServiceKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

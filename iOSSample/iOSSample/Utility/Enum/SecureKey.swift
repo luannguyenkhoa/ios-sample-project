@@ -111,7 +111,7 @@ public extension UD {
 }
 
 /// for dealling with UserDefault
-public enum UDKey<T>: String, UD {
+public enum SecureKey<T>: String, UD {
   
   case example = "EXAMPLE"
   // MARK: - Usecases

@@ -147,10 +147,10 @@ public struct Utility {
   ///   - key: query key
   ///   - value: removed value
   ///   - dict: caching dictionary
-  public static func removeValue(_ value: Int, by key: Int, from dict: inout [String: [Int]]) {
-    if var values = dict["\(key)"], let idx = values.firstIndex(of: value) {
-      values.remove(at: idx)
-      dict["\(key)"] = values.isEmpty ? nil: values
+  public static func removeValues<V: Equatable, K: Hashable>(_ value: V, by key: K, from dict: inout [K: [V]]) {
+    if let values = dict[key] {
+      let filteredItems = values.filter{ $0 != value }
+      dict[key] = filteredItems.isEmpty ? nil: filteredItems
     }
   }
   

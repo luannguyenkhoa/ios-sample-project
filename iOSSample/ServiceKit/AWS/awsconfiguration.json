@@ -25,9 +25,6 @@
       "Region": "us-east-1"
     }
   },
-  "IdentityManager": {
-    "Default": {}
-  },
   "AppSync": {
     "Default": {
       "ApiUrl": "",

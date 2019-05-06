@@ -1,7 +1,15 @@
-import XCTest
-@testable import SampleKit
+//
+//  ServiceKitTests.swift
+//  ServiceKitTests
+//
+//  Created by Luan Nguyen on 5/6/19.
+//  Copyright © 2019 Agility. All rights reserved.
+//
 
-class SampleKitTests: XCTestCase {
+import XCTest
+@testable import ServiceKit
+
+class ServiceKitTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.

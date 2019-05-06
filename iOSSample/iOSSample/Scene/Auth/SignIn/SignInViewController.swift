@@ -1,4 +1,4 @@
-import SampleKit
+import ServiceKit
 import RxCocoa
 
 // MARK: - Naming extensions

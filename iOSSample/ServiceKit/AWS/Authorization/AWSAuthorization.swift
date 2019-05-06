@@ -9,6 +9,7 @@ public struct AWSAuthorization {
   
   public static var shared = AWSAuthorization()
   public var clientID = ""
+  private let initilizedAppKey = "InitializedApp"
   
   public func intialize(_ completion: @escaping (State) -> Void) {
     AWSMobileClient.sharedInstance().initialize { (state, err) in
@@ -18,7 +19,7 @@ public struct AWSAuthorization {
       }
       switch state {
       case .signedIn:
-        if UserDefaults.standard.bool(forKey: "InitializedApp") {
+        if UserDefaults.standard.bool(forKey: self.initilizedAppKey) {
           completion(.auth)
           self.fetchTokens()
           self.regiterServices()
@@ -30,7 +31,7 @@ public struct AWSAuthorization {
       default: completion(.fail)
       }
       /// Flag the app is initialized
-      UserDefaults.standard.set(true, forKey: "InitializedApp")
+      UserDefaults.standard.set(true, forKey: self.initilizedAppKey)
     }
   }
   
@@ -43,8 +44,8 @@ public struct AWSAuthorization {
       switch state {
       case .signedOutUserPoolsTokenInvalid:
         /// Once receive an invalid token signal, should automatically refresh it silently
-        let email = UDKey.User.email.value ?? ""
-        let pwd = UDKey.User.password.value ?? ""
+        let email = SecureKey.User.email.value ?? ""
+        let pwd = SecureKey.User.password.value ?? ""
         AWSMobileClient.sharedInstance().signIn(username: email, password: pwd, completionHandler: { (_, err) in
           if let err = err {
             d_print("Refresh error: \(err.localizedDescription)")
@@ -129,7 +130,7 @@ public struct AWSAuthorization {
           switch res.signUpConfirmationState {
           case .confirmed:
             /// Reminder: After confirming code successfully, we should call signIn to initilize user's session and get tokens
-            UDKey.User.confirmed.set(true)
+            SecureKey.User.confirmed.set(true)
             observer.onNext(.next(true))
           default:
             observer.onNext(.error(APIError(AWSError.unexpectedError.desc)))
@@ -185,15 +186,15 @@ public struct AWSAuthorization {
   internal func cacheUser(confirmed: Bool, email: String, pwd: String) {
     /// Caching something if needed
     let username = AWSMobileClient.sharedInstance().username ?? email
-    zip([username, pwd, confirmed], [UDKey.User.email, UDKey.User.password, UDKey.User.confirmed]).forEach({ $0.1.set($0.0) })
-    UDKey.User.userId.set(username)
+    zip([username, pwd, confirmed], [SecureKey.User.email, SecureKey.User.password, SecureKey.User.confirmed]).forEach({ $0.1.set($0.0) })
+    SecureKey.User.userId.set(username)
   }
   
   public func fetchTokens(_ completion: ((String?) -> Void)? = nil) {
     /// Retreive user's tokens and cache access token in local storage
     AWSMobileClient.sharedInstance().getTokens { (tokens, err) in
       if let token = tokens?.accessToken?.tokenString {
-        UDKey.User.token.set(token)
+        SecureKey.User.token.set(token)
       }
       completion?(tokens?.accessToken?.tokenString)
     }
@@ -201,7 +202,7 @@ public struct AWSAuthorization {
   
   public func signOut() {
     /// Clean up all local caching data
-    UDKey<Any>.User.clean()
+    SecureKey<Any>.User.clean()
     
     /// FIXME: should consider to eliminate these code if no need to clean AppSync local db
     /// Remove AppSync caching db

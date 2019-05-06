@@ -1,4 +1,4 @@
-import SampleKit
+import ServiceKit
 
 // MARK: - Naming extensions
 private typealias PrivateHandlers = SignUpViewController

@@ -2,7 +2,7 @@
 //  BaseViewModel.swift
 //
 
-import SampleKit
+import ServiceKit
 import RxCocoa
 import RxSwift
 // A common protocol of ViewModel part.

@@ -3,6 +3,12 @@ import AWSAppSync
 
 public struct PostAPI {
   
+  /// Start updating a post with new info and specifying whether needs to do UI optimistic for offline or not
+  ///
+  /// - Parameters:
+  ///   - post: post with new info
+  ///   - onOptimistic: flag to determine the UI optimistic approach
+  /// - Returns: Response of request state and Item List object wrapped in a data streaming Observable
   static func updatePost(post: PostBrief, onOptimistic: Bool = true) -> Observable<APIResponse<(AppSynClient.PerformState, PostItem?)>> {
     let updating = UpdatePostInput(id: post.id, author: post.author, title: post.title, content: post.content, url: post.url, version: post.version)
     var files: [S3ObjectInput]?
@@ -72,6 +78,13 @@ public struct PostAPI {
     })
   }
   
+  /// Fetch data with pagination supported and cachePolity that specifies whether results should be fetched from the server or loaded from the local cache
+  ///
+  /// - Parameters:
+  ///   - limit: specifies the number of items per each request
+  ///   - token: a string that helps to determine it still has remaining items
+  ///   - cachePolicy: specifies the way to fetch data
+  /// - Returns: Response of item list and next token wrapped in a data streaming Observable
   static func fetch(limit: Int? = nil, token: String? = nil, cachePolicy: CachePolicy = .returnCacheDataAndFetch) -> Observable<APIResponse<(list: [PostItem], token: String?)>> {
     
     return .create{ (observer) in
@@ -103,6 +116,9 @@ public struct PostAPI {
     }
   }
   
+  /// Force fetching all Post items from local storage only
+  ///
+  /// - Returns: list of Post items wrapped in an observable for data streaming
   static func fetchAllCache() -> Observable<[PostItem]> {
     return .create { observer in
       
@@ -122,6 +138,12 @@ public struct PostAPI {
     }
   }
   
+  /// Perform a post creation from either server or both server and local if the corresponding flag is enabled
+  ///
+  /// - Parameters:
+  ///   - post: a faking object that wraps inputted info
+  ///   - onOptimistic: flag to determine that whether doing UI optimistic or not which normally related to offline mode supporting
+  /// - Returns: an observable that wraps response of Bool value
   static func create(post: PostBrief, onOptimistic: Bool = true) -> Observable<APIResponse<Bool>> {
     let uniqueId = UUID().uuidString
     let images = post.images?.compactMap{ $0 }.map{ S3Manager.shared.makeS3Input(key: $0.key, localURI: $0.localUri.wrap) }
@@ -169,6 +191,12 @@ public struct PostAPI {
     }
   }
   
+  /// Subscribe to new changes from server to real-time update App data. Using generic function to support mutilple inputs, in particularly 3 types of subscription: onDelete, onAdd, onUpdate
+  ///
+  /// - Parameters:
+  ///   - type: specified type of subscription
+  ///   - regression: callback for handling output watcher
+  /// - Returns: observable that wraps response of each event
   func subscribe<T: GraphQLSubscription>(for type: T, regression: ((Cancelable) -> Void)? = nil) -> Observable<(ApolloStore.ReadWriteTransaction?, PostItem)>  {
     return .create { observer in
       do {
@@ -187,6 +215,7 @@ public struct PostAPI {
             default: break
             }
             if let snapshot = snapshot {
+              /// Emit a next event to deliver new change to listeners
               observer.onNext((transaction, PostItem(snapshot: snapshot)))
             }
           }

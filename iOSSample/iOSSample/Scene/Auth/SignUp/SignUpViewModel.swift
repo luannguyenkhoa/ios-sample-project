@@ -23,13 +23,13 @@ struct SignUpViewModel: ViewModelType {
   // MARK: - Properties
   private let navigator: SignUpNavigator
   private let disposeBag = DisposeBag()
-  private let api: SampleAPI
+  private let authUseCase: AuthUseCase
   private let error = PublishSubject<MessageContent?>()
   
   // MARK: - Initialization and Conforms
-  init(navigator: SignUpNavigator, api: SampleAPI){
+  init(navigator: SignUpNavigator, authUseCase: AuthUseCase){
     self.navigator = navigator
-    self.api = api
+    self.authUseCase = authUseCase
   }
   
   func transform(input: Input) -> Output {
@@ -53,7 +53,7 @@ struct SignUpViewModel: ViewModelType {
   private func signUp(press: Driver<()>, form: Driver<(String)>, activity: ActivityIndicator, valid: Driver<Bool>) -> PublishSubject<()> {
     let complete = PublishSubject<()>()
     press.withLatestFrom(valid).filter({ $0 }).withLatestFrom(form).flatMapLatest { (arg)  in
-      return self.api.signUp(email: arg, pwd: arg + "\(Date().timeStampUTC())", firstName: "", lastName: "").trackActivity(activity).asDriver(.error(nil))
+      return self.authUseCase.signUp(email: arg, pwd: arg + "\(Date().timeStampUTC())", firstName: "", lastName: "").trackActivity(activity).asDriver(.error(nil))
       }.drive(onNext: { response in
         switch response {
         case .error(let err): self.handleError(error: err)

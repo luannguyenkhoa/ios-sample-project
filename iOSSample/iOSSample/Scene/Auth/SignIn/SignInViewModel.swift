@@ -26,14 +26,14 @@ struct SignInViewModel: ViewModelType {
   // MARK: - Properties
   private let navigator: SignInNavigator
   private let disposeBag = DisposeBag()
-  private let api: SampleAPI
+  private let authUseCase: AuthUseCase
   
   private let error = PublishSubject<MessageContent?>()
   
   // MARK: - Initialization and Conforms
-  init(navigator: SignInNavigator, api: SampleAPI){
+  init(navigator: SignInNavigator, authUseCase: AuthUseCase){
     self.navigator = navigator
-    self.api = api
+    self.authUseCase = authUseCase
   }
   
   func transform(input: Input) -> Output {
@@ -55,7 +55,7 @@ struct SignInViewModel: ViewModelType {
   private func signIn(save: Driver<Void>, form: Driver<(String, String)>, activity: ActivityIndicator, valid: Driver<Bool>) -> PublishSubject<()> {
     let complete = PublishSubject<()>()
     save.withLatestFrom(valid).filter({ $0 }).withLatestFrom(form).flatMapLatest { (arg)  in
-      return self.api.signIn(email: arg.0, pwd: arg.1).trackActivity(activity).asDriver(.error(nil))
+      return self.authUseCase.signIn(email: arg.0, pwd: arg.1).trackActivity(activity).asDriver(.error(nil))
       }.drive(onNext: { response in
         switch response {
         case .error(let err): self.handleError |> err

@@ -48,12 +48,12 @@
 		B36A66B922801E3700E2C34B /* AWSAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A666822801E3700E2C34B /* AWSAuthorization.swift */; };
 		B36A66BA22801E3700E2C34B /* S3Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A666A22801E3700E2C34B /* S3Manager.swift */; };
 		B36A66BB22801E3700E2C34B /* AppSynClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A666B22801E3700E2C34B /* AppSynClient.swift */; };
-		B36A66BC22801E3700E2C34B /* SampleMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A666E22801E3700E2C34B /* SampleMapping.swift */; };
+		B36A66BC22801E3700E2C34B /* AuthMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A666E22801E3700E2C34B /* AuthMapping.swift */; };
 		B36A66BD22801E3700E2C34B /* BaseMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A666F22801E3700E2C34B /* BaseMapping.swift */; };
 		B36A66BE22801E3700E2C34B /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A667122801E3700E2C34B /* Network.swift */; };
 		B36A66BF22801E3700E2C34B /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A667222801E3700E2C34B /* APIProvider.swift */; };
 		B36A66C022801E3700E2C34B /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A667322801E3700E2C34B /* Response.swift */; };
-		B36A66C122801E3700E2C34B /* SampleAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A667522801E3700E2C34B /* SampleAPI.swift */; };
+		B36A66C122801E3700E2C34B /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A667522801E3700E2C34B /* AuthAPI.swift */; };
 		B36A66C222801E3700E2C34B /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A667822801E3700E2C34B /* NotificationService.swift */; };
 		B36A66C322801E3700E2C34B /* LocationManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A667A22801E3700E2C34B /* LocationManagement.swift */; };
 		B36A66C422801E3700E2C34B /* FileManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A667C22801E3700E2C34B /* FileManagement.swift */; };
@@ -100,7 +100,7 @@
 		B36A66ED22801E3700E2C34B /* Meta.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A66AF22801E3700E2C34B /* Meta.swift */; };
 		B36A66EE22801E3700E2C34B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A66B022801E3700E2C34B /* User.swift */; };
 		B36A66EF22801E3700E2C34B /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A66B122801E3700E2C34B /* APIResponse.swift */; };
-		B36A66F822801EA900E2C34B /* SampleAPITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A66F122801EA900E2C34B /* SampleAPITest.swift */; };
+		B36A66F822801EA900E2C34B /* AuthAPITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A66F122801EA900E2C34B /* AuthAPITest.swift */; };
 		B36A66F922801EA900E2C34B /* StringExtText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A66F422801EA900E2C34B /* StringExtText.swift */; };
 		B36A66FA22801EA900E2C34B /* ViewExtTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A66F522801EA900E2C34B /* ViewExtTest.swift */; };
 		B36A66FB22801EA900E2C34B /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A66F722801EA900E2C34B /* Utility.swift */; };
@@ -112,6 +112,11 @@
 		B3DA4862221ABE7E0091E023 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3DA4860221ABE7E0091E023 /* LaunchScreen.storyboard */; };
 		B3DA486D221ABE7E0091E023 /* iOSSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DA486C221ABE7E0091E023 /* iOSSampleTests.swift */; };
 		B3DA4878221ABE7E0091E023 /* iOSSampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DA4877221ABE7E0091E023 /* iOSSampleUITests.swift */; };
+		B3F4735622813963004405E6 /* SignInViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F4735522813963004405E6 /* SignInViewModelTests.swift */; };
+		B3F4735822813C10004405E6 /* SignInNavigatorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F4735722813C10004405E6 /* SignInNavigatorMock.swift */; };
+		B3F4735A22817066004405E6 /* SignInAPIMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F4735922817066004405E6 /* SignInAPIMock.swift */; };
+		B3F4735D22819176004405E6 /* SignUpViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F4735C22819176004405E6 /* SignUpViewModelTests.swift */; };
+		B3F4735F2281918E004405E6 /* SignUpNavigatorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F4735E2281918E004405E6 /* SignUpNavigatorMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +142,13 @@
 			remoteInfo = iOSSample;
 		};
 		B3DA4874221ABE7E0091E023 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B3DA484C221ABE7C0091E023 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B3DA4853221ABE7C0091E023;
+			remoteInfo = iOSSample;
+		};
+		B3F47350228126BA004405E6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B3DA484C221ABE7C0091E023 /* Project object */;
 			proxyType = 1;
@@ -202,12 +214,12 @@
 		B36A666822801E3700E2C34B /* AWSAuthorization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWSAuthorization.swift; sourceTree = "<group>"; };
 		B36A666A22801E3700E2C34B /* S3Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = S3Manager.swift; sourceTree = "<group>"; };
 		B36A666B22801E3700E2C34B /* AppSynClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSynClient.swift; sourceTree = "<group>"; };
-		B36A666E22801E3700E2C34B /* SampleMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleMapping.swift; sourceTree = "<group>"; };
+		B36A666E22801E3700E2C34B /* AuthMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthMapping.swift; sourceTree = "<group>"; };
 		B36A666F22801E3700E2C34B /* BaseMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseMapping.swift; sourceTree = "<group>"; };
 		B36A667122801E3700E2C34B /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		B36A667222801E3700E2C34B /* APIProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
 		B36A667322801E3700E2C34B /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
-		B36A667522801E3700E2C34B /* SampleAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleAPI.swift; sourceTree = "<group>"; };
+		B36A667522801E3700E2C34B /* AuthAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
 		B36A667822801E3700E2C34B /* NotificationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		B36A667A22801E3700E2C34B /* LocationManagement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManagement.swift; sourceTree = "<group>"; };
 		B36A667C22801E3700E2C34B /* FileManagement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManagement.swift; sourceTree = "<group>"; };
@@ -254,7 +266,7 @@
 		B36A66AF22801E3700E2C34B /* Meta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meta.swift; sourceTree = "<group>"; };
 		B36A66B022801E3700E2C34B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B36A66B122801E3700E2C34B /* APIResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
-		B36A66F122801EA900E2C34B /* SampleAPITest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleAPITest.swift; sourceTree = "<group>"; };
+		B36A66F122801EA900E2C34B /* AuthAPITest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthAPITest.swift; sourceTree = "<group>"; };
 		B36A66F422801EA900E2C34B /* StringExtText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtText.swift; sourceTree = "<group>"; };
 		B36A66F522801EA900E2C34B /* ViewExtTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewExtTest.swift; sourceTree = "<group>"; };
 		B36A66F722801EA900E2C34B /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
@@ -271,6 +283,11 @@
 		B3DA4873221ABE7E0091E023 /* iOSSampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSSampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3DA4877221ABE7E0091E023 /* iOSSampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSSampleUITests.swift; sourceTree = "<group>"; };
 		B3DA4879221ABE7E0091E023 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B3F4735522813963004405E6 /* SignInViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModelTests.swift; sourceTree = "<group>"; };
+		B3F4735722813C10004405E6 /* SignInNavigatorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInNavigatorMock.swift; sourceTree = "<group>"; };
+		B3F4735922817066004405E6 /* SignInAPIMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInAPIMock.swift; sourceTree = "<group>"; };
+		B3F4735C22819176004405E6 /* SignUpViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModelTests.swift; sourceTree = "<group>"; };
+		B3F4735E2281918E004405E6 /* SignUpNavigatorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpNavigatorMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -594,7 +611,7 @@
 		B36A666D22801E3700E2C34B /* Entry */ = {
 			isa = PBXGroup;
 			children = (
-				B36A666E22801E3700E2C34B /* SampleMapping.swift */,
+				B36A666E22801E3700E2C34B /* AuthMapping.swift */,
 				B36A666F22801E3700E2C34B /* BaseMapping.swift */,
 			);
 			path = Entry;
@@ -613,7 +630,7 @@
 		B36A667422801E3700E2C34B /* API */ = {
 			isa = PBXGroup;
 			children = (
-				B36A667522801E3700E2C34B /* SampleAPI.swift */,
+				B36A667522801E3700E2C34B /* AuthAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -777,7 +794,7 @@
 		B36A66F022801EA900E2C34B /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				B36A66F122801EA900E2C34B /* SampleAPITest.swift */,
+				B36A66F122801EA900E2C34B /* AuthAPITest.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -865,6 +882,7 @@
 		B3DA486B221ABE7E0091E023 /* iOSSampleTests */ = {
 			isa = PBXGroup;
 			children = (
+				B3F473522281392E004405E6 /* Scene */,
 				B3DA486C221ABE7E0091E023 /* iOSSampleTests.swift */,
 				B3DA486E221ABE7E0091E023 /* Info.plist */,
 			);
@@ -878,6 +896,42 @@
 				B3DA4879221ABE7E0091E023 /* Info.plist */,
 			);
 			path = iOSSampleUITests;
+			sourceTree = "<group>";
+		};
+		B3F473522281392E004405E6 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				B3F473532281393C004405E6 /* Auth */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		B3F473532281393C004405E6 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				B3F4735922817066004405E6 /* SignInAPIMock.swift */,
+				B3F4735422813951004405E6 /* SignIn */,
+				B3F4735B2281915D004405E6 /* SignUp */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		B3F4735422813951004405E6 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				B3F4735522813963004405E6 /* SignInViewModelTests.swift */,
+				B3F4735722813C10004405E6 /* SignInNavigatorMock.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		B3F4735B2281915D004405E6 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				B3F4735C22819176004405E6 /* SignUpViewModelTests.swift */,
+				B3F4735E2281918E004405E6 /* SignUpNavigatorMock.swift */,
+			);
+			path = SignUp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -924,6 +978,7 @@
 			);
 			dependencies = (
 				B36A664822801E0D00E2C34B /* PBXTargetDependency */,
+				B3F47351228126BA004405E6 /* PBXTargetDependency */,
 			);
 			name = ServiceKitTests;
 			productName = ServiceKitTests;
@@ -1197,13 +1252,13 @@
 				B36A66E922801E3700E2C34B /* Validation.swift in Sources */,
 				B36A66D222801E3700E2C34B /* Bundle.swift in Sources */,
 				B36A66D722801E3700E2C34B /* Image+Gif.swift in Sources */,
-				B36A66BC22801E3700E2C34B /* SampleMapping.swift in Sources */,
+				B36A66BC22801E3700E2C34B /* AuthMapping.swift in Sources */,
 				B36A66CE22801E3700E2C34B /* Gradient.swift in Sources */,
 				B36A66ED22801E3700E2C34B /* Meta.swift in Sources */,
 				B36A66E322801E3700E2C34B /* EmailClient.swift in Sources */,
 				B36A66BD22801E3700E2C34B /* BaseMapping.swift in Sources */,
 				B36A66E122801E3700E2C34B /* Theme.swift in Sources */,
-				B36A66C122801E3700E2C34B /* SampleAPI.swift in Sources */,
+				B36A66C122801E3700E2C34B /* AuthAPI.swift in Sources */,
 				B36A66C322801E3700E2C34B /* LocationManagement.swift in Sources */,
 				B36A66CA22801E3700E2C34B /* Thread.swift in Sources */,
 				B36A66B922801E3700E2C34B /* AWSAuthorization.swift in Sources */,
@@ -1236,7 +1291,7 @@
 				B36A66FB22801EA900E2C34B /* Utility.swift in Sources */,
 				B36A66FA22801EA900E2C34B /* ViewExtTest.swift in Sources */,
 				B36A66F922801EA900E2C34B /* StringExtText.swift in Sources */,
-				B36A66F822801EA900E2C34B /* SampleAPITest.swift in Sources */,
+				B36A66F822801EA900E2C34B /* AuthAPITest.swift in Sources */,
 				B36A664D22801E0D00E2C34B /* ServiceKitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1280,7 +1335,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3F4735622813963004405E6 /* SignInViewModelTests.swift in Sources */,
+				B3F4735F2281918E004405E6 /* SignUpNavigatorMock.swift in Sources */,
 				B3DA486D221ABE7E0091E023 /* iOSSampleTests.swift in Sources */,
+				B3F4735A22817066004405E6 /* SignInAPIMock.swift in Sources */,
+				B3F4735D22819176004405E6 /* SignUpViewModelTests.swift in Sources */,
+				B3F4735822813C10004405E6 /* SignInNavigatorMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1314,6 +1374,11 @@
 			isa = PBXTargetDependency;
 			target = B3DA4853221ABE7C0091E023 /* iOSSample */;
 			targetProxy = B3DA4874221ABE7E0091E023 /* PBXContainerItemProxy */;
+		};
+		B3F47351228126BA004405E6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B3DA4853221ABE7C0091E023 /* iOSSample */;
+			targetProxy = B3F47350228126BA004405E6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1438,6 +1503,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = iOSSampleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1788,6 +1857,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -1800,7 +1870,6 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOSSample.app/iOSSample";
 			};
 			name = Staging;
 		};
@@ -1862,6 +1931,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -1873,7 +1943,6 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOSSample.app/iOSSample";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Dev;
@@ -1936,6 +2005,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -1947,7 +2017,6 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOSSample.app/iOSSample";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Prod;
@@ -2139,6 +2208,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = iOSSampleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2161,6 +2234,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = iOSSampleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

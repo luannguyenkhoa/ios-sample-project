@@ -12,6 +12,12 @@ public struct User: Codable {
     return [firstName, lastName].compactMap({ $0 }).joined(separator: " ")
   }
   
+  public init(username: String, email: String, userId: Int) {
+    self.userId = userId
+    self.username = username
+    self.email = email
+  }
+  
   enum CodingKeys: String, CodingKey {
     case username, apiKey, email
     case userId = "id"

@@ -5,9 +5,6 @@ struct Application {
   
   // MARK: - Singleton pattern
   static var shared = Application()
-  lazy var sampleAPI: SampleAPI = {
-    return APIProvider.makeSampleAPI(baseURL: Configs.apiURL.value)
-  }()
   
   func configMainInterface(window: UIWindow?) {
     
@@ -21,7 +18,7 @@ struct Application {
     
     if SecureKey<String>.User.email.value.isNil {
       let navigation = UINavigationController()
-      DefaultSignInNavigator(navigation: navigation).toSignIn()
+      DefaultSignInNavigator(navigation: navigation, authUseCase: APIProvider.makeAuthAPI(baseURL: Configs.apiURL.value)).toSignIn()
       switchRoot(vc: navigation, window: window)
       return
     }

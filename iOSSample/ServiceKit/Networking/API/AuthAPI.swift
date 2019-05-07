@@ -1,7 +1,14 @@
 import Alamofire
 import RxSwift
 
-private enum SampleEndpoint: Endpoint {
+public protocol AuthUseCase {
+  
+  func signIn(email: String, pwd: String) -> Observable<APIResponse<User>>
+  func signUp(email: String, pwd: String, firstName: String, lastName: String) -> Observable<APIResponse<User>>
+  func logout()
+}
+
+private enum AuthEndpoint: Endpoint {
   
   case signIn(email: String, password: String)
   case signUp(email: String, pwd: String, firstName: String, lastName: String)
@@ -30,12 +37,12 @@ private enum SampleEndpoint: Endpoint {
   
 }
 
-public struct SampleAPI: SampleMapping {
+public struct AuthAPI: AuthUseCase, AuthMapping {
   
   /// MARK: - Internal properties
   private let network: Network<User>
   let jsonDecoder: JSONDecoder
-  private typealias API = SampleEndpoint
+  private typealias API = AuthEndpoint
   private let reachability: ReachabilityService
   
   init(network: Network<User>) {

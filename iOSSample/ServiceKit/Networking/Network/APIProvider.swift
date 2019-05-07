@@ -1,7 +1,7 @@
 
 public struct APIProvider {
   
-  public static func makeSampleAPI(baseURL: String) -> SampleAPI {
-    return SampleAPI(network: Network<User>(baseURL: baseURL))
+  public static func makeAuthAPI(baseURL: String) -> AuthAPI {
+    return AuthAPI(network: Network<User>(baseURL: baseURL))
   }
 }

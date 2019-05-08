@@ -117,6 +117,12 @@
 		B3F4735A22817066004405E6 /* SignInAPIMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F4735922817066004405E6 /* SignInAPIMock.swift */; };
 		B3F4735D22819176004405E6 /* SignUpViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F4735C22819176004405E6 /* SignUpViewModelTests.swift */; };
 		B3F4735F2281918E004405E6 /* SignUpNavigatorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F4735E2281918E004405E6 /* SignUpNavigatorMock.swift */; };
+		B3FBB63D2282758C00D2A43C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FBB63C2282758C00D2A43C /* HomeViewController.swift */; };
+		B3FBB63F2282759D00D2A43C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FBB63E2282759D00D2A43C /* HomeViewModel.swift */; };
+		B3FBB641228275A900D2A43C /* HomeNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FBB640228275A900D2A43C /* HomeNavigator.swift */; };
+		B3FBB6432282BC5900D2A43C /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FBB6422282BC5900D2A43C /* HomeViewModelTests.swift */; };
+		B3FBB6452282BC7C00D2A43C /* HomeNavigatorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FBB6442282BC7C00D2A43C /* HomeNavigatorMock.swift */; };
+		B3FBB6472282BC8E00D2A43C /* HomeAPIMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FBB6462282BC8E00D2A43C /* HomeAPIMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -288,6 +294,12 @@
 		B3F4735922817066004405E6 /* SignInAPIMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInAPIMock.swift; sourceTree = "<group>"; };
 		B3F4735C22819176004405E6 /* SignUpViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModelTests.swift; sourceTree = "<group>"; };
 		B3F4735E2281918E004405E6 /* SignUpNavigatorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpNavigatorMock.swift; sourceTree = "<group>"; };
+		B3FBB63C2282758C00D2A43C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		B3FBB63E2282759D00D2A43C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		B3FBB640228275A900D2A43C /* HomeNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigator.swift; sourceTree = "<group>"; };
+		B3FBB6422282BC5900D2A43C /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
+		B3FBB6442282BC7C00D2A43C /* HomeNavigatorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigatorMock.swift; sourceTree = "<group>"; };
+		B3FBB6462282BC8E00D2A43C /* HomeAPIMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAPIMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -353,6 +365,7 @@
 		B32D12E722488E5400C38DF8 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				B3F4736122819593004405E6 /* Home */,
 				B32D14112248D93D00C38DF8 /* Auth */,
 			);
 			path = Scene;
@@ -901,6 +914,7 @@
 		B3F473522281392E004405E6 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				B3F4736022819585004405E6 /* Home */,
 				B3F473532281393C004405E6 /* Auth */,
 			);
 			path = Scene;
@@ -932,6 +946,26 @@
 				B3F4735E2281918E004405E6 /* SignUpNavigatorMock.swift */,
 			);
 			path = SignUp;
+			sourceTree = "<group>";
+		};
+		B3F4736022819585004405E6 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B3FBB6422282BC5900D2A43C /* HomeViewModelTests.swift */,
+				B3FBB6442282BC7C00D2A43C /* HomeNavigatorMock.swift */,
+				B3FBB6462282BC8E00D2A43C /* HomeAPIMock.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B3F4736122819593004405E6 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B3FBB63C2282758C00D2A43C /* HomeViewController.swift */,
+				B3FBB63E2282759D00D2A43C /* HomeViewModel.swift */,
+				B3FBB640228275A900D2A43C /* HomeNavigator.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1313,17 +1347,20 @@
 				B32D13922248931100C38DF8 /* BaseViewModel.swift in Sources */,
 				B32D13CB2248931E00C38DF8 /* ViewText.swift in Sources */,
 				B32D13D02248931E00C38DF8 /* Util.swift in Sources */,
+				B3FBB63F2282759D00D2A43C /* HomeViewModel.swift in Sources */,
 				B32D14522248E57F00C38DF8 /* SignUpViewModel.swift in Sources */,
 				B32D142E2248DE3B00C38DF8 /* SignInViewController.swift in Sources */,
 				B32D13C62248931E00C38DF8 /* Helper.swift in Sources */,
 				B32D13C72248931E00C38DF8 /* Message.swift in Sources */,
 				B32D13C82248931E00C38DF8 /* Common.swift in Sources */,
 				B3D93557224CC085005AA86C /* GradientView.swift in Sources */,
+				B3FBB63D2282758C00D2A43C /* HomeViewController.swift in Sources */,
 				B32D13D52248932400C38DF8 /* Constant.swift in Sources */,
 				B32D13CF2248931E00C38DF8 /* SConverter.swift in Sources */,
 				B32D1306224890B600C38DF8 /* Config.swift in Sources */,
 				B32D13D72248932F00C38DF8 /* Application.swift in Sources */,
 				B32D13D22248931E00C38DF8 /* ValidationExt.swift in Sources */,
+				B3FBB641228275A900D2A43C /* HomeNavigator.swift in Sources */,
 				B32D13932248931100C38DF8 /* ViewModelType.swift in Sources */,
 				B32D142C2248DE3B00C38DF8 /* SignInNavigator.swift in Sources */,
 				B32D14512248E57F00C38DF8 /* SignUpViewController.swift in Sources */,
@@ -1335,10 +1372,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3FBB6452282BC7C00D2A43C /* HomeNavigatorMock.swift in Sources */,
 				B3F4735622813963004405E6 /* SignInViewModelTests.swift in Sources */,
+				B3FBB6432282BC5900D2A43C /* HomeViewModelTests.swift in Sources */,
 				B3F4735F2281918E004405E6 /* SignUpNavigatorMock.swift in Sources */,
 				B3DA486D221ABE7E0091E023 /* iOSSampleTests.swift in Sources */,
 				B3F4735A22817066004405E6 /* SignInAPIMock.swift in Sources */,
+				B3FBB6472282BC8E00D2A43C /* HomeAPIMock.swift in Sources */,
 				B3F4735D22819176004405E6 /* SignUpViewModelTests.swift in Sources */,
 				B3F4735822813C10004405E6 /* SignInNavigatorMock.swift in Sources */,
 			);

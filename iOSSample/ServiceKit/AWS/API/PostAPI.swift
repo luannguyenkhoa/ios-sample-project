@@ -1,7 +1,17 @@
 import RxSwift
 import AWSAppSync
 
-public struct PostAPI {
+/// Make the useCase testable by taking use of protocol
+public protocol PostUseCase {
+  
+  func updatePost(post: PostBrief, onOptimistic: Bool) -> Observable<APIResponse<(AppSynClient.PerformState, PostItem?)>>
+  func fetch(limit: Int?, token: String?, cachePolicy: CachePolicy) -> Observable<APIResponse<(list: [PostItem], token: String?)>>
+  func fetchAllCache() -> Observable<[PostItem]>
+  func create(post: PostBrief, onOptimistic: Bool) -> Observable<APIResponse<Bool>>
+  func subscribe<T: GraphQLSubscription>(for type: T, regression: ((Cancelable) -> Void)?) -> Observable<(ApolloStore.ReadWriteTransaction?, PostItem)>
+}
+
+public struct PostAPI: PostUseCase {
   
   /// Start updating a post with new info and specifying whether needs to do UI optimistic for offline or not
   ///
@@ -9,7 +19,7 @@ public struct PostAPI {
   ///   - post: post with new info
   ///   - onOptimistic: flag to determine the UI optimistic approach
   /// - Returns: Response of request state and Item List object wrapped in a data streaming Observable
-  static func updatePost(post: PostBrief, onOptimistic: Bool = true) -> Observable<APIResponse<(AppSynClient.PerformState, PostItem?)>> {
+  public func updatePost(post: PostBrief, onOptimistic: Bool = true) -> Observable<APIResponse<(AppSynClient.PerformState, PostItem?)>> {
     let updating = UpdatePostInput(id: post.id, author: post.author, title: post.title, content: post.content, url: post.url, version: post.version)
     var files: [S3ObjectInput]?
     if let images = post.images?.compactMap({ $0 }), !images.isEmpty {
@@ -85,7 +95,7 @@ public struct PostAPI {
   ///   - token: a string that helps to determine it still has remaining items
   ///   - cachePolicy: specifies the way to fetch data
   /// - Returns: Response of item list and next token wrapped in a data streaming Observable
-  static func fetch(limit: Int? = nil, token: String? = nil, cachePolicy: CachePolicy = .returnCacheDataAndFetch) -> Observable<APIResponse<(list: [PostItem], token: String?)>> {
+  public func fetch(limit: Int? = nil, token: String? = nil, cachePolicy: CachePolicy = .returnCacheDataAndFetch) -> Observable<APIResponse<(list: [PostItem], token: String?)>> {
     
     return .create{ (observer) in
       AppSynClient.shared.appSyncClient?.fetch(query: AllPostsQuery(limit: limit, nextToken: token), cachePolicy: cachePolicy) { (res, error) in
@@ -119,7 +129,7 @@ public struct PostAPI {
   /// Force fetching all Post items from local storage only
   ///
   /// - Returns: list of Post items wrapped in an observable for data streaming
-  static func fetchAllCache() -> Observable<[PostItem]> {
+  public func fetchAllCache() -> Observable<[PostItem]> {
     return .create { observer in
       
       AppSynClient.shared.appSyncClient?.fetch(query: AllPostsQuery(), cachePolicy: .returnCacheDataDontFetch) { res, error in
@@ -144,7 +154,7 @@ public struct PostAPI {
   ///   - post: a faking object that wraps inputted info
   ///   - onOptimistic: flag to determine that whether doing UI optimistic or not which normally related to offline mode supporting
   /// - Returns: an observable that wraps response of Bool value
-  static func create(post: PostBrief, onOptimistic: Bool = true) -> Observable<APIResponse<Bool>> {
+  public func create(post: PostBrief, onOptimistic: Bool = true) -> Observable<APIResponse<Bool>> {
     let uniqueId = UUID().uuidString
     let images = post.images?.compactMap{ $0 }.map{ S3Manager.shared.makeS3Input(key: $0.key, localURI: $0.localUri.wrap) }
     
@@ -197,7 +207,7 @@ public struct PostAPI {
   ///   - type: specified type of subscription
   ///   - regression: callback for handling output watcher
   /// - Returns: observable that wraps response of each event
-  func subscribe<T: GraphQLSubscription>(for type: T, regression: ((Cancelable) -> Void)? = nil) -> Observable<(ApolloStore.ReadWriteTransaction?, PostItem)>  {
+  public func subscribe<T: GraphQLSubscription>(for type: T, regression: ((Cancelable) -> Void)? = nil) -> Observable<(ApolloStore.ReadWriteTransaction?, PostItem)>  {
     return .create { observer in
       do {
         let watcher = try AppSynClient.shared.appSyncClient?.subscribe(subscription: type) { (result, transaction, error) in

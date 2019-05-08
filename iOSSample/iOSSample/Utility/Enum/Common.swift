@@ -29,4 +29,9 @@ enum Enum {
     }
     
   }
+  
+  enum FetchType {
+    case all
+    case pagination
+  }
 }

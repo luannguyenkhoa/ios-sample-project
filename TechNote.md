@@ -4,11 +4,11 @@
 
 ```
 This project aims to be a standard configured code structure to help developers reducing the effort on Infracstructure period. 
-It also collect all common services and implementations since we have experienced throught a ton of iOS projects with full reliability of their output and being placed in SampleKit. 
+It also collect all common services and implementations since we have experienced throught a ton of iOS projects with full reliability of their output and being placed in ServiceKit. 
 The most important part is the kit, which will take both of Networking/AWS and Service implementations into the same place for the convenient use purpose and reduce compiling time as well as getting them isolated from other parts. 
 Besides, another essential part is as looking at Scene folder that will store all App logics: every scene will be separated to 3 files: ViewController, ViewModel and Navigator. 
 Each of them will stand for its explicit mission in 3 types: view, logic and navigation, respectively. 
-Note: SampleKit is considered as a collection of ever implementations, so it might contain unnecessary parts for your needs. 
+Note: ServiceKit is considered as a collection of ever implementations, so it might contain unnecessary parts for your needs. 
 Please do review and remove those parts to get this initial project appropriated to yours. 
 ```
 
@@ -40,7 +40,7 @@ Please do review and remove those parts to get this initial project appropriated
 . Support Files: For storing Project compulsary files: AppDelegate, Assets, Info.plist
 ```
 
-### SampleKit
+### ServiceKit
 ```
 . AWS:
   . Config: Storing all things related AWS, specified in parameters, e.g: custom error, local database name,...
@@ -96,10 +96,10 @@ e.g: *iPhone Distribution: Agility Company (N2KFAA234KI)*
 2. Replace Bucket name in Romefile
 3. Update Romefile reposity map based on the Cartfile
 
-## Recommendation
+## Tips
 
 1. Using `d_print` to print out something in console instead of default `print` function
 2. For S3TransferManagement, it's needed to configure essential parameters before doing upload/download by calling *AWSS3TransferManagement.shared.configS3(folder: "", bucketName: "", prefixURL: "")* from `AppDelegate`
 3. Should clean up git history before pushing the project to your proj repository,
 4. For AppSync codegen, we should use this [package](https://www.npmjs.com/package/aws-appsync-codegen) to generate code from graphql and schema instead of Amplify Codegen, because as our project usually seperates backend and frontend jobs explicitly,<br> backend will take care of initializing project on the cloud, but Amplify requires initializing before doing other jobs, this requirement makes a serious issue that automatically creating new project in the cloud<br> with multiple services: S3, IAM, CloudFormation. It's not a good behavior, and might issue duplicated and redudant stuffs.
-5. TBC...
+5. Following this [article](https://medium.com/@dima.cheverda/xcode-9-templates-596e2ed85609) to create useful File templates, or you can download these common ones from here then move Custom folder into the directory: *~/Library/Developer/Xcode/Templates*

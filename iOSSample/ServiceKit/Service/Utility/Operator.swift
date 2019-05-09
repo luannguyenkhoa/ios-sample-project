@@ -92,7 +92,7 @@ public func nonMarkedText(_ textInput: UITextInput) -> String? {
 }
 
 // MARK: - Implementations <->
-public func <-> <Base>(textInput: TextInput<Base>, variable: Variable<String>) -> Disposable {
+public func <-> <Base>(textInput: TextInput<Base>, variable: BehaviorRelay<String>) -> Disposable {
   let bindToUIDisposable = variable.asObservable()
     .bind(to: textInput.text)
   let bindToVariable = textInput.text
@@ -109,13 +109,13 @@ public func <-> <Base>(textInput: TextInput<Base>, variable: Variable<String>) -
        The can be reproed easily if replace bottom code with
 
        if nonMarkedTextValue != variable.value {
-       variable.value = nonMarkedTextValue ?? ""
+       variable.accept(nonMarkedTextValue ?? "")
        }
 
        and you hit "Done" button on keyboard.
        */
       if let nonMarkedTextValue = nonMarkedTextValue, nonMarkedTextValue != variable.value {
-        variable.value = nonMarkedTextValue
+        variable.accept(nonMarkedTextValue)
       }
       }, onCompleted:  {
         bindToUIDisposable.dispose()
@@ -124,13 +124,13 @@ public func <-> <Base>(textInput: TextInput<Base>, variable: Variable<String>) -
   return Disposables.create(bindToUIDisposable, bindToVariable)
 }
 
-public func <-> <T>(property: ControlProperty<T>, variable: Variable<T>) -> Disposable {
+public func <-> <T>(property: ControlProperty<T>, variable: BehaviorRelay<T>) -> Disposable {
 
   let bindToUIDisposable = variable.asObservable()
     .bind(to: property)
   let bindToVariable = property
     .subscribe(onNext: { n in
-      variable.value = n
+      variable.accept(n)
     }, onCompleted:  {
       bindToUIDisposable.dispose()
     })

@@ -11,7 +11,7 @@ struct DefaultSignUpNavigator: SignUpNavigator {
   
   // MARK: - Properties
   private weak var navigation: UINavigationController!
-  private var authUseCase: AuthUseCase!
+  private let authUseCase: AuthUseCase
   
   // MARK: - Initialization and Conforms
   init(navigation: UINavigationController, authUseCase: AuthUseCase) {
@@ -20,7 +20,7 @@ struct DefaultSignUpNavigator: SignUpNavigator {
   }
   
   func toSignUp() {
-    let vc = UIStoryboard(storyboard: AppStoryboard.Main).instantiate(SignUpViewController.self)
+    let vc = UIStoryboard(storyboard: AppStoryboard.Auth).instantiate(SignUpViewController.self)
     vc.viewModel = SignUpViewModel(navigator: self, authUseCase: authUseCase)
     navigation.setViewControllers([vc], animated: true)
   }
@@ -30,7 +30,7 @@ struct DefaultSignUpNavigator: SignUpNavigator {
   }
   
   func toHome() {
-    
+    DefaultHomeNavigator(navigation: navigation, postUseCase: PostAPI()).toHome()
   }
 
   func terms() {

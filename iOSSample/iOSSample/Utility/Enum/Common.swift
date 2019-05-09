@@ -31,7 +31,7 @@ enum Enum {
   }
   
   enum FetchType {
-    case all
-    case pagination
+    case refresh
+    case paginize
   }
 }

@@ -27,11 +27,11 @@ public extension String {
     }
   }
 
-  func substring(to: Int) -> String {
+  func sub(to: Int) -> String {
     return String(self[...min(count - 1, to)])
   }
 
-  func substring(from: Int) -> String {
+  func sub(from: Int) -> String {
     return String(self[max(0, from)...])
   }
 

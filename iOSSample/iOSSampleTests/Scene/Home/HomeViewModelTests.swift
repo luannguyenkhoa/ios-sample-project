@@ -49,12 +49,12 @@ class HomeViewModelTests: XCTestCase {
   func testFetchPosts() {
     
     let fetch = PublishSubject<Enum.FetchType>()
-    let output = viewModel.transform(input: createInput(fetch: fetch.asDriver(.all)))
+    let output = viewModel.transform(input: createInput(fetch: fetch.asDriver(.refresh)))
     useCaseMock.fetch_ReturnValues = .next(([fakeItem()], nil))
     
     /// Act
     output.posts.drive().disposed(by: disposeBag)
-    fetch.onNext(.all)
+    fetch.onNext(.refresh)
     
     /// Assert
     let posts = try! output.posts.toBlocking().first()!
@@ -64,11 +64,11 @@ class HomeViewModelTests: XCTestCase {
   func testErrorEmitter() {
     
     let fetch = PublishSubject<Enum.FetchType>()
-    let output = viewModel.transform(input: createInput(fetch: fetch.asDriver(.all)))
+    let output = viewModel.transform(input: createInput(fetch: fetch.asDriver(.refresh)))
     useCaseMock.fetch_ReturnValues = .error(APIError(code: 201, message: "Unauthorized User", title: ""))
     
     output.error.drive().disposed(by: disposeBag)
-    fetch.onNext(.all)
+    fetch.onNext(.refresh)
     
     /// Assert
     let error = try! output.error.toBlocking().first()!
@@ -79,7 +79,7 @@ class HomeViewModelTests: XCTestCase {
   func testExecutingEmitter() {
     
     let fetch = PublishSubject<Enum.FetchType>()
-    let output = viewModel.transform(input: createInput(fetch: fetch.asDriver(.all)))
+    let output = viewModel.transform(input: createInput(fetch: fetch.asDriver(.refresh)))
     let expectedExecuting = [true, false]
     var actualExecuting = [Bool]()
     
@@ -89,7 +89,7 @@ class HomeViewModelTests: XCTestCase {
       .drive().disposed(by: disposeBag)
     
     /// Fire an Press action
-    fetch.onNext(.all)
+    fetch.onNext(.refresh)
     
     /// Compare expected and actual results
     XCTAssertEqual(actualExecuting, expectedExecuting)
@@ -98,18 +98,18 @@ class HomeViewModelTests: XCTestCase {
   func testPagination() {
     
     let fetch = PublishSubject<Enum.FetchType>()
-    let output = viewModel.transform(input: createInput(fetch: fetch.asDriver(.all)))
+    let output = viewModel.transform(input: createInput(fetch: fetch.asDriver(.refresh)))
     useCaseMock.fetch_ReturnValues = .next((Array(repeating: fakeItem(), count: 10), "ABCXYZ"))
     
     output.posts.drive().disposed(by: disposeBag)
-    fetch.onNext(.pagination)
+    fetch.onNext(.paginize)
     
     var posts = try! output.posts.toBlocking().first()!
     XCTAssertNil(useCaseMock.fetch_Pagination_Token)
     XCTAssertEqual(posts.count, 10)
     
     useCaseMock.fetch_ReturnValues = .next((Array(repeating: fakeItem(), count: 10), "ABCXYZ2"))
-    fetch.onNext(.pagination)
+    fetch.onNext(.paginize)
     posts = try! output.posts.toBlocking().first()!
     XCTAssertEqual(useCaseMock.fetch_Pagination_Token, "ABCXYZ")
     XCTAssertEqual(posts.count, 20)

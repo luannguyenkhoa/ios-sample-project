@@ -13,6 +13,7 @@ public protocol PostUseCase {
 
 public struct PostAPI: PostUseCase {
   
+  public init(){}
   /// Start updating a post with new info and specifying whether needs to do UI optimistic for offline or not
   ///
   /// - Parameters:

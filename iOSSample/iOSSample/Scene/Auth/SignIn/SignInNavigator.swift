@@ -2,7 +2,6 @@ import ServiceKit
 
 protocol SignInNavigator {
   
-  func toSignIn()
   func toSignUp()
   func toForgotPassword()
   func toHome()
@@ -12,7 +11,7 @@ struct DefaultSignInNavigator: SignInNavigator {
   
   // MARK: - Properties
   private weak var navigation: UINavigationController!
-  private var authUseCase: AuthUseCase!
+  private let authUseCase: AuthUseCase
   
   // MARK: - Initialization and Conforms
   init(navigation: UINavigationController, authUseCase: AuthUseCase) {
@@ -21,7 +20,7 @@ struct DefaultSignInNavigator: SignInNavigator {
   }
   
   func toSignIn() {
-    let vc = UIStoryboard(storyboard: AppStoryboard.Main).instantiate(SignInViewController.self)
+    let vc = UIStoryboard(storyboard: AppStoryboard.Auth).instantiate(SignInViewController.self)
     vc.viewModel = SignInViewModel(navigator: self, authUseCase: authUseCase)
     navigation.setViewControllers([vc], animated: true)
   }
@@ -35,6 +34,6 @@ struct DefaultSignInNavigator: SignInNavigator {
   }
   
   func toHome() {
-    
+    DefaultHomeNavigator(navigation: navigation, postUseCase: PostAPI()).toHome()
   }
 }

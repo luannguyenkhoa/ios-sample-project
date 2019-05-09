@@ -7,6 +7,8 @@ public struct User: Codable {
   public let email: String
   public var apiKey = ""
   public let userId: Int
+  public var facebook: String?
+  public var instagram: String?
   
   public var fullName: String {
     return [firstName, lastName].compactMap({ $0 }).joined(separator: " ")
@@ -19,7 +21,7 @@ public struct User: Codable {
   }
   
   enum CodingKeys: String, CodingKey {
-    case username, apiKey, email
+    case username, apiKey, email, facebook, instagram
     case userId = "id"
     case firstName = "first_name"
     case lastName = "last_name"

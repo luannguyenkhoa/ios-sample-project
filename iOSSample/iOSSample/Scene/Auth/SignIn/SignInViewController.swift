@@ -41,12 +41,13 @@ final class SignInViewController: BaseViewController {
     }).disposed(by: disposeBag)
     
     /// Start binding
-    let input = SignInViewModel.Input(email: emailTextField.driver(), pwd: pwdTextField.driver(),
+    let input = SignInViewModel.Input(email: emailTextField.driveText(), pwd: pwdTextField.driveText(),
                                       press: pressButton.driver(), forgot: forgotButton.driver(), signup: signUpButton.driver())
     let output = viewModel.transform(input: input)
     
     /// Bind reponses
     output.error.ignoreNil().drive(onNext: {[unowned self] msg in self.errorPopup |> msg}).disposed(by: disposeBag)
+    output.valid.drive(pressButton.rx.isEnabled).disposed(by: disposeBag)
   }
 }
 

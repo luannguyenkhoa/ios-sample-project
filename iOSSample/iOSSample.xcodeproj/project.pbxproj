@@ -105,6 +105,13 @@
 		B36A66FA22801EA900E2C34B /* ViewExtTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A66F522801EA900E2C34B /* ViewExtTest.swift */; };
 		B36A66FB22801EA900E2C34B /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A66F722801EA900E2C34B /* Utility.swift */; };
 		B36A66FE2280255F00E2C34B /* SecureKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32D13AB2248931C00C38DF8 /* SecureKey.swift */; };
+		B3836CB42282E9E1008DC106 /* SignInUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3836CB32282E9E1008DC106 /* SignInUITests.swift */; };
+		B39467C72283C70E00218607 /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39467C62283C70E00218607 /* EditProfileViewModel.swift */; };
+		B39467C92283C71A00218607 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39467C82283C71A00218607 /* EditProfileViewController.swift */; };
+		B39467CB2283C72500218607 /* EditProfileNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39467CA2283C72500218607 /* EditProfileNavigator.swift */; };
+		B39467CD2283CEFA00218607 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39467CC2283CEFA00218607 /* Account.swift */; };
+		B39467CF2283D0B700218607 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B39467CE2283D0B700218607 /* Auth.storyboard */; };
+		B39467D22283DB3F00218607 /* LimitedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39467D12283DB3F00218607 /* LimitedTextField.swift */; };
 		B3D93557224CC085005AA86C /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D93556224CC085005AA86C /* GradientView.swift */; };
 		B3DA4858221ABE7C0091E023 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DA4857221ABE7C0091E023 /* AppDelegate.swift */; };
 		B3DA485D221ABE7C0091E023 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3DA485B221ABE7C0091E023 /* Main.storyboard */; };
@@ -276,6 +283,13 @@
 		B36A66F422801EA900E2C34B /* StringExtText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtText.swift; sourceTree = "<group>"; };
 		B36A66F522801EA900E2C34B /* ViewExtTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewExtTest.swift; sourceTree = "<group>"; };
 		B36A66F722801EA900E2C34B /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		B3836CB32282E9E1008DC106 /* SignInUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUITests.swift; sourceTree = "<group>"; };
+		B39467C62283C70E00218607 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
+		B39467C82283C71A00218607 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		B39467CA2283C72500218607 /* EditProfileNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileNavigator.swift; sourceTree = "<group>"; };
+		B39467CC2283CEFA00218607 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		B39467CE2283D0B700218607 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
+		B39467D12283DB3F00218607 /* LimitedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LimitedTextField.swift; sourceTree = "<group>"; };
 		B3D93556224CC085005AA86C /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		B3DA4854221ABE7C0091E023 /* iOSSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3DA4857221ABE7C0091E023 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -365,6 +379,7 @@
 		B32D12E722488E5400C38DF8 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				B39467C42283C6F500218607 /* Setting */,
 				B3F4736122819593004405E6 /* Home */,
 				B32D14112248D93D00C38DF8 /* Auth */,
 			);
@@ -385,6 +400,7 @@
 				B32D138E2248931100C38DF8 /* BaseViewController.swift */,
 				B32D138F2248931100C38DF8 /* BaseViewModel.swift */,
 				B32D13902248931100C38DF8 /* ViewModelType.swift */,
+				B39467CC2283CEFA00218607 /* Account.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -418,6 +434,7 @@
 			children = (
 				B3DA485B221ABE7C0091E023 /* Main.storyboard */,
 				B3DA4860221ABE7E0091E023 /* LaunchScreen.storyboard */,
+				B39467CE2283D0B700218607 /* Auth.storyboard */,
 			);
 			path = IB;
 			sourceTree = "<group>";
@@ -439,6 +456,7 @@
 		B32D13992248931C00C38DF8 /* Shared Components */ = {
 			isa = PBXGroup;
 			children = (
+				B39467D02283DB3400218607 /* Subclass */,
 				B3D93555224CC06B005AA86C /* GradientView */,
 			);
 			path = "Shared Components";
@@ -838,6 +856,48 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
+		B3836CB12282E9C1008DC106 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				B3836CB22282E9CF008DC106 /* Auth */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		B3836CB22282E9CF008DC106 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				B3836CB32282E9E1008DC106 /* SignInUITests.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		B39467C42283C6F500218607 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				B39467C52283C6FD00218607 /* Profile */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		B39467C52283C6FD00218607 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				B39467C62283C70E00218607 /* EditProfileViewModel.swift */,
+				B39467C82283C71A00218607 /* EditProfileViewController.swift */,
+				B39467CA2283C72500218607 /* EditProfileNavigator.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		B39467D02283DB3400218607 /* Subclass */ = {
+			isa = PBXGroup;
+			children = (
+				B39467D12283DB3F00218607 /* LimitedTextField.swift */,
+			);
+			path = Subclass;
+			sourceTree = "<group>";
+		};
 		B3D93555224CC06B005AA86C /* GradientView */ = {
 			isa = PBXGroup;
 			children = (
@@ -905,6 +965,7 @@
 		B3DA4876221ABE7E0091E023 /* iOSSampleUITests */ = {
 			isa = PBXGroup;
 			children = (
+				B3836CB12282E9C1008DC106 /* Scene */,
 				B3DA4877221ABE7E0091E023 /* iOSSampleUITests.swift */,
 				B3DA4879221ABE7E0091E023 /* Info.plist */,
 			);
@@ -1152,6 +1213,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B39467CF2283D0B700218607 /* Auth.storyboard in Resources */,
 				B3DA4862221ABE7E0091E023 /* LaunchScreen.storyboard in Resources */,
 				B3DA485F221ABE7E0091E023 /* Assets.xcassets in Resources */,
 				B3DA485D221ABE7C0091E023 /* Main.storyboard in Resources */,
@@ -1345,19 +1407,23 @@
 				B32D13D12248931E00C38DF8 /* VCExt.swift in Sources */,
 				B32D13CD2248931E00C38DF8 /* Analytics.swift in Sources */,
 				B32D13922248931100C38DF8 /* BaseViewModel.swift in Sources */,
+				B39467C92283C71A00218607 /* EditProfileViewController.swift in Sources */,
 				B32D13CB2248931E00C38DF8 /* ViewText.swift in Sources */,
 				B32D13D02248931E00C38DF8 /* Util.swift in Sources */,
+				B39467D22283DB3F00218607 /* LimitedTextField.swift in Sources */,
 				B3FBB63F2282759D00D2A43C /* HomeViewModel.swift in Sources */,
 				B32D14522248E57F00C38DF8 /* SignUpViewModel.swift in Sources */,
 				B32D142E2248DE3B00C38DF8 /* SignInViewController.swift in Sources */,
 				B32D13C62248931E00C38DF8 /* Helper.swift in Sources */,
 				B32D13C72248931E00C38DF8 /* Message.swift in Sources */,
 				B32D13C82248931E00C38DF8 /* Common.swift in Sources */,
+				B39467CD2283CEFA00218607 /* Account.swift in Sources */,
 				B3D93557224CC085005AA86C /* GradientView.swift in Sources */,
 				B3FBB63D2282758C00D2A43C /* HomeViewController.swift in Sources */,
 				B32D13D52248932400C38DF8 /* Constant.swift in Sources */,
 				B32D13CF2248931E00C38DF8 /* SConverter.swift in Sources */,
 				B32D1306224890B600C38DF8 /* Config.swift in Sources */,
+				B39467C72283C70E00218607 /* EditProfileViewModel.swift in Sources */,
 				B32D13D72248932F00C38DF8 /* Application.swift in Sources */,
 				B32D13D22248931E00C38DF8 /* ValidationExt.swift in Sources */,
 				B3FBB641228275A900D2A43C /* HomeNavigator.swift in Sources */,
@@ -1365,6 +1431,7 @@
 				B32D142C2248DE3B00C38DF8 /* SignInNavigator.swift in Sources */,
 				B32D14512248E57F00C38DF8 /* SignUpViewController.swift in Sources */,
 				B32D13912248931100C38DF8 /* BaseViewController.swift in Sources */,
+				B39467CB2283C72500218607 /* EditProfileNavigator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1389,6 +1456,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3DA4878221ABE7E0091E023 /* iOSSampleUITests.swift in Sources */,
+				B3836CB42282E9E1008DC106 /* SignInUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -120,9 +120,6 @@ public enum SecureKey<T>: String, UD {
     case email = "USER_EMAIL"
     case confirmed = "USER_CONFIRMED"
     case userId = "USER_ID"
-    case fullName = "FULLNAME"
-    case firstName = "FIRST_NAME"
-    case lastName = "LAST_NAME"
     case token = "TOKEN"
     case password = "PASSWORD"
     

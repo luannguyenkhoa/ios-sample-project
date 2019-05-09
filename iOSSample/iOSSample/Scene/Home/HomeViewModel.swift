@@ -67,7 +67,7 @@ extension QuerySet {
     /// trigger to fetch the trips
     fetch.flatMapLatest { [unowned self] (type) -> Driver<APIResponse<(list: [PostItem], token: String?)>> in
       /// Using pagination if getting a signal
-      let (limit, token) = type == .all ? (nil, nil) : (10, self.token)
+      let (limit, token) = type == .refresh ? (nil, nil) : (10, self.token)
       /// Perform request with activity indicator tracking
       return self.postUseCase.fetch(limit: limit, token: token, cachePolicy: .returnCacheDataAndFetch)
                              .trackActivity(executing).asDriver(.completed)

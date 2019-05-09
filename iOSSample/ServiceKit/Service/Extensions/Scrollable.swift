@@ -10,7 +10,7 @@ public extension UITableView {
   /// Adding a custom see more view that contains an activity indicator view
   ///
   /// - Parameter color: color of activity indicator, default is gray color
-  func seeMoreFooter(color: UIColor = .gray) {
+  func spinningFooter(color: UIColor = .gray) {
     self.tableFooterView = self.initializeIndicator()
   }
 

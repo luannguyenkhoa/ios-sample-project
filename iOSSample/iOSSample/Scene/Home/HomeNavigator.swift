@@ -9,7 +9,6 @@ import ServiceKit
 
 protocol HomeNavigator {
   
-  func toHome()
   func toPostDetail(post: PostItem)
 }
 

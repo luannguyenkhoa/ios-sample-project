@@ -33,7 +33,7 @@ final class SignUpViewController: BaseViewController {
   private func binding() {
     
     /// Make viewmodel transform
-    let input = SignUpViewModel.Input(email: emailTextField.driver(),
+    let input = SignUpViewModel.Input(email: emailTextField.driveText(),
                                       signin: signInButton.driver(),
                                       terms: termsButton.driver(),
                                       press: signUpButton.driver())

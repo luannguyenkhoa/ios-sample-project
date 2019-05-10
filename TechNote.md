@@ -3,7 +3,7 @@
 ## Description:
 
 ```
-This project aims to be a standard configured code structure to help developers reducing the effort on Infracstructure period. 
+This project aims to be a standard configured code structure to help developers reducing the effort of Infracstructure period. 
 It also collect all common services and implementations since we have experienced through a ton of iOS projects with full reliability of their output and being placed in ServiceKit. 
 The most important part is the Kit, which will take both of Networking/AWS and Service implementations into the same place for the convenient use purpose and reduce compiling time as well as getting them isolated from other parts. 
 Besides, another essential part is as looking at Scene folder that will store all App logics: every scene will be separated to 3 files: ViewController, ViewModel and Navigator.

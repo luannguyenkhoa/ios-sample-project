@@ -57,6 +57,8 @@ replace NEW_PROJ_NAME with yours.
 . Carthage: *carthage bootstrap --platform iOS --no-use-binaries* <br>
 . Cocoapods: *pod install* if needed.
 
+. Clear git history by following the [link](https://gist.github.com/stephenhardy/5470814)
+
 Getting Started:
 ---------------
 

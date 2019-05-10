@@ -33,6 +33,7 @@
 		B32D14502248E57F00C38DF8 /* SignUpNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32D144D2248E57E00C38DF8 /* SignUpNavigator.swift */; };
 		B32D14512248E57F00C38DF8 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32D144E2248E57E00C38DF8 /* SignUpViewController.swift */; };
 		B32D14522248E57F00C38DF8 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32D144F2248E57F00C38DF8 /* SignUpViewModel.swift */; };
+		B33E5B542284379100431088 /* SignUpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33E5B532284379100431088 /* SignUpUITests.swift */; };
 		B36A664622801E0D00E2C34B /* ServiceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B36A663D22801E0D00E2C34B /* ServiceKit.framework */; };
 		B36A664D22801E0D00E2C34B /* ServiceKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A664C22801E0D00E2C34B /* ServiceKitTests.swift */; };
 		B36A664F22801E0D00E2C34B /* ServiceKit.h in Headers */ = {isa = PBXBuildFile; fileRef = B36A663F22801E0D00E2C34B /* ServiceKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -64,7 +65,7 @@
 		B36A66C922801E3700E2C34B /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A668222801E3700E2C34B /* Image.swift */; };
 		B36A66CA22801E3700E2C34B /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A668322801E3700E2C34B /* Thread.swift */; };
 		B36A66CB22801E3700E2C34B /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A668422801E3700E2C34B /* TextField.swift */; };
-		B36A66CC22801E3700E2C34B /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A668522801E3700E2C34B /* Window.swift */; };
+		B36A66CC22801E3700E2C34B /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A668522801E3700E2C34B /* Transition.swift */; };
 		B36A66CD22801E3700E2C34B /* Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A668622801E3700E2C34B /* Driver.swift */; };
 		B36A66CE22801E3700E2C34B /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A668722801E3700E2C34B /* Gradient.swift */; };
 		B36A66CF22801E3700E2C34B /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36A668822801E3700E2C34B /* String.swift */; };
@@ -112,6 +113,8 @@
 		B39467CD2283CEFA00218607 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39467CC2283CEFA00218607 /* Account.swift */; };
 		B39467CF2283D0B700218607 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B39467CE2283D0B700218607 /* Auth.storyboard */; };
 		B39467D22283DB3F00218607 /* LimitedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39467D12283DB3F00218607 /* LimitedTextField.swift */; };
+		B3C289E1228519C3000036A3 /* SignedInBaseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C289E0228519C3000036A3 /* SignedInBaseUITests.swift */; };
+		B3C289E422852C38000036A3 /* HomeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C289E322852C38000036A3 /* HomeUITests.swift */; };
 		B3D93557224CC085005AA86C /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D93556224CC085005AA86C /* GradientView.swift */; };
 		B3DA4858221ABE7C0091E023 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DA4857221ABE7C0091E023 /* AppDelegate.swift */; };
 		B3DA485D221ABE7C0091E023 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3DA485B221ABE7C0091E023 /* Main.storyboard */; };
@@ -211,6 +214,7 @@
 		B32D144D2248E57E00C38DF8 /* SignUpNavigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpNavigator.swift; path = iOSSample/Scene/Auth/SignUp/SignUpNavigator.swift; sourceTree = SOURCE_ROOT; };
 		B32D144E2248E57E00C38DF8 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = iOSSample/Scene/Auth/SignUp/SignUpViewController.swift; sourceTree = SOURCE_ROOT; };
 		B32D144F2248E57F00C38DF8 /* SignUpViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewModel.swift; path = iOSSample/Scene/Auth/SignUp/SignUpViewModel.swift; sourceTree = SOURCE_ROOT; };
+		B33E5B532284379100431088 /* SignUpUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUITests.swift; sourceTree = "<group>"; };
 		B36A663D22801E0D00E2C34B /* ServiceKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ServiceKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B36A663F22801E0D00E2C34B /* ServiceKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServiceKit.h; sourceTree = "<group>"; };
 		B36A664022801E0D00E2C34B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -243,7 +247,7 @@
 		B36A668222801E3700E2C34B /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		B36A668322801E3700E2C34B /* Thread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
 		B36A668422801E3700E2C34B /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
-		B36A668522801E3700E2C34B /* Window.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
+		B36A668522801E3700E2C34B /* Transition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
 		B36A668622801E3700E2C34B /* Driver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Driver.swift; sourceTree = "<group>"; };
 		B36A668722801E3700E2C34B /* Gradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
 		B36A668822801E3700E2C34B /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -290,6 +294,8 @@
 		B39467CC2283CEFA00218607 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		B39467CE2283D0B700218607 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		B39467D12283DB3F00218607 /* LimitedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LimitedTextField.swift; sourceTree = "<group>"; };
+		B3C289E0228519C3000036A3 /* SignedInBaseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInBaseUITests.swift; sourceTree = "<group>"; };
+		B3C289E322852C38000036A3 /* HomeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUITests.swift; sourceTree = "<group>"; };
 		B3D93556224CC085005AA86C /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		B3DA4854221ABE7C0091E023 /* iOSSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3DA4857221ABE7C0091E023 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -719,7 +725,7 @@
 				B36A668222801E3700E2C34B /* Image.swift */,
 				B36A668322801E3700E2C34B /* Thread.swift */,
 				B36A668422801E3700E2C34B /* TextField.swift */,
-				B36A668522801E3700E2C34B /* Window.swift */,
+				B36A668522801E3700E2C34B /* Transition.swift */,
 				B36A668622801E3700E2C34B /* Driver.swift */,
 				B36A668722801E3700E2C34B /* Gradient.swift */,
 				B36A668822801E3700E2C34B /* String.swift */,
@@ -859,7 +865,9 @@
 		B3836CB12282E9C1008DC106 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				B3C289E222852BB6000036A3 /* Home */,
 				B3836CB22282E9CF008DC106 /* Auth */,
+				B3C289E0228519C3000036A3 /* SignedInBaseUITests.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -868,6 +876,7 @@
 			isa = PBXGroup;
 			children = (
 				B3836CB32282E9E1008DC106 /* SignInUITests.swift */,
+				B33E5B532284379100431088 /* SignUpUITests.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -896,6 +905,14 @@
 				B39467D12283DB3F00218607 /* LimitedTextField.swift */,
 			);
 			path = Subclass;
+			sourceTree = "<group>";
+		};
+		B3C289E222852BB6000036A3 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B3C289E322852C38000036A3 /* HomeUITests.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		B3D93555224CC06B005AA86C /* GradientView */ = {
@@ -1375,7 +1392,7 @@
 				B36A66E722801E3700E2C34B /* Operator.swift in Sources */,
 				B36A66E222801E3700E2C34B /* PHAssetManager.swift in Sources */,
 				B36A66B522801E3700E2C34B /* GraphQL.swift in Sources */,
-				B36A66CC22801E3700E2C34B /* Window.swift in Sources */,
+				B36A66CC22801E3700E2C34B /* Transition.swift in Sources */,
 				B36A66DB22801E3700E2C34B /* Reachability.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1455,6 +1472,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3C289E422852C38000036A3 /* HomeUITests.swift in Sources */,
+				B33E5B542284379100431088 /* SignUpUITests.swift in Sources */,
+				B3C289E1228519C3000036A3 /* SignedInBaseUITests.swift in Sources */,
 				B3DA4878221ABE7E0091E023 /* iOSSampleUITests.swift in Sources */,
 				B3836CB42282E9E1008DC106 /* SignInUITests.swift in Sources */,
 			);

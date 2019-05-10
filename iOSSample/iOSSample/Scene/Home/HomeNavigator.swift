@@ -27,7 +27,7 @@ struct DefaultHomeNavigator: HomeNavigator {
   func toHome() {
     let vc = UIStoryboard(storyboard: AppStoryboard.Main).instantiate(HomeViewController.self)
     vc.viewModel = HomeViewModel(navigator: self, postUseCase: postUseCase)
-    navigation.setViewControllers([vc], animated: true)
+    navigation.fadeRoot(vc)
   }
   
   func toPostDetail(post: PostItem) {

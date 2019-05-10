@@ -147,6 +147,17 @@ public extension UIWindow {
   }
 }
 
+public extension UINavigationController {
+  
+  func fadeRoot(_ vc: UIViewController) {
+    let transition = CATransition()
+    transition.duration = 0.25
+    transition.type = .fade
+    view.layer.add(transition, forKey: nil)
+    setViewControllers([vc], animated: false)
+  }
+}
+
 internal extension UIViewController {
   
   /// Create a new empty controller instance with given view

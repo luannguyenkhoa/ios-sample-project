@@ -18,6 +18,7 @@ struct SignUpViewModel: ViewModelType {
     
     let executing: Driver<Bool>
     let error: Driver<MessageContent?>
+    let valid: Driver<Bool>
   }
   
   // MARK: - Properties
@@ -46,7 +47,7 @@ struct SignUpViewModel: ViewModelType {
     input.signin.drive(onNext: navigator.toSignIn).disposed(by: disposeBag)
     input.terms.drive(onNext: navigator.terms).disposed(by: disposeBag)
     
-    return Output(executing: activityIndicator.asDriver(), error: error.asDriver(nil))
+    return Output(executing: activityIndicator.asDriver(), error: error.asDriver(nil), valid: valid)
   }
   
   // MARK: - Handlers

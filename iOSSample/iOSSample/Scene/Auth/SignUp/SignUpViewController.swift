@@ -42,6 +42,7 @@ final class SignUpViewController: BaseViewController {
     /// Start binding
     output.error.ignoreNil().drive(onNext: { [unowned self] (content) in self.errorPopup |> content })
       .disposed(by: disposeBag)
+    output.valid.drive(signUpButton.rx.isEnabled).disposed(by: disposeBag)
   }
 
 }

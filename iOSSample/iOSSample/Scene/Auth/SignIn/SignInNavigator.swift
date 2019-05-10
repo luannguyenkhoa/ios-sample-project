@@ -22,7 +22,7 @@ struct DefaultSignInNavigator: SignInNavigator {
   func toSignIn() {
     let vc = UIStoryboard(storyboard: AppStoryboard.Auth).instantiate(SignInViewController.self)
     vc.viewModel = SignInViewModel(navigator: self, authUseCase: authUseCase)
-    navigation.setViewControllers([vc], animated: true)
+    navigation.fadeRoot(vc)
   }
   
   func toSignUp() {

@@ -4,15 +4,16 @@
 
 ```
 This project aims to be a standard configured code structure to help developers reducing the effort on Infracstructure period. 
-It also collect all common services and implementations since we have experienced throught a ton of iOS projects with full reliability of their output and being placed in ServiceKit. 
-The most important part is the kit, which will take both of Networking/AWS and Service implementations into the same place for the convenient use purpose and reduce compiling time as well as getting them isolated from other parts. 
-Besides, another essential part is as looking at Scene folder that will store all App logics: every scene will be separated to 3 files: ViewController, ViewModel and Navigator. 
+It also collect all common services and implementations since we have experienced through a ton of iOS projects with full reliability of their output and being placed in ServiceKit. 
+The most important part is the Kit, which will take both of Networking/AWS and Service implementations into the same place for the convenient use purpose and reduce compiling time as well as getting them isolated from other parts. 
+Besides, another essential part is as looking at Scene folder that will store all App logics: every scene will be separated to 3 files: ViewController, ViewModel and Navigator.
 Each of them will stand for its explicit mission in 3 types: view, logic and navigation, respectively. 
 Note: ServiceKit is considered as a collection of ever implementations, so it might contain unnecessary parts for your needs. 
 Please do review and remove those parts to get this initial project appropriated to yours. 
 ```
+* Check out this [explanation](https://github.com/sergdort/CleanArchitectureRxSwift#application-1) to get more familiar with Scene concept 
 
-## Breaking Down Structure
+## Structure Breaking Down
 
 ### iOSSample -> the project name
 ```
@@ -103,3 +104,4 @@ e.g: *iPhone Distribution: Agility Company (N2KFAA234KI)*
 3. Should clean up git history before pushing the project to your proj repository,
 4. For AppSync codegen, we should use this [package](https://www.npmjs.com/package/aws-appsync-codegen) to generate code from graphql and schema instead of Amplify Codegen, because as our project usually seperates backend and frontend jobs explicitly,<br> backend will take care of initializing project on the cloud, but Amplify requires initializing before doing other jobs, this requirement makes a serious issue that automatically creating new project in the cloud<br> with multiple services: S3, IAM, CloudFormation. It's not a good behavior, and might issue duplicated and redudant stuffs.
 5. Following this [article](https://medium.com/@dima.cheverda/xcode-9-templates-596e2ed85609) to create useful File templates
+6. TBC....

@@ -31,6 +31,7 @@ class SignedInBaseUITests: XCTestCase {
     
     /// Press Sign In with typed credentials
     query.buttons["Sign In"].tap()
+    sleep(1)
   }
   
   override func tearDown() {

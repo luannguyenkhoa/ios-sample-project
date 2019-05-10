@@ -20,8 +20,6 @@ class AuthAPITest: XCTestCase {
     scheduler = TestScheduler(initialClock: 0)
     authUseCase = APIProvider.makeAuthAPI(baseURL: "https://www.google.com/")
     
-//    let users = (1...10).map{(email: "user\($0)@gmail.com", password: "abc\($0)23@aaaa", profile: profile($0))}
-    
     OHHTTPStubs.onStubActivation { (request: URLRequest, stub: OHHTTPStubsDescriptor, response: OHHTTPStubsResponse) in
       print("[OHHTTPStubs] Request to \(request.url!) has been stubbed with \(String(describing: stub.name))")
     }

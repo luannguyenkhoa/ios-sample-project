@@ -2,7 +2,6 @@
 // EditProfileViewController.swift
 // iOSSample
 //
-// Copyright © 2019 Agility. All rights reserved.
 //
 
 import RxSwift

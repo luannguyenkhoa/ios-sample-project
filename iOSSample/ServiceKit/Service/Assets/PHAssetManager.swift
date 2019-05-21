@@ -2,7 +2,7 @@ import Photos
 
 public struct PHAssetManager {
 
-  // MARK: Instance & Properties
+  // MARK: - Instance & Properties
   private static let shared = PHAssetManager()
   private let imageManager = PHCachingImageManager()
   public typealias Action = () -> Void

@@ -8,23 +8,17 @@ import Foundation
 
 public extension String {
 
-  /// MARK: Subscripts
+  /// MARK: - Subscripts
   subscript(value: PartialRangeUpTo<Int>) -> Substring {
-    get {
-      return self[..<index(startIndex, offsetBy: value.upperBound)]
-    }
+    return self[..<index(startIndex, offsetBy: value.upperBound)]
   }
 
   subscript(value: PartialRangeThrough<Int>) -> Substring {
-    get {
-      return self[...index(startIndex, offsetBy: value.upperBound)]
-    }
+    return self[...index(startIndex, offsetBy: value.upperBound)]
   }
 
   subscript(value: PartialRangeFrom<Int>) -> Substring {
-    get {
-      return self[index(startIndex, offsetBy: value.lowerBound)...]
-    }
+    return self[index(startIndex, offsetBy: value.lowerBound)...]
   }
 
   func sub(to: Int) -> String {
@@ -35,7 +29,7 @@ public extension String {
     return String(self[max(0, from)...])
   }
 
-  /// MARK: Extended functions
+  /// MARK: - Extended functions
   func trim() -> String {
     return self.trimmingCharacters(in: .whitespacesAndNewlines)
   }
@@ -76,7 +70,7 @@ public extension String {
   func underlineString(underlineString: String? = nil, color: UIColor? = nil) -> NSAttributedString {
     let attributedText = NSMutableAttributedString(string: self)
     let range = (self as NSString).range(of: underlineString ?? self)
-    attributedText.addAttribute(NSAttributedString.Key.underlineStyle , value: NSUnderlineStyle.single.rawValue, range: range)
+    attributedText.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: range)
     if let color = color{
       attributedText.addAttribute(NSAttributedString.Key.foregroundColor, value: color, range: range)
     }

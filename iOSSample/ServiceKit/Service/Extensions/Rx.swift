@@ -76,7 +76,6 @@ public extension ObservableType {
   }
 }
 
-
 /**
  Specifies how observable sequence will be repeated in case of an error
  - Immediate: Will be immediatelly repeated specified number of times
@@ -95,6 +94,7 @@ public enum RepeatBehavior {
 public typealias RetryPredicate = (Error) -> Bool
 
 public extension RepeatBehavior {
+  
   /**
    Extracts maxCount and calculates delay for current RepeatBehavior
    - parameter currentAttempt: Number of current attempt
@@ -120,6 +120,7 @@ public extension RepeatBehavior {
 }
 
 public extension ObservableType {
+  
   /**
    Repeats the source observable sequence using given behavior in case of an error or until it successfully terminated
    - parameter behavior: Behavior that will be used in case of an error

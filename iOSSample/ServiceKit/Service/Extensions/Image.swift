@@ -22,7 +22,7 @@ extension UIImage {
       y: (newSize.height - height) / 2.0,
       width: width, height: height)
     
-    UIGraphicsBeginImageContextWithOptions(scaledRect.size, false, 0.0);
+    UIGraphicsBeginImageContextWithOptions(scaledRect.size, false, 0.0)
     defer { UIGraphicsEndImageContext() }
     
     draw(in: scaledRect)
@@ -198,25 +198,26 @@ extension UIImage {
     let h: CGFloat = size.height * scale
     let dw: CGFloat = w
     let dh: CGFloat = h
-    var newimage = UIImage(cgImage: cgImage!, scale: 1.0, orientation: .up)
+    guard let cgImage = cgImage else { return self }
+    var newimage = UIImage(cgImage: cgImage, scale: 1.0, orientation: .up)
     switch orientation {
     case .landscapeLeft:
       if position == .back {
         return newimage
       }
-      newimage = UIImage(cgImage: cgImage!, scale: 1.0, orientation: .upMirrored)
+      newimage = UIImage(cgImage: cgImage, scale: 1.0, orientation: .upMirrored)
       transform = transform.translatedBy(x: w, y: h)
       transform = transform.scaledBy(x: -1.0, y: -1.0)
     case .landscapeRight:
       if position == .front {
-        return UIImage(cgImage: cgImage!, scale: 1.0, orientation: .upMirrored)
+        return UIImage(cgImage: cgImage, scale: 1.0, orientation: .upMirrored)
       }
       transform = transform.translatedBy(x: w, y: h)
       transform = transform.scaledBy(x: -1.0, y: -1.0)
     default:
       // portrait
       if position == .front {
-        return UIImage(cgImage: cgImage!, scale: 1.0, orientation: .leftMirrored)
+        return UIImage(cgImage: cgImage, scale: 1.0, orientation: .leftMirrored)
       }
       return self
     }
@@ -224,6 +225,7 @@ extension UIImage {
     UIGraphicsBeginImageContextWithOptions(CGSize(width: dw, height: dh), true, 1.0)
     UIGraphicsGetCurrentContext()?.concatenate(transform)
     newimage.draw(in: CGRect(x: CGFloat(0.0), y: CGFloat(0.0), width: w, height: h), blendMode: .copy, alpha: 1.0)
+    // swiftlint:disable force_unwrapping
     newimage = UIGraphicsGetImageFromCurrentImageContext()!
     UIGraphicsEndImageContext()
     return newimage
@@ -243,13 +245,13 @@ extension UIImage {
     ctx?.setFillColor(color.cgColor)
     ctx?.fillEllipse(in: rect)
     ctx?.restoreGState()
-    
-    let image = UIGraphicsGetImageFromCurrentImageContext()
+    // swiftlint:disable force_unwrapping
+    let image = UIGraphicsGetImageFromCurrentImageContext()!
     UIGraphicsEndImageContext()
-    return image!
+    return image
   }
   
-  public func imageResize (sizeChange:CGSize)-> UIImage{
+  public func imageResize (sizeChange:CGSize) -> UIImage {
     
     let hasAlpha = true
     let scale: CGFloat = 0.0 // Use scale factor of main screen
@@ -259,6 +261,7 @@ extension UIImage {
     
     let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
     defer { UIGraphicsEndImageContext() }
+    // swiftlint:disable force_unwrapping
     return scaledImage!
   }
   
@@ -280,4 +283,3 @@ extension UIImage {
     return images
   }
 }
-

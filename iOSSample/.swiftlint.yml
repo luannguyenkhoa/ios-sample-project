@@ -16,11 +16,10 @@ excluded: # paths to ignore during linting. overridden by `included`.
   - Pods
   - External
   - Submodules
-  - DomainTests
-  - NetworkPlatform/Util
-  - NetworkPlatformTests
-  - ServicePlatform
-  - ServicePlatformTests
+  - iOSSampleTests
+  - iOSSampleUITests
+  - ServiceKit/AWS/API
+  - ServiceKitTests
   
 # rule parameters
 cyclomatic_complexity:

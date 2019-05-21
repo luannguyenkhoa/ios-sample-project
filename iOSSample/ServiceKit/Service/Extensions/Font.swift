@@ -8,10 +8,11 @@ public extension UIFont {
     paragraphStyle.maximumLineHeight = lineHeight
 
     let attributes = [NSAttributedString.Key.font: self]
-    let attString = NSMutableAttributedString(string: string,attributes: attributes)
-    attString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, (string as NSString).length))
+    let attString = NSMutableAttributedString(string: string, attributes: attributes)
+    // swiftlint:disable legacy_constructor
+    attString.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, (string as NSString).length))
     let framesetter = CTFramesetterCreateWithAttributedString(attString)
-    return CTFramesetterSuggestFrameSizeWithConstraints(framesetter, CFRange(location: 0,length: 0), nil, CGSize(width: width, height: CGFloat.greatestFiniteMagnitude), nil)
+    return CTFramesetterSuggestFrameSizeWithConstraints(framesetter, CFRange(location: 0, length: 0), nil, CGSize(width: width, height: CGFloat.greatestFiniteMagnitude), nil)
   }
 
   func width(text: String) -> CGFloat {

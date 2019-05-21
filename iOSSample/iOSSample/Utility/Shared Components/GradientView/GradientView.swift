@@ -18,16 +18,19 @@ import UIKit
   
   public required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
+    
     configureView()
   }
   
   required override public init(frame: CGRect) {
     super.init(frame: frame)
+    
     configureView()
   }
   
   public override func tintColorDidChange() {
     super.tintColorDidChange()
+    
     configureView()
   }
   

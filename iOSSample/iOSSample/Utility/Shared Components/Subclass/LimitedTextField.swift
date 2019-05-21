@@ -10,6 +10,7 @@ public class LimitedTextField: UITextField {
   @IBInspectable var maxLength: Int = 256
   public override func awakeFromNib() {
     super.awakeFromNib()
+    
     self.addTarget(self, action: #selector(LimitedTextField.textDidChange(textField:)), for: .editingChanged)
   }
 

@@ -1,6 +1,7 @@
 public struct TextSize {
 
   fileprivate struct CacheEntry: Hashable {
+    
     let text: String
     let font: UIFont
     let width: CGFloat
@@ -25,6 +26,6 @@ public struct TextSize {
   }
 }
 
-private func ==(lhs: TextSize.CacheEntry, rhs: TextSize.CacheEntry) -> Bool {
+private func == (lhs: TextSize.CacheEntry, rhs: TextSize.CacheEntry) -> Bool {
   return lhs.width == rhs.width && lhs.insets == rhs.insets && lhs.text == rhs.text
 }

@@ -1,4 +1,3 @@
-
 public struct Redirect {
   
   public static func itunes(appID: String) {

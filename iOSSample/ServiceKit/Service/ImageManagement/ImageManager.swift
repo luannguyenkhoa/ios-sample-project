@@ -145,7 +145,7 @@ public struct ImageManager {
         if !ImageManager.isGif(urlString) {
           options = [.backgroundDecode]
         }
-        imgView.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "icn-defaultAvatar"), options: options) { res in
+        imgView.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "icn-defaultAvatar"), options: options) { _ in
           downloaded?()
         }
       }

@@ -112,6 +112,7 @@ public extension UICollectionViewCell {
 
 // MARK: - UICollectionView
 public extension UICollectionView {
+  
   func scrollToIndexPathIfNotVisible(_ indexPath: IndexPath) {
     let section = indexPath.section
     if indexPath.row < self.numberOfItems(inSection: section) {

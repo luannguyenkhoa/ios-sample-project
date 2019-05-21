@@ -12,7 +12,7 @@ public struct AWSAuthorization {
   private let initilizedAppKey = "InitializedApp"
   
   public func intialize(_ completion: @escaping (State) -> Void) {
-    AWSMobileClient.sharedInstance().initialize { (state, err) in
+    AWSMobileClient.sharedInstance().initialize { (state, _) in
       guard let state = state else {
         completion(.fail)
         return
@@ -26,7 +26,10 @@ public struct AWSAuthorization {
         } else {
           self.signOut()
           completion(.unauth)
-        } case .signedOut, .signedOutFederatedTokensInvalid, .signedOutUserPoolsTokenInvalid:
+        }
+      case .signedOut,
+           .signedOutFederatedTokensInvalid,
+           .signedOutUserPoolsTokenInvalid:
         completion(.unauth)
       default: completion(.fail)
       }
@@ -40,7 +43,7 @@ public struct AWSAuthorization {
   }
   
   public func autoRefreshUserToken(in obj: AnyObject) {
-    AWSMobileClient.sharedInstance().addUserStateListener(obj) { (state, info) in
+    AWSMobileClient.sharedInstance().addUserStateListener(obj) { (state, _) in
       switch state {
       case .signedOutUserPoolsTokenInvalid:
         /// Once receive an invalid token signal, should automatically refresh it silently
@@ -124,7 +127,7 @@ public struct AWSAuthorization {
   
   public func confirmCode(_ code: String, email: String) -> Observable<APIResponse<Bool>> {
     return .create { observer in
-      AWSMobileClient.sharedInstance().confirmSignUp(username: email, confirmationCode: code) { (res, err) in
+      AWSMobileClient.sharedInstance().confirmSignUp(username: email, confirmationCode: code) { (res, _) in
         defer { observer.onCompleted() }
         if let res = res {
           switch res.signUpConfirmationState {
@@ -168,7 +171,7 @@ public struct AWSAuthorization {
   /// Get user's attributes and decode user's encrypted private key from response then send back to listeners
   public func getAttributes(_ completion: @escaping (String) -> Void) {
     self.getIdentityId()
-    AWSMobileClient.sharedInstance().getUserAttributes { attrs, err in
+    AWSMobileClient.sharedInstance().getUserAttributes { attrs, _ in
       // Decode the response to get necessary attributes
       d_print(attrs ?? [:])
     }
@@ -192,7 +195,7 @@ public struct AWSAuthorization {
   
   public func fetchTokens(_ completion: ((String?) -> Void)? = nil) {
     /// Retreive user's tokens and cache access token in local storage
-    AWSMobileClient.sharedInstance().getTokens { (tokens, err) in
+    AWSMobileClient.sharedInstance().getTokens { (tokens, _) in
       if let token = tokens?.accessToken?.tokenString {
         SecureKey.User.token.set(token)
       }
@@ -218,10 +221,10 @@ public struct AWSAuthorization {
   /// - Parameter service: specified AWS service for signing, default is S3
   /// - Returns: an url request with signed url
   public func signRequest(url: URL, serive: AWSServiceType = .S3) -> URLRequest {
-    let credentials = AWSServiceManager.default()?.defaultServiceConfiguration.credentialsProvider
-    let signature = AWSSignatureV4Signer(credentialsProvider: credentials!, endpoint: AWSEndpoint(region: .USEast1, service: serive, url: url))
-    let date = (NSDate.aws_clockSkewFixed()! as NSDate).aws_stringValue(AWSDateISO8601DateFormat2)!
     let req = NSMutableURLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 30.0)
+    guard let credentials = AWSServiceManager.default()?.defaultServiceConfiguration.credentialsProvider else { return req as URLRequest }
+    let signature = AWSSignatureV4Signer(credentialsProvider: credentials, endpoint: AWSEndpoint(region: .USEast1, service: serive, url: url))
+    guard let date = (NSDate.aws_clockSkewFixed().unsafelyUnwrapped as NSDate).aws_stringValue(AWSDateISO8601DateFormat2) else { return req as URLRequest }
     req.httpMethod = "GET"
     req.allHTTPHeaderFields = ["Content-Type": "application/x-www-form-urlencoded", "X-Amz-Date": date]
     signature?.interceptRequest(req)?.continueWith(block: { _ in return nil })

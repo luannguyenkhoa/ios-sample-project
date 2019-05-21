@@ -8,14 +8,14 @@ import UIKit
 
 public extension UIView {
 
-  typealias Action = () -> ()
-  typealias Animation = (duration: TimeInterval, action: Action, completion: (() -> Void)? )
+  typealias Action = () -> Void
+  typealias Animation = (duration: TimeInterval, action: Action, completion: Action? )
   /// Showing view on super view with faded animation
   ///
   /// - Parameter isShow: A flag to determine that this animation will be applied for show/hide view action
   /// - Parameter spring: A flag for willing use spring animation or not
   /// - Parameter completed: Callback when the animation was completed
-  func fade(isShow: Bool = true, spring: Bool = false, duration: TimeInterval = 0.25, delay: TimeInterval = 0, completion: (() -> Void)? = nil) {
+  func fade(isShow: Bool = true, spring: Bool = false, duration: TimeInterval = 0.25, delay: TimeInterval = 0, completion: Action? = nil) {
     self.alpha = isShow ? 0 : 1
     let animation = (duration, { self.alpha = isShow ? 1: 0 }, completion)
     spring ? springAnimation(delay: delay, animation: animation) : defaultAnimation(delay: delay, animation: animation)
@@ -109,7 +109,7 @@ public extension UIView {
   ///
   /// - Parameters:
   ///   - duration: animation duration
-  func shake(duration: CFTimeInterval = 0.01, repeatCount: Float = Float.infinity, reverse: Bool = true,  values: [Any]? = nil) {
+  func shake(duration: CFTimeInterval = 0.01, repeatCount: Float = Float.infinity, reverse: Bool = true, values: [Any]? = nil) {
     /// Clean previous animation for safe
     layer.removeAnimation(forKey: "shakeIt")
 
@@ -152,7 +152,7 @@ public extension UIView {
     
     UIView.animate(withDuration: duration, delay: delay, options: .repeat, animations: {
       self.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
-    }, completion: {(finished: Bool) in
+    }, completion: { _ in
       self.transform = CGAffineTransform(scaleX: 0, y: 0)
     })
   }

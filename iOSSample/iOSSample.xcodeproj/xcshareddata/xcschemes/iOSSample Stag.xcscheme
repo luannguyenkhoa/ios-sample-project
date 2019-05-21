@@ -14,37 +14,27 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B3DA4853221ABE7C0091E023"
-               BuildableName = "iOSSample.app"
-               BlueprintName = "iOSSample"
+               BlueprintIdentifier = "B389575322928A6A00C1824A"
+               BuildableName = "iOSSampleStag.app"
+               BlueprintName = "iOSSampleStag"
                ReferencedContainer = "container:iOSSample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
-      buildConfiguration = "Release"
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B36A661922801A1400E2C34B"
-               BuildableName = "ServiceKitTests.xctest"
-               BlueprintName = "ServiceKitTests"
-               ReferencedContainer = "container:iOSSample.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B3DA4853221ABE7C0091E023"
-            BuildableName = "iOSSample.app"
-            BlueprintName = "iOSSample"
+            BlueprintIdentifier = "B389575322928A6A00C1824A"
+            BuildableName = "iOSSampleStag.app"
+            BlueprintName = "iOSSampleStag"
             ReferencedContainer = "container:iOSSample.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -52,7 +42,7 @@
       </AdditionalOptions>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Release"
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
@@ -65,9 +55,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B3DA4853221ABE7C0091E023"
-            BuildableName = "iOSSample.app"
-            BlueprintName = "iOSSample"
+            BlueprintIdentifier = "B389575322928A6A00C1824A"
+            BuildableName = "iOSSampleStag.app"
+            BlueprintName = "iOSSampleStag"
             ReferencedContainer = "container:iOSSample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -75,7 +65,7 @@
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
-      buildConfiguration = "Release"
+      buildConfiguration = "Debug"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
@@ -84,15 +74,15 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B3DA4853221ABE7C0091E023"
-            BuildableName = "iOSSample.app"
-            BlueprintName = "iOSSample"
+            BlueprintIdentifier = "B389575322928A6A00C1824A"
+            BuildableName = "iOSSampleStag.app"
+            BlueprintName = "iOSSampleStag"
             ReferencedContainer = "container:iOSSample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
-      buildConfiguration = "Release">
+      buildConfiguration = "Debug">
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"

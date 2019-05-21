@@ -41,14 +41,14 @@ public extension UIView {
     let shapeRect = CGRect(x: 0, y: 0, width: frameSize.width, height: frameSize.height)
 
     borderLayer.bounds=shapeRect
-    borderLayer.position = CGPoint(x: frameSize.width/2,y: frameSize.height/2)
+    borderLayer.position = CGPoint(x: frameSize.width/2, y: frameSize.height/2)
     borderLayer.fillColor = UIColor.clear.cgColor
     borderLayer.strokeColor = color
     borderLayer.lineWidth = width
     borderLayer.cornerRadius = radius
     borderLayer.masksToBounds = true
     borderLayer.lineJoin = .round
-    borderLayer.lineDashPattern = NSArray(array: [NSNumber(value: 5),NSNumber(value:5)]) as? [NSNumber]
+    borderLayer.lineDashPattern = NSArray(array: [NSNumber(value: 5), NSNumber(value:5)]) as? [NSNumber]
 
     let path = UIBezierPath.init(roundedRect: shapeRect, cornerRadius: radius)
     borderLayer.path = path.cgPath
@@ -102,7 +102,6 @@ public extension UIView {
     }
     return nil
   }
-
 
   /// A common public function for loading view from nib
   ///
@@ -240,6 +239,7 @@ extension CGPoint {
 }
 
 extension UIStoryboard {
+  
   public convenience init<T: RawRepresentable>(storyboard identifer: T) where T.RawValue == String {
     self.init(name: identifer.rawValue, bundle: nil)
   }
@@ -249,10 +249,12 @@ extension UIStoryboard {
   }
   
   public func instantiate<VC: UIViewController, T: RawRepresentable>(scene identifier: T, ofType _: VC.Type) -> VC where T.RawValue == String {
+    // swiftlint:disable force_cast
     return instantiateViewController(withIdentifier: identifier.rawValue) as! VC
   }
   
   public func instantiate<T: UIViewController>(_ viewController: T.Type) -> T {
+    // swiftlint:disable force_cast
     return instantiateViewController(withIdentifier: String(describing: T.self)) as! T
   }
 }

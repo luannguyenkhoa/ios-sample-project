@@ -44,7 +44,7 @@ public struct PostAPI: PostUseCase {
             d_print(err)
           }
         }
-      }, conflictResolutionBlock: { (state, task, response) in
+      }, conflictResolutionBlock: { (state, task, _) in
         /// If the received data is available, being able to resolve the conflict
         if let state = state {
           /// Retrieve the current item on server

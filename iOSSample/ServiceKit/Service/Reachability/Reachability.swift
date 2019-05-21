@@ -50,8 +50,8 @@ func callback(reachability:SCNetworkReachability, flags: SCNetworkReachabilityFl
 
 public class Reachability {
 
-  public typealias NetworkReachable = (Reachability) -> ()
-  public typealias NetworkUnreachable = (Reachability) -> ()
+  public typealias NetworkReachable = (Reachability) -> Void
+  public typealias NetworkUnreachable = (Reachability) -> Void
 
   public enum NetworkStatus: CustomStringConvertible {
 
@@ -71,7 +71,7 @@ public class Reachability {
   public var reachableOnWWAN: Bool
 
   // The notification center on which "reachability changed" events are being posted
-  public var notificationCenter: NotificationCenter = NotificationCenter.default
+  public var notificationCenter = NotificationCenter.default
 
   public var currentReachabilityString: String {
     return "\(currentReachabilityStatus)"
@@ -296,4 +296,3 @@ fileprivate extension Reachability {
     }
   }
 }
-

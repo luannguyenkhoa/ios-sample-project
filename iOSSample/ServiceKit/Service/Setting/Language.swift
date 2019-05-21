@@ -68,6 +68,7 @@ public struct LanguageManager {
 }
 
 public struct AppleLanguage {
+  
   /// Get currently apple language
   ///
   /// - Returns: Current apple language

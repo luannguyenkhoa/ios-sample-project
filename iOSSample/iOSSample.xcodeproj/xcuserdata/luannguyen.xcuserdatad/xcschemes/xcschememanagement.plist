@@ -12,22 +12,27 @@
 		<key>ServiceKit.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>3</integer>
 		</dict>
-		<key>iOSSample-Dev.xcscheme_^#shared#^_</key>
+		<key>iOSSample Dev.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>iOSSample-Prod.xcscheme_^#shared#^_</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
-		</dict>
-		<key>iOSSample-Staging.xcscheme_^#shared#^_</key>
+		<key>iOSSample Stag.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
+		</dict>
+		<key>iOSSample copy.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+		<key>iOSSample.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -48,6 +53,16 @@
 			<true/>
 		</dict>
 		<key>B36A664422801E0D00E2C34B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B38957142292591D00C1824A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B389575322928A6A00C1824A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

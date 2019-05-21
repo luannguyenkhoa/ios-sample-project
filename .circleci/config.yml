@@ -32,7 +32,7 @@ commands:
       - run:
           name: Brew install packages
           command: |
-            brew update && brew install carthage
+            brew update && brew upgrade carthage
             brew tap blender/tap https://github.com/blender/homebrew-tap.git
             brew install blender/homebrew-tap/rome
       - save_cache:
@@ -55,7 +55,8 @@ jobs:
 
     # Environment variables
     environment:
-      SCHEME: iOSSample-Dev
+      IOS_APP_BUNDLE_ID: com.agility.ios.iOSSampleDev
+      SCHEME: iOSSampleDev
       LANG: en_US.UTF-8
       BUNDLE_PATH: vendor/bundle
 
@@ -69,7 +70,8 @@ jobs:
 
     # Environment variables
     environment:
-      SCHEME: iOSSample-Staging
+      IOS_APP_BUNDLE_ID: com.agility.ios.iOSSampleStag
+      SCHEME: iOSSampleStag
       LANG: en_US.UTF-8
       BUNDLE_PATH: vendor/bundle
 
@@ -83,7 +85,8 @@ jobs:
 
     # Environment variables
     environment:
-      SCHEME: iOSSample-Prod
+      IOS_APP_BUNDLE_ID: com.agility.ios.iOSSample
+      SCHEME: iOSSample
       LANG: en_US.UTF-8
       BUNDLE_PATH: vendor/bundle
 
@@ -102,7 +105,7 @@ workflows:
       - stag-build-approval:
           type: approval
           requires:
-            - dev-proj
+            - dev-build
       - stag-build:
           filters:
             branches:

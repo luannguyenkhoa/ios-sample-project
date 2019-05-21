@@ -91,7 +91,7 @@ public extension UIWindow {
     public var style: TransitionOptions.Curve = .linear
     
     /// Background of the transition (default is `nil`)
-    public var background: TransitionOptions.Background? = nil
+    public var background: TransitionOptions.Background?
     
     /// Initialize a new options object with given direction and curve
     ///
@@ -114,7 +114,6 @@ public extension UIWindow {
     }
   }
   
-  
   /// Change the root view controller of the window
   ///
   /// - Parameters:
@@ -122,11 +121,12 @@ public extension UIWindow {
   ///   - options: options of the transition
   func setRootViewController(_ controller: UIViewController, options: TransitionOptions = TransitionOptions()) {
     
-    var transitionWnd: UIWindow? = nil
+    var transitionWnd: UIWindow?
     if let background = options.background {
       transitionWnd = UIWindow(frame: UIScreen.main.bounds)
       switch background {
       case .customView(let view):
+        // swiftlint:disable force_unwrapping
         transitionWnd?.rootViewController = UIViewController.newController(withView: view, frame: transitionWnd!.bounds)
       case .solidColor(let color):
         transitionWnd?.backgroundColor = color

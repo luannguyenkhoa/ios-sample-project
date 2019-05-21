@@ -36,7 +36,8 @@ public extension NSLayoutConstraint {
 }
 
 public func equal<Axis, Anchor>(_ keyPath: KeyPath<UIView, Anchor>,
-                         _ to: KeyPath<UIView, Anchor>, constant: CGFloat = 0) -> Constraint where Anchor: NSLayoutAnchor<Axis> {
+                                _ to: KeyPath<UIView, Anchor>,
+                                constant: CGFloat = 0) -> Constraint where Anchor: NSLayoutAnchor<Axis> {
   return { view, parent in
     view[keyPath: keyPath].constraint(equalTo: parent[keyPath: to], constant: constant)
   }
@@ -51,7 +52,8 @@ public func equal<Axis, Anchor>(_ keyPath: KeyPath<UIView, Anchor>, to: UIView, 
 }
 
 public func equal<Axis, Anchor>(_ keyPath: KeyPath<UIView, Anchor>, to: UIView,
-                         _ toAnchor: KeyPath<UIView, Anchor>, constant: CGFloat = 0) -> Constraint where Anchor: NSLayoutAnchor<Axis> {
+                                _ toAnchor: KeyPath<UIView, Anchor>,
+                                constant: CGFloat = 0) -> Constraint where Anchor: NSLayoutAnchor<Axis> {
   return { view, _ in
     view[keyPath: keyPath].constraint(equalTo: to[keyPath: toAnchor], constant: constant)
   }
@@ -116,6 +118,7 @@ public extension Collection where Element == Constraint {
 }
 
 public extension UIView {
+  
   func addSubview(_ child: UIView, constraints: [Constraint]) {
     addSubview(child)
     child.translatesAutoresizingMaskIntoConstraints = false

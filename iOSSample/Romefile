@@ -1,6 +1,6 @@
 cache:
   local: ~/Library/Caches/Rome
-  # s3Bucket: iOSSample-S3-Bucket
+  # s3Bucket: iossample-s3-bucket
 repositoryMap:
 - RxSwift: 
   - name: RxSwift

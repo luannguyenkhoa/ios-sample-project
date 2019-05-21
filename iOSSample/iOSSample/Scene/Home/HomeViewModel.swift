@@ -33,7 +33,7 @@ final class HomeViewModel: ViewModelType {
   private let disposeBag = DisposeBag()
   private var token: String?
   
-  /// MARK: Publishers
+  /// MARK: - Publishers
   private let error = PublishSubject<MessageContent?>()
   private let reloadItems = PublishSubject<[Int]>()
   
@@ -89,6 +89,5 @@ extension QuerySet {
     return onPosts
   }
 }
-
 
 extension HomeViewModel: BaseViewModel {}

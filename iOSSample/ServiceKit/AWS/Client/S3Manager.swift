@@ -85,8 +85,9 @@ public struct S3Manager {
         observer.onCompleted()
         return Disposables.create()
       }
-      if let req = request.0 {
-        AWSS3TransferUtility.default().download(to: req.downloadingFileURL, key: req.key!, expression: nil).continueWith(block: { (task) -> Any? in
+      if let req = request.0, let key = req.key {
+        AWSS3TransferUtility.default().download(to: req.downloadingFileURL, key: key, expression: nil)
+          .continueWith(block: { (task) -> Any? in
           if task.result.notNil, task.isCompleted, !task.isFaulted {
             observer.onNext(.next(request.1))
           } else if let err = task.error, let info = err._userInfo {
@@ -104,9 +105,9 @@ public struct S3Manager {
     let requests = imgData.map({ self.createRequest(data: $0.0, subfolder: $0.folder) })
     var tasks = [AWSTask<AnyObject>]()
     requests.enumerated().forEach { (idx, request) in
-      if let req = request.0 {
-        tasks.append(AWSS3TransferUtility.default().uploadFile(req.body, key: req.key!,
-                                                               contentType: req.contentType!, expression: nil)
+      if let req = request.0, let key = req.key, let cType = req.contentType {
+        tasks.append(AWSS3TransferUtility.default().uploadFile(req.body, key: key,
+                                                               contentType: cType, expression: nil)
           .continueWith(block: { (task) -> Any? in
           self.removeFile(at: request.2)
           if task.result != nil, task.isCompleted, !task.isFaulted {

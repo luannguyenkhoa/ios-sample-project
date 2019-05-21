@@ -1,4 +1,3 @@
-
 public struct APIProvider {
   
   public static func makeAuthAPI(baseURL: String) -> AuthAPI {

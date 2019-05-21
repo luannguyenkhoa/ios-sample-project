@@ -8,11 +8,14 @@ struct Application {
   
   func configMainInterface(window: UIWindow?) {
     
+    d_print(Configs.apiURL.value)
     /// Determine the root view when the app gets launched based on user's logged-in state
     // Rolling into Welcome page if it's the first time
     if !(SecureKey.User.confirmed.value ?? false) {
       /// TODO: To Landing page
-      switchRoot(vc: UIStoryboard(storyboard: AppStoryboard.Main).instantiateInitialViewController()!, window: window)
+      if let vc = UIStoryboard(storyboard: AppStoryboard.Main).instantiateInitialViewController() {
+        switchRoot(vc: vc, window: window)
+      }
       return
     }
     

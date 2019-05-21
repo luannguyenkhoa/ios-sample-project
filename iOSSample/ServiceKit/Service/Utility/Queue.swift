@@ -8,7 +8,7 @@ import Foundation
 public struct Queue {
 
   // MARK: - Properties
-  private var objects: [Any] = []
+  private var objects = [Any]()
   public var left: Int {
     return objects.count
   }

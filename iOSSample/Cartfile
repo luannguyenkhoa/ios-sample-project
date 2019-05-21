@@ -4,3 +4,4 @@ github "krzyzanowskim/CryptoSwift"
 github "onevcat/Kingfisher" ~> 5.0
 github "awslabs/aws-mobile-appsync-sdk-ios"
 github "AliSoftware/OHHTTPStubs"
+github "braintree/braintree_ios"

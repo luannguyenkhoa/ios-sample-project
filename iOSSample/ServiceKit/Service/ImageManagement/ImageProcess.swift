@@ -84,36 +84,29 @@ struct ImageProcess {
         return cgImage
       }
 
-      var transform : CGAffineTransform = CGAffineTransform.identity;
+      var transform = CGAffineTransform.identity
 
       switch (image.imageOrientation) {
       case .right, .rightMirrored:
         transform = transform.translatedBy(x: 0, y: image.size.height)
         transform = transform.rotated(by: CGFloat(-1.0 * Double.pi/2))
-        break
       case .left, .leftMirrored:
         transform = transform.translatedBy(x: image.size.width, y: 0)
         transform = transform.rotated(by: CGFloat(Double.pi/2))
-        break
       case .down, .downMirrored:
         transform = transform.translatedBy(x: image.size.width, y: image.size.height)
         transform = transform.rotated(by: CGFloat(Double.pi))
-        break
-      default:
-        break
+      default: break
       }
 
       switch (image.imageOrientation) {
       case .rightMirrored, .leftMirrored:
-        transform = transform.translatedBy(x: image.size.height, y: 0);
-        transform = transform.scaledBy(x: -1, y: 1);
-        break
+        transform = transform.translatedBy(x: image.size.height, y: 0)
+        transform = transform.scaledBy(x: -1, y: 1)
       case .downMirrored, .upMirrored:
-        transform = transform.translatedBy(x: image.size.width, y: 0);
-        transform = transform.scaledBy(x: -1, y: 1);
-        break
-      default:
-        break
+        transform = transform.translatedBy(x: image.size.width, y: 0)
+        transform = transform.scaledBy(x: -1, y: 1)
+      default: break
       }
 
       let contextWidth : Int
@@ -124,20 +117,18 @@ struct ImageProcess {
            .right, .rightMirrored:
         contextWidth = cgImage.height
         contextHeight = cgImage.width
-        break
       default:
         contextWidth = cgImage.width
         contextHeight = cgImage.height
-        break
       }
       if let colorSpace = cgImage.colorSpace,
-        let context : CGContext = CGContext(data: nil, width: contextWidth, height: contextHeight,
-                                            bitsPerComponent: cgImage.bitsPerComponent,
-                                            bytesPerRow: cgImage.bytesPerRow,
-                                            space: colorSpace,
-                                            bitmapInfo: cgImage.bitmapInfo.rawValue) {
-        context.concatenate(transform);
-        context.draw(cgImage, in: CGRect(x: 0, y: 0, width: CGFloat(contextWidth), height: CGFloat(contextHeight)));
+        let context = CGContext(data: nil, width: contextWidth, height: contextHeight,
+                                bitsPerComponent: cgImage.bitsPerComponent,
+                                bytesPerRow: cgImage.bytesPerRow,
+                                space: colorSpace,
+                                bitmapInfo: cgImage.bitmapInfo.rawValue) {
+        context.concatenate(transform)
+        context.draw(cgImage, in: CGRect(x: 0, y: 0, width: CGFloat(contextWidth), height: CGFloat(contextHeight)))
         return context.makeImage()
       }
       return cgImage
@@ -152,9 +143,9 @@ struct ImageProcess {
      - returns: Resized image within bounds
      */
     static func drawImageInBounds(_ image: UIImage, bounds : CGRect) -> UIImage {
-      return drawImageWithClosure(size: bounds.size, image: image) { (size: CGSize, context: CGContext) -> () in
+      return drawImageWithClosure(size: bounds.size, image: image) { (_, _) in
         image.draw(in: bounds)
-      };
+      }
     }
 
     /**
@@ -166,11 +157,11 @@ struct ImageProcess {
      - returns: Resized and cropped image
      */
     static func croppedImageWithRect(_ image: UIImage, rect: CGRect) -> UIImage {
-      return drawImageWithClosure(size: rect.size, image: image) { (size: CGSize, context: CGContext) -> () in
+      return drawImageWithClosure(size: rect.size, image: image) { (size, context) in
         let drawRect = CGRect(x: -rect.origin.x, y: -rect.origin.y, width: image.size.width, height: image.size.height)
         context.clip(to: CGRect(x: 0, y: 0, width: rect.size.width, height: rect.size.height))
         image.draw(in: drawRect)
-      };
+      }
     }
 
     /**
@@ -181,7 +172,7 @@ struct ImageProcess {
 
      - returns: Image pulled from the end of the closure
      */
-    static func drawImageWithClosure(size: CGSize, image: UIImage, closure: (_ size: CGSize, _ context: CGContext) -> ()) -> UIImage {
+    static func drawImageWithClosure(size: CGSize, image: UIImage, closure: (_ size: CGSize, _ context: CGContext) -> Void) -> UIImage {
       UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
       if let context = UIGraphicsGetCurrentContext() {
         closure(size, context)
@@ -194,4 +185,3 @@ struct ImageProcess {
     }
   }
 }
-

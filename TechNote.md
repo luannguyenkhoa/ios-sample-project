@@ -97,6 +97,20 @@ e.g: *iPhone Distribution: Agility Company (N2KFAA234KI)*
 2. Replace Bucket name in Romefile
 3. Update Romefile reposity map based on the Cartfile
 
+## App Environments
+1. Build Targets and Schemes
+```
+The project will produce 3 apps corresponds to 3 common environments: Dev, Stag and Prod. 
+You can find out respective targets and schemes from Project Settings and Scheme dropdown. 
+After running script to build project name with a specific name, you should change the bundle id prefix: `com.agility.ios` of each target as well.
+Note: All of them are configured to work with CI successfully.
+```
+*if CI/CD is preferred for the project: Open .circleci/config.yml, replace all **com.agility.ios** with the new one.*<br>
+
+2. Environment variables
+* We will define enviroment variables inside User-Defined section of each Target Build Settings,
+then retrieve them from corresponding Info.plist. [Reference](https://medium.com/@kavithakumarasamy89/xcode-build-settings-user-defined-settings-manage-multiple-environments-with-single-target-3e5c1a307999)
+
 ## Tips
 
 1. Using `d_print` to print out something in console instead of default `print` function

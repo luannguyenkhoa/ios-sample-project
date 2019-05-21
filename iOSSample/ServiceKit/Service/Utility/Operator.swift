@@ -13,8 +13,8 @@ infix operator <->: AdditionPrecedence
 /// Function injection
 infix operator |>: AdditionPrecedence
 
-/// MARK: Implementions |>
-public func |><A, B> (f: (A) -> B, arg: A) -> B {
+/// MARK: - Implementions |>
+public func |> <A, B> (f: (A) -> B, arg: A) -> B {
   return f(arg)
 }
 
@@ -26,11 +26,11 @@ public func |> <A> (f: (A) -> Void, arg: A){
   f(arg)
 }
 
-public func |><A>(f: ()->(A)->Void, arg: A) {
+public func |> <A> (f: () -> (A) -> Void, arg: A) {
   f() |> arg
 }
 
-public func |><A,B>(f: (A)->(B)->Void, arg: A) -> (B) -> () {
+public func |> <A, B> (f: (A) -> (B) -> Void, arg: A) -> (B) -> Void {
   return f(arg)
 }
 
@@ -96,7 +96,7 @@ public func <-> <Base>(textInput: TextInput<Base>, variable: BehaviorRelay<Strin
   let bindToUIDisposable = variable.asObservable()
     .bind(to: textInput.text)
   let bindToVariable = textInput.text
-    .subscribe(onNext: { [weak base = textInput.base] n in
+    .subscribe(onNext: { [weak base = textInput.base] _ in
       guard let base = base else {
         return
       }
@@ -138,5 +138,5 @@ public func <-> <T>(property: ControlProperty<T>, variable: BehaviorRelay<T>) ->
   return Disposables.create(bindToUIDisposable, bindToVariable)
 }
 
-// MARK: Alias
+// MARK: - Alias
 public typealias JSON = [String: Any]

@@ -12,7 +12,7 @@ public struct NotificationService {
   public static func registerPNS(with didFinishNoti: Notification.Name) {
     /// Go away if unacceptable
     guard NotificationService.shouldRegister() else { return }
-    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]){ granted,_  in
+    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]){ granted, _  in
       if granted {
         /// Perform register for remote noti on main thread after granted
         Thread.onMain {

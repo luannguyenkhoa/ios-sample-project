@@ -17,4 +17,3 @@ public extension UITextField {
     attributedPlaceholder = NSAttributedString(string: placeholder ?? "", attributes: attributes)
   }
 }
-

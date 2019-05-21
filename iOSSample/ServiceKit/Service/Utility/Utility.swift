@@ -20,7 +20,7 @@ public struct Utility {
     return UIDevice.current.identifierForVendor?.uuidString ?? ""
   }
 
-  /// MARK: Save and retrieve values by keys from User storage
+  /// MARK: - Save and retrieve values by keys from User storage
   public static func save(datas: [(Any?, String)]) {
     let userDefault = UserDefaults.standard
     datas.forEach { (value, key) in
@@ -73,9 +73,16 @@ public struct Utility {
   ///
   /// - Parameter obj: given object
   /// - Returns: optional json
-  public static func encode<T: Encodable>(_ obj: T) -> [String: Any] {
-    // swiftlint:disable force_try
-    return Utility.serializeData(try! JSONEncoder().encode(obj))!
+  public static func encode<T: Encodable>(_ obj: T) throws -> [String: Any] {
+    do {
+      let encodedData = try JSONEncoder().encode(obj)
+      guard let json: [String: Any] = Utility.serializeData(encodedData) else {
+        throw NSError(domain: "Cannot serialize the data to json", code: 101, userInfo: nil)
+      }
+      return json
+    } catch {
+      throw error
+    }
   }
 
   /// Format number to text converting in grammar
@@ -183,7 +190,8 @@ public struct Utility {
     guard let adr = adr else { return nil }
     let coms = adr.components(separatedBy: ",")
     /// swiftlint:disable force_unwrapping
-    if coms.count == 2, let lat = Double(coms.first!.trim()), let long = Double(coms.last!.trim()) {
+    if coms.count == 2, let f = coms.first?.trim(), let lat = Double(f),
+      let l = coms.last?.trim(), let long = Double(l) {
       return CLLocation(latitude: lat, longitude: long)
     }
     return nil

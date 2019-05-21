@@ -31,7 +31,6 @@ public extension UITextField {
   }
 }
 
-
 public extension UILabel {
   
   func observable() -> Observable<String?> {

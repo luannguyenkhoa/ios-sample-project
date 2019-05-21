@@ -40,8 +40,8 @@ extension IAPService {
     productsRequestCompletionHandler = completionHandler
     
     productsRequest = SKProductsRequest(productIdentifiers: productIdentifiers)
-    productsRequest!.delegate = self
-    productsRequest!.start()
+    productsRequest?.delegate = self
+    productsRequest?.start()
   }
   
   public func paymentRequestCompletionHandler(_ completionHandler: @escaping PaymentRequestCompletionHandler) {
@@ -92,10 +92,8 @@ extension IAPService: SKProductsRequestDelegate {
 extension IAPService: SKPaymentTransactionObserver {
   
   public func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
-    for transaction in transactions {
-      if ([.purchased, .failed].contains(transaction.transactionState)) {
-        SKPaymentQueue.default().finishTransaction(transaction)
-      }
+    for transaction in transactions where [.purchased, .failed].contains(transaction.transactionState) {
+      SKPaymentQueue.default().finishTransaction(transaction)
     }
     paymentRequestCompletionHandler?(transactions)
   }

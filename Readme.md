@@ -7,7 +7,7 @@ Environments and tools:
 
 Xcode 10.2 or later
 
-Carthage 0.32
+Carthage 0.33
 
 Cocoapods 1.6.0
 
@@ -15,7 +15,7 @@ Swift 5
 
 Development Target: iOS 11
 
-Development Configured Environments: DEV - STAGING - PROD
+Development Configured Environments: DEV - STAG - PROD
 
 Text Editing - Identation:
 ```
@@ -64,8 +64,8 @@ Getting Started:
 
 . Architecture: MVVM-Kit. <br>
 . Code commentation followed Apple standard style.<br>
-. In order to make the project going perfect with the architecture, `RxSwift` was preferred to use for binding data and UIs control.<br>
-. The project was integrated `SwiftLint` for Swift style and conventions enforcement. All rules were declared in **.swiftlint.yml** file.
+. In order to make the project going perfect with the architecture, **RxSwift** was preferred to use for binding data and UIs control.<br>
+. The project was integrated **SwiftLint** for Swift style and conventions enforcement. All rules were declared in **.swiftlint.yml** file.
 
 Document Generator:
 ---------

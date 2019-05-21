@@ -14,57 +14,27 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B3DA4853221ABE7C0091E023"
-               BuildableName = "iOSSample.app"
-               BlueprintName = "iOSSample"
+               BlueprintIdentifier = "B38957142292591D00C1824A"
+               BuildableName = "iOSSampleDev.app"
+               BlueprintName = "iOSSampleDev"
                ReferencedContainer = "container:iOSSample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
-      buildConfiguration = "Staging"
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B3DA4867221ABE7E0091E023"
-               BuildableName = "iOSSampleTests.xctest"
-               BlueprintName = "iOSSampleTests"
-               ReferencedContainer = "container:iOSSample.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B3DA4872221ABE7E0091E023"
-               BuildableName = "iOSSampleUITests.xctest"
-               BlueprintName = "iOSSampleUITests"
-               ReferencedContainer = "container:iOSSample.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B36A661922801A1400E2C34B"
-               BuildableName = "ServiceKitTests.xctest"
-               BlueprintName = "ServiceKitTests"
-               ReferencedContainer = "container:iOSSample.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B3DA4853221ABE7C0091E023"
-            BuildableName = "iOSSample.app"
-            BlueprintName = "iOSSample"
+            BlueprintIdentifier = "B38957142292591D00C1824A"
+            BuildableName = "iOSSampleDev.app"
+            BlueprintName = "iOSSampleDev"
             ReferencedContainer = "container:iOSSample.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -85,9 +55,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B3DA4853221ABE7C0091E023"
-            BuildableName = "iOSSample.app"
-            BlueprintName = "iOSSample"
+            BlueprintIdentifier = "B38957142292591D00C1824A"
+            BuildableName = "iOSSampleDev.app"
+            BlueprintName = "iOSSampleDev"
             ReferencedContainer = "container:iOSSample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -104,9 +74,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B3DA4853221ABE7C0091E023"
-            BuildableName = "iOSSample.app"
-            BlueprintName = "iOSSample"
+            BlueprintIdentifier = "B38957142292591D00C1824A"
+            BuildableName = "iOSSampleDev.app"
+            BlueprintName = "iOSSampleDev"
             ReferencedContainer = "container:iOSSample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -115,7 +85,7 @@
       buildConfiguration = "Debug">
    </AnalyzeAction>
    <ArchiveAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Release"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

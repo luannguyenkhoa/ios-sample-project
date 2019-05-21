@@ -129,7 +129,7 @@ public final class LocationServices: NSObject {
   public func placemark(_ loc: CLLocation? = nil, completion: ((CLPlacemark?) -> Void)? = nil) {
     let location = loc ?? currentLocation
     if let loc = location {
-      gecoder.reverseGeocodeLocation(loc) { (places, err) in
+      gecoder.reverseGeocodeLocation(loc) { (places, _) in
         let place = places?.last
         completion?(place)
       }

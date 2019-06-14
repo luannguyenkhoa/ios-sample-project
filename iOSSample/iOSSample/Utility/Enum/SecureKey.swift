@@ -12,6 +12,7 @@ public protocol UD {
   var rawValue: String {get}
 }
 
+/// for dealling with UserDefault
 public extension UD {
   
   // MARK: - Getter and Setter
@@ -110,7 +111,7 @@ public extension UD {
   }
 }
 
-/// for dealling with UserDefault
+/// Secure sensitive values in String type that will be stored in UserDefault
 public enum SecureKey<T>: String, UD {
   
   case example = "EXAMPLE"

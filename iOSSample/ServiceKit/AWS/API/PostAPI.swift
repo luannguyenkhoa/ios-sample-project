@@ -149,6 +149,25 @@ public struct PostAPI: PostUseCase {
     }
   }
   
+  public func fetchAll<T>(query: GraphQLQuery) -> Observable<[T]> {
+    return .create { observer in
+      
+      AppSynClient.shared.appSyncClient?.fetch(query: query, cachePolicy: .returnCacheDataDontFetch) { res, error in
+        /// Fetch all post from cache once only
+        defer { observer.onCompleted() }
+        
+        if let error = error {
+          d_print(error.localizedDescription)
+          observer.onError(error)
+          return
+        }
+        observer.onNext(res?.data?.listPosts?.items?.compactMap{$0} ?? [])
+      }
+      
+      return Disposables.create()
+    }
+  }
+  
   /// Perform a post creation from either server or both server and local if the corresponding flag is enabled
   ///
   /// - Parameters:

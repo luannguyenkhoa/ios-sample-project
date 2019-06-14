@@ -420,10 +420,8 @@
 		B36A66F522801EA900E2C34B /* ViewExtTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewExtTest.swift; sourceTree = "<group>"; };
 		B36A66F722801EA900E2C34B /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		B3836CB32282E9E1008DC106 /* SignInUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUITests.swift; sourceTree = "<group>"; };
-		B389574C2292591D00C1824A /* iOSSample Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "iOSSample Dev.app"; path = iOSSampleDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B389574D2292591D00C1824A /* iOSSample copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "iOSSample copy-Info.plist"; path = "/Users/luannguyen/Documents/training/ios/Sample-iOS/sample-project/iOSSample/iOSSample copy-Info.plist"; sourceTree = "<absolute>"; };
+		B389574C2292591D00C1824A /* iOSSampleDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSSampleDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B389578B22928A6A00C1824A /* iOSSample Stag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "iOSSample Stag.app"; path = iOSSampleStag.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B389578C22928A6B00C1824A /* iOSSample copy2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "iOSSample copy2-Info.plist"; path = "/Users/luannguyen/Documents/training/ios/Sample-iOS/sample-project/iOSSample/iOSSample copy2-Info.plist"; sourceTree = "<absolute>"; };
 		B39467C62283C70E00218607 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
 		B39467C82283C71A00218607 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		B39467CA2283C72500218607 /* EditProfileNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileNavigator.swift; sourceTree = "<group>"; };
@@ -1123,8 +1121,6 @@
 				B36A664B22801E0D00E2C34B /* ServiceKitTests */,
 				B3DA4855221ABE7C0091E023 /* Products */,
 				B32D13D82248B9DB00C38DF8 /* Frameworks */,
-				B389574D2292591D00C1824A /* iOSSample copy-Info.plist */,
-				B389578C22928A6B00C1824A /* iOSSample copy2-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1136,7 +1132,7 @@
 				B3DA4873221ABE7E0091E023 /* iOSSampleUITests.xctest */,
 				B36A663D22801E0D00E2C34B /* ServiceKit.framework */,
 				B36A664522801E0D00E2C34B /* ServiceKitTests.xctest */,
-				B389574C2292591D00C1824A /* iOSSample Dev.app */,
+				B389574C2292591D00C1824A /* iOSSampleDev.app */,
 				B389578B22928A6A00C1824A /* iOSSample Stag.app */,
 			);
 			name = Products;
@@ -1303,7 +1299,7 @@
 			);
 			name = iOSSampleDev;
 			productName = iOSSample;
-			productReference = B389574C2292591D00C1824A /* iOSSample Dev.app */;
+			productReference = B389574C2292591D00C1824A /* iOSSampleDev.app */;
 			productType = "com.apple.product-type.application";
 		};
 		B389575322928A6A00C1824A /* iOSSampleStag */ = {
@@ -2474,7 +2470,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				OTHER_SWIFT_FLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited) -Onone -Xfrontend -warn-long-function-bodies=100 -Xfrontend -warn-long-expression-type-checking=100";
 				PRODUCT_BUNDLE_IDENTIFIER = com.agility.ios.iOSSampleDev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2503,7 +2499,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				OTHER_SWIFT_FLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited) -Onone -Xfrontend -warn-long-function-bodies=100 -Xfrontend -warn-long-expression-type-checking=100";
 				PRODUCT_BUNDLE_IDENTIFIER = com.agility.ios.iOSSampleDev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
